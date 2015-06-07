@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */; };
+		7F987D061B2483FE0096BBAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D041B2483FE0096BBAA /* main.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
 		7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FFD45DB1B24677C00A7F4BF /* InfoPlist.strings */; };
-		7FFD45DF1B24677C00A7F4BF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD45DE1B24677C00A7F4BF /* main.m */; };
-		7FFD45E31B24677C00A7F4BF /* JSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD45E21B24677C00A7F4BF /* JSSAppDelegate.m */; };
-		7FFD45E61B24677C00A7F4BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFD45E41B24677C00A7F4BF /* Main.storyboard */; };
-		7FFD45E91B24677C00A7F4BF /* JSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD45E81B24677C00A7F4BF /* JSSViewController.m */; };
 		7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FFD45EA1B24677C00A7F4BF /* Images.xcassets */; };
 		7FFD45F21B24677C00A7F4BF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45F11B24677C00A7F4BF /* XCTest.framework */; };
 		7FFD45F31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
@@ -34,19 +32,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F987D021B2483FE0096BBAA /* JSSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSAppDelegate.h; sourceTree = "<group>"; };
+		7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSAppDelegate.m; sourceTree = "<group>"; };
+		7F987D041B2483FE0096BBAA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7FFD45D61B24677C00A7F4BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7FFD45DA1B24677C00A7F4BF /* 高仿微博-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "高仿微博-Info.plist"; sourceTree = "<group>"; };
 		7FFD45DC1B24677C00A7F4BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		7FFD45DE1B24677C00A7F4BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FFD45E01B24677C00A7F4BF /* 高仿微博-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "高仿微博-Prefix.pch"; sourceTree = "<group>"; };
-		7FFD45E11B24677C00A7F4BF /* JSSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSSAppDelegate.h; sourceTree = "<group>"; };
-		7FFD45E21B24677C00A7F4BF /* JSSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSSAppDelegate.m; sourceTree = "<group>"; };
-		7FFD45E51B24677C00A7F4BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7FFD45E71B24677C00A7F4BF /* JSSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSSViewController.h; sourceTree = "<group>"; };
-		7FFD45E81B24677C00A7F4BF /* JSSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSSViewController.m; sourceTree = "<group>"; };
 		7FFD45EA1B24677C00A7F4BF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7FFD45F01B24677C00A7F4BF /* 高仿微博Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "高仿微博Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45F11B24677C00A7F4BF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -79,6 +74,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F987D011B2483FE0096BBAA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7F987D041B2483FE0096BBAA /* main.m */,
+				7F987D021B2483FE0096BBAA /* JSSAppDelegate.h */,
+				7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		7FFD45C61B24677C00A7F4BF = {
 			isa = PBXGroup;
 			children = (
@@ -112,12 +117,7 @@
 		7FFD45D81B24677C00A7F4BF /* 高仿微博 */ = {
 			isa = PBXGroup;
 			children = (
-				7FFD45E11B24677C00A7F4BF /* JSSAppDelegate.h */,
-				7FFD45E21B24677C00A7F4BF /* JSSAppDelegate.m */,
-				7FFD45E41B24677C00A7F4BF /* Main.storyboard */,
-				7FFD45E71B24677C00A7F4BF /* JSSViewController.h */,
-				7FFD45E81B24677C00A7F4BF /* JSSViewController.m */,
-				7FFD45EA1B24677C00A7F4BF /* Images.xcassets */,
+				7F987D011B2483FE0096BBAA /* Classes */,
 				7FFD45D91B24677C00A7F4BF /* Supporting Files */,
 			);
 			path = "高仿微博";
@@ -126,9 +126,9 @@
 		7FFD45D91B24677C00A7F4BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FFD45EA1B24677C00A7F4BF /* Images.xcassets */,
 				7FFD45DA1B24677C00A7F4BF /* 高仿微博-Info.plist */,
 				7FFD45DB1B24677C00A7F4BF /* InfoPlist.strings */,
-				7FFD45DE1B24677C00A7F4BF /* main.m */,
 				7FFD45E01B24677C00A7F4BF /* 高仿微博-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -231,7 +231,6 @@
 			files = (
 				7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */,
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
-				7FFD45E61B24677C00A7F4BF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,9 +249,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FFD45DF1B24677C00A7F4BF /* main.m in Sources */,
-				7FFD45E31B24677C00A7F4BF /* JSSAppDelegate.m in Sources */,
-				7FFD45E91B24677C00A7F4BF /* JSSViewController.m in Sources */,
+				7F987D061B2483FE0096BBAA /* main.m in Sources */,
+				7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,14 +279,6 @@
 				7FFD45DC1B24677C00A7F4BF /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7FFD45E41B24677C00A7F4BF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7FFD45E51B24677C00A7F4BF /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		7FFD45FA1B24677C00A7F4BF /* InfoPlist.strings */ = {
@@ -457,6 +447,7 @@
 				7FFD46031B24677C00A7F4BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7FFD46041B24677C00A7F4BF /* Build configuration list for PBXNativeTarget "高仿微博Tests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +456,7 @@
 				7FFD46061B24677C00A7F4BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
