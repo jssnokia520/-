@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F8C9D6E1B24A77800419028 /* JSSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8C9D6D1B24A77800419028 /* JSSTabBarViewController.m */; };
+		7F8C9D721B24A98D00419028 /* JSSTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8C9D701B24A98D00419028 /* JSSTest1ViewController.m */; };
+		7F8C9D731B24A98D00419028 /* JSSTest1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8C9D711B24A98D00419028 /* JSSTest1ViewController.xib */; };
+		7F8C9D771B24A9A600419028 /* JSSTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */; };
+		7F8C9D781B24A9A600419028 /* JSSTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */; };
 		7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */; };
 		7F987D061B2483FE0096BBAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D041B2483FE0096BBAA /* main.m */; };
 		7F987D091B2495150096BBAA /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D081B2495150096BBAA /* JSSHomeViewController.m */; };
@@ -36,6 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F8C9D6C1B24A77800419028 /* JSSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBarViewController.h; sourceTree = "<group>"; };
+		7F8C9D6D1B24A77800419028 /* JSSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBarViewController.m; sourceTree = "<group>"; };
+		7F8C9D6F1B24A98D00419028 /* JSSTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest1ViewController.h; sourceTree = "<group>"; };
+		7F8C9D701B24A98D00419028 /* JSSTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest1ViewController.m; sourceTree = "<group>"; };
+		7F8C9D711B24A98D00419028 /* JSSTest1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest1ViewController.xib; sourceTree = "<group>"; };
+		7F8C9D741B24A9A600419028 /* JSSTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest2ViewController.h; sourceTree = "<group>"; };
+		7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest2ViewController.m; sourceTree = "<group>"; };
+		7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest2ViewController.xib; sourceTree = "<group>"; };
 		7F987D021B2483FE0096BBAA /* JSSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSAppDelegate.h; sourceTree = "<group>"; };
 		7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSAppDelegate.m; sourceTree = "<group>"; };
 		7F987D041B2483FE0096BBAA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -100,6 +113,14 @@
 				7F987D0E1B2495370096BBAA /* JSSDiscoverViewController.m */,
 				7F987D101B2495470096BBAA /* JSSProfileViewController.h */,
 				7F987D111B2495470096BBAA /* JSSProfileViewController.m */,
+				7F8C9D6C1B24A77800419028 /* JSSTabBarViewController.h */,
+				7F8C9D6D1B24A77800419028 /* JSSTabBarViewController.m */,
+				7F8C9D6F1B24A98D00419028 /* JSSTest1ViewController.h */,
+				7F8C9D701B24A98D00419028 /* JSSTest1ViewController.m */,
+				7F8C9D711B24A98D00419028 /* JSSTest1ViewController.xib */,
+				7F8C9D741B24A9A600419028 /* JSSTest2ViewController.h */,
+				7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */,
+				7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -249,8 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F8C9D781B24A9A600419028 /* JSSTest2ViewController.xib in Resources */,
 				7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */,
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
+				7F8C9D731B24A98D00419028 /* JSSTest1ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +293,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F987D0C1B2495280096BBAA /* JSSMessageCenterViewController.m in Sources */,
+				7F8C9D771B24A9A600419028 /* JSSTest2ViewController.m in Sources */,
 				7F987D061B2483FE0096BBAA /* main.m in Sources */,
+				7F8C9D6E1B24A77800419028 /* JSSTabBarViewController.m in Sources */,
+				7F8C9D721B24A98D00419028 /* JSSTest1ViewController.m in Sources */,
 				7F987D091B2495150096BBAA /* JSSHomeViewController.m in Sources */,
 				7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */,
 				7F987D0F1B2495370096BBAA /* JSSDiscoverViewController.m in Sources */,
