@@ -7,6 +7,10 @@
 //
 
 #import "JSSAppDelegate.h"
+#import "JSSHomeViewController.h"
+#import "JSSMessageCenterViewController.h"
+#import "JSSDiscoverViewController.h"
+#import "JSSProfileViewController.h"
 
 @implementation JSSAppDelegate
 
@@ -19,15 +23,22 @@
     UITabBarController *tabbarVc = [[UITabBarController alloc] init];
     
     // 3.添加子控制器
-    UIViewController *vc1 = [self createVcWithTitle:@"首页" normalImage:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    UIViewController *vc2 = [self createVcWithTitle:@"消息" normalImage:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-    UIViewController *vc3 = [self createVcWithTitle:@"发现" normalImage:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-    UIViewController *vc4 = [self createVcWithTitle:@"我" normalImage:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    JSSHomeViewController *home = [[JSSHomeViewController alloc] init];
+    [self createVcWithVc:home title:@"首页" normalImage:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     
-    [tabbarVc addChildViewController:vc1];
-    [tabbarVc addChildViewController:vc2];
-    [tabbarVc addChildViewController:vc3];
-    [tabbarVc addChildViewController:vc4];
+    JSSMessageCenterViewController *messageCenter = [[JSSMessageCenterViewController alloc] init];
+    [self createVcWithVc:messageCenter title:@"消息" normalImage:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
+    
+    JSSDiscoverViewController *discover = [[JSSDiscoverViewController alloc] init];
+    [self createVcWithVc:discover title:@"发现" normalImage:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
+    
+    JSSProfileViewController *profile = [[JSSProfileViewController alloc] init];
+    [self createVcWithVc:profile title:@"我" normalImage:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    [tabbarVc addChildViewController:home];
+    [tabbarVc addChildViewController:messageCenter];
+    [tabbarVc addChildViewController:discover];
+    [tabbarVc addChildViewController:profile];
     
     [self.window setRootViewController:tabbarVc];
     
@@ -37,22 +48,19 @@
     return YES;
 }
 
-- (UIViewController *)createVcWithTitle:(NSString *)title normalImage:(NSString *)normalImage selectedImage:(NSString *)selectedImage
+- (void)createVcWithVc:(UIViewController *)childVc title:(NSString *)title normalImage:(NSString *)normalImage selectedImage:(NSString *)selectedImage
 {
     NSMutableDictionary *attribute = [NSMutableDictionary dictionary];
     attribute[NSForegroundColorAttributeName] = JSSColor(128, 128, 128);
     NSMutableDictionary *selectedAttribute = [NSMutableDictionary dictionary];
     selectedAttribute[NSForegroundColorAttributeName] = JSSColor(255, 109, 0);
     
-    UIViewController *childVc = [[UIViewController alloc] init];
     [childVc.view setBackgroundColor:JJSRandomColor];
     [childVc.tabBarItem setTitle:title];
     [childVc.tabBarItem setTitleTextAttributes:attribute forState:UIControlStateNormal];
     [childVc.tabBarItem setTitleTextAttributes:selectedAttribute forState:UIControlStateSelected];
     [childVc.tabBarItem setImage:[UIImage imageNamed:normalImage]];
     [childVc.tabBarItem setSelectedImage:[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    
-    return childVc;
 }
 
 @end
