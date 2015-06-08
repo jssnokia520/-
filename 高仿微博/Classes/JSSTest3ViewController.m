@@ -14,4 +14,12 @@
 
 @implementation JSSTest3ViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    // 覆盖导航条右边的按钮
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"测试" style:UIBarButtonItemStylePlain target:nil action:nil]];
+}
+
 @end

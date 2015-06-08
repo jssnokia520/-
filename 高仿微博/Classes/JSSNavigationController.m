@@ -19,9 +19,10 @@
  */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    [super pushViewController:viewController animated:animated];
-    
-    if (self.childViewControllers.count > 1) {
+    if (self.childViewControllers.count > 0) {
+        // 隐藏底部的tabBar
+        [viewController setHidesBottomBarWhenPushed:YES];
+        
         // 导航条左边按钮
         UIButton *backBtn = [[UIButton alloc] init];
         [backBtn setImage:[UIImage imageNamed:@"navigationbar_back"] forState:UIControlStateNormal];
@@ -38,6 +39,8 @@
         [moreBtn addTarget:self action:@selector(moreBtn) forControlEvents:UIControlEventTouchUpInside];
         [viewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:moreBtn]];
     }
+    
+    [super pushViewController:viewController animated:animated];
 }
 
 - (void)back

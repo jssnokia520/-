@@ -39,7 +39,6 @@
 {
     JSSTest1ViewController *test1 = [[JSSTest1ViewController alloc] init];
     [test1 setTitle:@"测试1控制器"];
-    [test1 setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:test1 animated:YES];
 }
 
