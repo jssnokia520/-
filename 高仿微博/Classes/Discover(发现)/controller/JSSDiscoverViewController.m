@@ -19,8 +19,6 @@
 {
     [super viewDidLoad];
     
-    JSSLog(@"JSSDiscoverViewController-viewDidLoad");
-    
     JSSSearchBar *searchBar = [JSSSearchBar searchBar];
     [searchBar setWidth:300];
     [searchBar setHeight:30];

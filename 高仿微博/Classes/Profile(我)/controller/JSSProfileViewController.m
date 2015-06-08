@@ -20,14 +20,7 @@
 {
     [super viewDidLoad];
     
-    JSSLog(@"JSSProfileViewController-viewDidLoad");
-    
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)]];
-    
-    JSSSearchBar *searchBar = [JSSSearchBar searchBar];
-    [searchBar setWidth:200];
-    [searchBar setHeight:30];
-    [self.view addSubview:searchBar];
 }
 
 - (void)setting
