@@ -18,6 +18,9 @@
 		7F987D0C1B2495280096BBAA /* JSSMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D0B1B2495280096BBAA /* JSSMessageCenterViewController.m */; };
 		7F987D0F1B2495370096BBAA /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D0E1B2495370096BBAA /* JSSDiscoverViewController.m */; };
 		7F987D121B2495470096BBAA /* JSSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D111B2495470096BBAA /* JSSProfileViewController.m */; };
+		7FD107901B253CA900571CE4 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1078F1B253CA900571CE4 /* UIView+Extension.m */; };
+		7FD107941B253F1D00571CE4 /* JSSTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */; };
+		7FD107951B253F1D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -60,6 +63,11 @@
 		7F987D0E1B2495370096BBAA /* JSSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSDiscoverViewController.m; sourceTree = "<group>"; };
 		7F987D101B2495470096BBAA /* JSSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSProfileViewController.h; sourceTree = "<group>"; };
 		7F987D111B2495470096BBAA /* JSSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSProfileViewController.m; sourceTree = "<group>"; };
+		7FD1078E1B253CA900571CE4 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		7FD1078F1B253CA900571CE4 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		7FD107911B253F1D00571CE4 /* JSSTest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest3ViewController.h; sourceTree = "<group>"; };
+		7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest3ViewController.m; sourceTree = "<group>"; };
+		7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest3ViewController.xib; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -102,6 +110,8 @@
 		7F987D011B2483FE0096BBAA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7FD1078E1B253CA900571CE4 /* UIView+Extension.h */,
+				7FD1078F1B253CA900571CE4 /* UIView+Extension.m */,
 				7F987D041B2483FE0096BBAA /* main.m */,
 				7F987D021B2483FE0096BBAA /* JSSAppDelegate.h */,
 				7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */,
@@ -121,6 +131,9 @@
 				7F8C9D741B24A9A600419028 /* JSSTest2ViewController.h */,
 				7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */,
 				7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */,
+				7FD107911B253F1D00571CE4 /* JSSTest3ViewController.h */,
+				7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */,
+				7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -273,6 +286,7 @@
 				7F8C9D781B24A9A600419028 /* JSSTest2ViewController.xib in Resources */,
 				7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */,
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
+				7FD107951B253F1D00571CE4 /* JSSTest3ViewController.xib in Resources */,
 				7F8C9D731B24A98D00419028 /* JSSTest1ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FD107901B253CA900571CE4 /* UIView+Extension.m in Sources */,
+				7FD107941B253F1D00571CE4 /* JSSTest3ViewController.m in Sources */,
 				7F987D0C1B2495280096BBAA /* JSSMessageCenterViewController.m in Sources */,
 				7F8C9D771B24A9A600419028 /* JSSTest2ViewController.m in Sources */,
 				7F987D061B2483FE0096BBAA /* main.m in Sources */,
