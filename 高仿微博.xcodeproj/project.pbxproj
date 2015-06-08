@@ -7,21 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F8C9D6E1B24A77800419028 /* JSSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8C9D6D1B24A77800419028 /* JSSTabBarViewController.m */; };
-		7F8C9D721B24A98D00419028 /* JSSTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8C9D701B24A98D00419028 /* JSSTest1ViewController.m */; };
-		7F8C9D731B24A98D00419028 /* JSSTest1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8C9D711B24A98D00419028 /* JSSTest1ViewController.xib */; };
-		7F8C9D771B24A9A600419028 /* JSSTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */; };
-		7F8C9D781B24A9A600419028 /* JSSTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */; };
-		7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */; };
-		7F987D061B2483FE0096BBAA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D041B2483FE0096BBAA /* main.m */; };
-		7F987D091B2495150096BBAA /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D081B2495150096BBAA /* JSSHomeViewController.m */; };
-		7F987D0C1B2495280096BBAA /* JSSMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D0B1B2495280096BBAA /* JSSMessageCenterViewController.m */; };
-		7F987D0F1B2495370096BBAA /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D0E1B2495370096BBAA /* JSSDiscoverViewController.m */; };
-		7F987D121B2495470096BBAA /* JSSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F987D111B2495470096BBAA /* JSSProfileViewController.m */; };
-		7FD107901B253CA900571CE4 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1078F1B253CA900571CE4 /* UIView+Extension.m */; };
-		7FD107941B253F1D00571CE4 /* JSSTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */; };
-		7FD107951B253F1D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */; };
-		7FD107981B2541C700571CE4 /* JSSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107971B2541C700571CE4 /* JSSNavigationController.m */; };
+		7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */; };
+		7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */; };
+		7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A81B255B0D00571CE4 /* UIView+Extension.m */; };
+		7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107AB1B255B0D00571CE4 /* JSSNavigationController.m */; };
+		7FD107CE1B255B0D00571CE4 /* JSSTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107AD1B255B0D00571CE4 /* JSSTabBarViewController.m */; };
+		7FD107CF1B255B0D00571CE4 /* JSSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107B11B255B0D00571CE4 /* JSSAppDelegate.m */; };
+		7FD107D01B255B0D00571CE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107B21B255B0D00571CE4 /* main.m */; };
+		7FD107D11B255B0D00571CE4 /* JSSMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107B71B255B0D00571CE4 /* JSSMessageCenterViewController.m */; };
+		7FD107D21B255B0D00571CE4 /* JSSProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107BD1B255B0D00571CE4 /* JSSProfileViewController.m */; };
+		7FD107D31B255B0D00571CE4 /* JSSTest1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107C21B255B0D00571CE4 /* JSSTest1ViewController.m */; };
+		7FD107D41B255B0D00571CE4 /* JSSTest1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C31B255B0D00571CE4 /* JSSTest1ViewController.xib */; };
+		7FD107D51B255B0D00571CE4 /* JSSTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107C51B255B0D00571CE4 /* JSSTest2ViewController.m */; };
+		7FD107D61B255B0D00571CE4 /* JSSTest2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C61B255B0D00571CE4 /* JSSTest2ViewController.xib */; };
+		7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107C81B255B0D00571CE4 /* JSSTest3ViewController.m */; };
+		7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */; };
+		7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -45,32 +46,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7F8C9D6C1B24A77800419028 /* JSSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBarViewController.h; sourceTree = "<group>"; };
-		7F8C9D6D1B24A77800419028 /* JSSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBarViewController.m; sourceTree = "<group>"; };
-		7F8C9D6F1B24A98D00419028 /* JSSTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest1ViewController.h; sourceTree = "<group>"; };
-		7F8C9D701B24A98D00419028 /* JSSTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest1ViewController.m; sourceTree = "<group>"; };
-		7F8C9D711B24A98D00419028 /* JSSTest1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest1ViewController.xib; sourceTree = "<group>"; };
-		7F8C9D741B24A9A600419028 /* JSSTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest2ViewController.h; sourceTree = "<group>"; };
-		7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest2ViewController.m; sourceTree = "<group>"; };
-		7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest2ViewController.xib; sourceTree = "<group>"; };
-		7F987D021B2483FE0096BBAA /* JSSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSAppDelegate.h; sourceTree = "<group>"; };
-		7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSAppDelegate.m; sourceTree = "<group>"; };
-		7F987D041B2483FE0096BBAA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7F987D071B2495150096BBAA /* JSSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSHomeViewController.h; sourceTree = "<group>"; };
-		7F987D081B2495150096BBAA /* JSSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSHomeViewController.m; sourceTree = "<group>"; };
-		7F987D0A1B2495280096BBAA /* JSSMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSMessageCenterViewController.h; sourceTree = "<group>"; };
-		7F987D0B1B2495280096BBAA /* JSSMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSMessageCenterViewController.m; sourceTree = "<group>"; };
-		7F987D0D1B2495370096BBAA /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
-		7F987D0E1B2495370096BBAA /* JSSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSDiscoverViewController.m; sourceTree = "<group>"; };
-		7F987D101B2495470096BBAA /* JSSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSProfileViewController.h; sourceTree = "<group>"; };
-		7F987D111B2495470096BBAA /* JSSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSProfileViewController.m; sourceTree = "<group>"; };
-		7FD1078E1B253CA900571CE4 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		7FD1078F1B253CA900571CE4 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		7FD107911B253F1D00571CE4 /* JSSTest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest3ViewController.h; sourceTree = "<group>"; };
-		7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest3ViewController.m; sourceTree = "<group>"; };
-		7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest3ViewController.xib; sourceTree = "<group>"; };
-		7FD107961B2541C700571CE4 /* JSSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSNavigationController.h; sourceTree = "<group>"; };
-		7FD107971B2541C700571CE4 /* JSSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSNavigationController.m; sourceTree = "<group>"; };
+		7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
+		7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSDiscoverViewController.m; sourceTree = "<group>"; };
+		7FD107A11B255B0D00571CE4 /* JSSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSHomeViewController.h; sourceTree = "<group>"; };
+		7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSHomeViewController.m; sourceTree = "<group>"; };
+		7FD107A71B255B0D00571CE4 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		7FD107A81B255B0D00571CE4 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		7FD107AA1B255B0D00571CE4 /* JSSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSNavigationController.h; sourceTree = "<group>"; };
+		7FD107AB1B255B0D00571CE4 /* JSSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSNavigationController.m; sourceTree = "<group>"; };
+		7FD107AC1B255B0D00571CE4 /* JSSTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBarViewController.h; sourceTree = "<group>"; };
+		7FD107AD1B255B0D00571CE4 /* JSSTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBarViewController.m; sourceTree = "<group>"; };
+		7FD107B01B255B0D00571CE4 /* JSSAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSAppDelegate.h; sourceTree = "<group>"; };
+		7FD107B11B255B0D00571CE4 /* JSSAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSAppDelegate.m; sourceTree = "<group>"; };
+		7FD107B21B255B0D00571CE4 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7FD107B61B255B0D00571CE4 /* JSSMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSMessageCenterViewController.h; sourceTree = "<group>"; };
+		7FD107B71B255B0D00571CE4 /* JSSMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSMessageCenterViewController.m; sourceTree = "<group>"; };
+		7FD107BC1B255B0D00571CE4 /* JSSProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSProfileViewController.h; sourceTree = "<group>"; };
+		7FD107BD1B255B0D00571CE4 /* JSSProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSProfileViewController.m; sourceTree = "<group>"; };
+		7FD107C11B255B0D00571CE4 /* JSSTest1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest1ViewController.h; sourceTree = "<group>"; };
+		7FD107C21B255B0D00571CE4 /* JSSTest1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest1ViewController.m; sourceTree = "<group>"; };
+		7FD107C31B255B0D00571CE4 /* JSSTest1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest1ViewController.xib; sourceTree = "<group>"; };
+		7FD107C41B255B0D00571CE4 /* JSSTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest2ViewController.h; sourceTree = "<group>"; };
+		7FD107C51B255B0D00571CE4 /* JSSTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest2ViewController.m; sourceTree = "<group>"; };
+		7FD107C61B255B0D00571CE4 /* JSSTest2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest2ViewController.xib; sourceTree = "<group>"; };
+		7FD107C71B255B0D00571CE4 /* JSSTest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest3ViewController.h; sourceTree = "<group>"; };
+		7FD107C81B255B0D00571CE4 /* JSSTest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest3ViewController.m; sourceTree = "<group>"; };
+		7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest3ViewController.xib; sourceTree = "<group>"; };
+		7FD107D91B256B5E00571CE4 /* JSSItemTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSItemTool.h; sourceTree = "<group>"; };
+		7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSItemTool.m; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -113,34 +116,220 @@
 		7F987D011B2483FE0096BBAA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				7FD1078E1B253CA900571CE4 /* UIView+Extension.h */,
-				7FD1078F1B253CA900571CE4 /* UIView+Extension.m */,
-				7F987D041B2483FE0096BBAA /* main.m */,
-				7F987D021B2483FE0096BBAA /* JSSAppDelegate.h */,
-				7F987D031B2483FE0096BBAA /* JSSAppDelegate.m */,
-				7F987D071B2495150096BBAA /* JSSHomeViewController.h */,
-				7F987D081B2495150096BBAA /* JSSHomeViewController.m */,
-				7F987D0A1B2495280096BBAA /* JSSMessageCenterViewController.h */,
-				7F987D0B1B2495280096BBAA /* JSSMessageCenterViewController.m */,
-				7F987D0D1B2495370096BBAA /* JSSDiscoverViewController.h */,
-				7F987D0E1B2495370096BBAA /* JSSDiscoverViewController.m */,
-				7F987D101B2495470096BBAA /* JSSProfileViewController.h */,
-				7F987D111B2495470096BBAA /* JSSProfileViewController.m */,
-				7F8C9D6C1B24A77800419028 /* JSSTabBarViewController.h */,
-				7F8C9D6D1B24A77800419028 /* JSSTabBarViewController.m */,
-				7F8C9D6F1B24A98D00419028 /* JSSTest1ViewController.h */,
-				7F8C9D701B24A98D00419028 /* JSSTest1ViewController.m */,
-				7F8C9D711B24A98D00419028 /* JSSTest1ViewController.xib */,
-				7F8C9D741B24A9A600419028 /* JSSTest2ViewController.h */,
-				7F8C9D751B24A9A600419028 /* JSSTest2ViewController.m */,
-				7F8C9D761B24A9A600419028 /* JSSTest2ViewController.xib */,
-				7FD107911B253F1D00571CE4 /* JSSTest3ViewController.h */,
-				7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */,
-				7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */,
-				7FD107961B2541C700571CE4 /* JSSNavigationController.h */,
-				7FD107971B2541C700571CE4 /* JSSNavigationController.m */,
+				7FD107A51B255B0D00571CE4 /* Main(主要) */,
+				7FD1079F1B255B0D00571CE4 /* Home(主页) */,
+				7FD107B41B255B0D00571CE4 /* MessageCenter(消息) */,
+				7FD107991B255B0D00571CE4 /* Discover(发现) */,
+				7FD107BA1B255B0D00571CE4 /* Profile(我) */,
+				7FD107C01B255B0D00571CE4 /* Temp(临时) */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		7FD107991B255B0D00571CE4 /* Discover(发现) */ = {
+			isa = PBXGroup;
+			children = (
+				7FD1079A1B255B0D00571CE4 /* controller */,
+				7FD1079D1B255B0D00571CE4 /* model */,
+				7FD1079E1B255B0D00571CE4 /* view */,
+			);
+			path = "Discover(发现)";
+			sourceTree = "<group>";
+		};
+		7FD1079A1B255B0D00571CE4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */,
+				7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7FD1079D1B255B0D00571CE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7FD1079E1B255B0D00571CE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7FD1079F1B255B0D00571CE4 /* Home(主页) */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107A01B255B0D00571CE4 /* controller */,
+				7FD107A31B255B0D00571CE4 /* model */,
+				7FD107A41B255B0D00571CE4 /* view */,
+			);
+			path = "Home(主页)";
+			sourceTree = "<group>";
+		};
+		7FD107A01B255B0D00571CE4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107A11B255B0D00571CE4 /* JSSHomeViewController.h */,
+				7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7FD107A31B255B0D00571CE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7FD107A41B255B0D00571CE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7FD107A51B255B0D00571CE4 /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107A61B255B0D00571CE4 /* category */,
+				7FD107A91B255B0D00571CE4 /* controller */,
+				7FD107AE1B255B0D00571CE4 /* model */,
+				7FD107AF1B255B0D00571CE4 /* other */,
+				7FD107B31B255B0D00571CE4 /* view */,
+			);
+			path = "Main(主要)";
+			sourceTree = "<group>";
+		};
+		7FD107A61B255B0D00571CE4 /* category */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107A71B255B0D00571CE4 /* UIView+Extension.h */,
+				7FD107A81B255B0D00571CE4 /* UIView+Extension.m */,
+			);
+			path = category;
+			sourceTree = "<group>";
+		};
+		7FD107A91B255B0D00571CE4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107AA1B255B0D00571CE4 /* JSSNavigationController.h */,
+				7FD107AB1B255B0D00571CE4 /* JSSNavigationController.m */,
+				7FD107AC1B255B0D00571CE4 /* JSSTabBarViewController.h */,
+				7FD107AD1B255B0D00571CE4 /* JSSTabBarViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7FD107AE1B255B0D00571CE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7FD107AF1B255B0D00571CE4 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107B01B255B0D00571CE4 /* JSSAppDelegate.h */,
+				7FD107B11B255B0D00571CE4 /* JSSAppDelegate.m */,
+				7FD107B21B255B0D00571CE4 /* main.m */,
+			);
+			path = other;
+			sourceTree = "<group>";
+		};
+		7FD107B31B255B0D00571CE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7FD107B41B255B0D00571CE4 /* MessageCenter(消息) */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107B51B255B0D00571CE4 /* controller */,
+				7FD107B81B255B0D00571CE4 /* model */,
+				7FD107B91B255B0D00571CE4 /* view */,
+			);
+			path = "MessageCenter(消息)";
+			sourceTree = "<group>";
+		};
+		7FD107B51B255B0D00571CE4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107B61B255B0D00571CE4 /* JSSMessageCenterViewController.h */,
+				7FD107B71B255B0D00571CE4 /* JSSMessageCenterViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7FD107B81B255B0D00571CE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7FD107B91B255B0D00571CE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7FD107BA1B255B0D00571CE4 /* Profile(我) */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107BB1B255B0D00571CE4 /* controller */,
+				7FD107BE1B255B0D00571CE4 /* model */,
+				7FD107BF1B255B0D00571CE4 /* view */,
+			);
+			path = "Profile(我)";
+			sourceTree = "<group>";
+		};
+		7FD107BB1B255B0D00571CE4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107BC1B255B0D00571CE4 /* JSSProfileViewController.h */,
+				7FD107BD1B255B0D00571CE4 /* JSSProfileViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		7FD107BE1B255B0D00571CE4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		7FD107BF1B255B0D00571CE4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		7FD107C01B255B0D00571CE4 /* Temp(临时) */ = {
+			isa = PBXGroup;
+			children = (
+				7FD107C11B255B0D00571CE4 /* JSSTest1ViewController.h */,
+				7FD107C21B255B0D00571CE4 /* JSSTest1ViewController.m */,
+				7FD107C31B255B0D00571CE4 /* JSSTest1ViewController.xib */,
+				7FD107C41B255B0D00571CE4 /* JSSTest2ViewController.h */,
+				7FD107C51B255B0D00571CE4 /* JSSTest2ViewController.m */,
+				7FD107C61B255B0D00571CE4 /* JSSTest2ViewController.xib */,
+				7FD107C71B255B0D00571CE4 /* JSSTest3ViewController.h */,
+				7FD107C81B255B0D00571CE4 /* JSSTest3ViewController.m */,
+				7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */,
+				7FD107D91B256B5E00571CE4 /* JSSItemTool.h */,
+				7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */,
+			);
+			path = "Temp(临时)";
 			sourceTree = "<group>";
 		};
 		7FFD45C61B24677C00A7F4BF = {
@@ -288,11 +477,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F8C9D781B24A9A600419028 /* JSSTest2ViewController.xib in Resources */,
+				7FD107D61B255B0D00571CE4 /* JSSTest2ViewController.xib in Resources */,
 				7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */,
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
-				7FD107951B253F1D00571CE4 /* JSSTest3ViewController.xib in Resources */,
-				7F8C9D731B24A98D00419028 /* JSSTest1ViewController.xib in Resources */,
+				7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */,
+				7FD107D41B255B0D00571CE4 /* JSSTest1ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,18 +500,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FD107901B253CA900571CE4 /* UIView+Extension.m in Sources */,
-				7FD107941B253F1D00571CE4 /* JSSTest3ViewController.m in Sources */,
-				7F987D0C1B2495280096BBAA /* JSSMessageCenterViewController.m in Sources */,
-				7F8C9D771B24A9A600419028 /* JSSTest2ViewController.m in Sources */,
-				7F987D061B2483FE0096BBAA /* main.m in Sources */,
-				7F8C9D6E1B24A77800419028 /* JSSTabBarViewController.m in Sources */,
-				7F8C9D721B24A98D00419028 /* JSSTest1ViewController.m in Sources */,
-				7F987D091B2495150096BBAA /* JSSHomeViewController.m in Sources */,
-				7FD107981B2541C700571CE4 /* JSSNavigationController.m in Sources */,
-				7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */,
-				7F987D0F1B2495370096BBAA /* JSSDiscoverViewController.m in Sources */,
-				7F987D121B2495470096BBAA /* JSSProfileViewController.m in Sources */,
+				7FD107D11B255B0D00571CE4 /* JSSMessageCenterViewController.m in Sources */,
+				7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */,
+				7FD107D21B255B0D00571CE4 /* JSSProfileViewController.m in Sources */,
+				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
+				7FD107CE1B255B0D00571CE4 /* JSSTabBarViewController.m in Sources */,
+				7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */,
+				7FD107D31B255B0D00571CE4 /* JSSTest1ViewController.m in Sources */,
+				7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */,
+				7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */,
+				7FD107D01B255B0D00571CE4 /* main.m in Sources */,
+				7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */,
+				7FD107CF1B255B0D00571CE4 /* JSSAppDelegate.m in Sources */,
+				7FD107D51B255B0D00571CE4 /* JSSTest2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
