@@ -19,6 +19,8 @@
 {
     [super viewDidLoad];
     
+    JSSLog(@"JSSProfileViewController-viewDidLoad");
+    
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)]];
 }
 

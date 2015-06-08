@@ -41,7 +41,7 @@
 {
     // 设置标题
     [childVc setTitle:title];
-    [childVc.view setBackgroundColor:JJSRandomColor];
+    // [childVc.view setBackgroundColor:JJSRandomColor];
     
     // 设置文字
     NSMutableDictionary *attribute = [NSMutableDictionary dictionary];

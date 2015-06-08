@@ -14,4 +14,11 @@
 
 @implementation JSSDiscoverViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    JSSLog(@"JSSDiscoverViewController-viewDidLoad");
+}
+
 @end

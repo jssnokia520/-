@@ -19,12 +19,9 @@
 {
     [super viewDidLoad];
     
+    JSSLog(@"JSSMessageCenterViewController-viewDidLoad");
+    
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"写私信" style:UIBarButtonItemStylePlain target:self action:@selector(composeMsg)]];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
     
     [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }

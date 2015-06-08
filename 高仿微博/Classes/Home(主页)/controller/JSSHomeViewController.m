@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     
+    JSSLog(@"JSSHomeViewController-viewDidLoad");
+    
     // 导航条左边按钮
     [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem itemWithTarget:self action:@selector(friendsearch) image:@"navigationbar_friendsearch" highlightedImage:@"navigationbar_friendsearch_highlighted"]];
     
