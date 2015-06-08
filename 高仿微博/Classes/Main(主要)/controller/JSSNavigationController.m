@@ -14,6 +14,22 @@
 
 @implementation JSSNavigationController
 
++ (void)initialize
+{
+    // 获取到整个项目的导航条外观
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    NSMutableDictionary *normalAttribute = [NSMutableDictionary dictionary];
+    normalAttribute[NSForegroundColorAttributeName] = JSSColor(255, 109, 0);
+    normalAttribute[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:normalAttribute forState:UIControlStateNormal];
+    
+    NSMutableDictionary *disabledAttribute = [NSMutableDictionary dictionary];
+    disabledAttribute[NSForegroundColorAttributeName] = JSSColor(128, 128, 128);
+    disabledAttribute[NSFontAttributeName] = [UIFont systemFontOfSize:13];
+    [item setTitleTextAttributes:disabledAttribute forState:UIControlStateDisabled];
+}
+
 /**
  *  拦截导航控制器的PUSH操作
  */

@@ -15,6 +15,25 @@
 
 @implementation JSSMessageCenterViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"写私信" style:UIBarButtonItemStylePlain target:self action:@selector(composeMsg)]];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
+}
+
+- (void)composeMsg
+{
+    NSLog(@"composeMsg");
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 20;
