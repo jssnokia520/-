@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */; };
 		7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */; };
 		7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */; };
 		7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A81B255B0D00571CE4 /* UIView+Extension.m */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F5F37601B25AD0A00D285DC /* JSSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSearchBar.h; sourceTree = "<group>"; };
+		7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSearchBar.m; sourceTree = "<group>"; };
 		7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
 		7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSDiscoverViewController.m; sourceTree = "<group>"; };
 		7FD107A11B255B0D00571CE4 /* JSSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSHomeViewController.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 		7FD107B31B255B0D00571CE4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				7F5F37601B25AD0A00D285DC /* JSSSearchBar.h */,
+				7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */,
 				7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */,
 				7FD107D01B255B0D00571CE4 /* main.m in Sources */,
+				7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */,
 				7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */,
 				7FD107CF1B255B0D00571CE4 /* JSSAppDelegate.m in Sources */,
 				7FD107D51B255B0D00571CE4 /* JSSTest2ViewController.m in Sources */,
