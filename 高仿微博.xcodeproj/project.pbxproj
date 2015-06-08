@@ -21,6 +21,7 @@
 		7FD107901B253CA900571CE4 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1078F1B253CA900571CE4 /* UIView+Extension.m */; };
 		7FD107941B253F1D00571CE4 /* JSSTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */; };
 		7FD107951B253F1D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */; };
+		7FD107981B2541C700571CE4 /* JSSNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107971B2541C700571CE4 /* JSSNavigationController.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -68,6 +69,8 @@
 		7FD107911B253F1D00571CE4 /* JSSTest3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTest3ViewController.h; sourceTree = "<group>"; };
 		7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTest3ViewController.m; sourceTree = "<group>"; };
 		7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest3ViewController.xib; sourceTree = "<group>"; };
+		7FD107961B2541C700571CE4 /* JSSNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSNavigationController.h; sourceTree = "<group>"; };
+		7FD107971B2541C700571CE4 /* JSSNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSNavigationController.m; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 				7FD107911B253F1D00571CE4 /* JSSTest3ViewController.h */,
 				7FD107921B253F1D00571CE4 /* JSSTest3ViewController.m */,
 				7FD107931B253F1D00571CE4 /* JSSTest3ViewController.xib */,
+				7FD107961B2541C700571CE4 /* JSSNavigationController.h */,
+				7FD107971B2541C700571CE4 /* JSSNavigationController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -314,6 +319,7 @@
 				7F8C9D6E1B24A77800419028 /* JSSTabBarViewController.m in Sources */,
 				7F8C9D721B24A98D00419028 /* JSSTest1ViewController.m in Sources */,
 				7F987D091B2495150096BBAA /* JSSHomeViewController.m in Sources */,
+				7FD107981B2541C700571CE4 /* JSSNavigationController.m in Sources */,
 				7F987D051B2483FE0096BBAA /* JSSAppDelegate.m in Sources */,
 				7F987D0F1B2495370096BBAA /* JSSDiscoverViewController.m in Sources */,
 				7F987D121B2495470096BBAA /* JSSProfileViewController.m in Sources */,

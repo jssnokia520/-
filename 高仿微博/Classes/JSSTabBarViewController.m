@@ -11,6 +11,7 @@
 #import "JSSMessageCenterViewController.h"
 #import "JSSDiscoverViewController.h"
 #import "JSSProfileViewController.h"
+#import "JSSNavigationController.h"
 
 @interface JSSTabBarViewController ()
 
@@ -39,8 +40,6 @@
 - (void)createVcWithVc:(UIViewController *)childVc title:(NSString *)title normalImage:(NSString *)normalImage selectedImage:(NSString *)selectedImage
 {
     // 设置标题
-    // [childVc.tabBarItem setTitle:title];
-    // [childVc.navigationItem setTitle:title];
     [childVc setTitle:title];
     [childVc.view setBackgroundColor:JJSRandomColor];
     
@@ -57,7 +56,7 @@
     [childVc.tabBarItem setSelectedImage:[[UIImage imageNamed:selectedImage] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     // 创建导航控制器并设置导航控制器的根控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+    JSSNavigationController *nav = [[JSSNavigationController alloc] initWithRootViewController:childVc];
     [self addChildViewController:nav];
 }
 

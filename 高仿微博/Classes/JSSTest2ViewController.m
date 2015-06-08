@@ -15,37 +15,6 @@
 
 @implementation JSSTest2ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    // 导航条左边按钮
-    UIButton *backBtn = [[UIButton alloc] init];
-    [backBtn setImage:[UIImage imageNamed:@"navigationbar_back"] forState:UIControlStateNormal];
-    [backBtn setImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] forState:UIControlStateHighlighted];
-    [backBtn setSize:backBtn.currentImage.size];
-    [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:backBtn]];
-    
-    // 导航条右边按钮
-    UIButton *moreBtn = [[UIButton alloc] init];
-    [moreBtn setImage:[UIImage imageNamed:@"navigationbar_more"] forState:UIControlStateNormal];
-    [moreBtn setImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] forState:UIControlStateHighlighted];
-    [moreBtn setSize:moreBtn.currentImage.size];
-    [moreBtn addTarget:self action:@selector(moreBtn) forControlEvents:UIControlEventTouchUpInside];
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:moreBtn]];
-}
-
-- (void)back
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)moreBtn
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
-
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     JSSTest3ViewController *test3 = [[JSSTest3ViewController alloc] init];
