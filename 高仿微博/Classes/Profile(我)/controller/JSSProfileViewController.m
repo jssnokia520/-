@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
     
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(setting)]];
+    [self.navigationItem setRightBarButtonItem:[UIBarButtonItem itemWithTarget:self action:@selector(setting) image:@"navigationbar_pop" highlightedImage:@"navigationbar_pop_highlighted"]];
 }
 
 - (void)setting

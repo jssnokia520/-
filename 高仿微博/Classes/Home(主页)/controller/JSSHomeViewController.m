@@ -7,7 +7,6 @@
 //
 
 #import "JSSHomeViewController.h"
-#import "JSSItemTool.h"
 
 @interface JSSHomeViewController ()
 
@@ -20,10 +19,10 @@
     [super viewDidLoad];
     
     // 导航条左边按钮
-    [self.navigationItem setLeftBarButtonItem:[JSSItemTool itemWithTarget:self action:@selector(friendsearch) image:@"navigationbar_friendsearch" highlightedImage:@"navigationbar_friendsearch_highlighted"]];
+    [self.navigationItem setLeftBarButtonItem:[UIBarButtonItem itemWithTarget:self action:@selector(friendsearch) image:@"navigationbar_friendsearch" highlightedImage:@"navigationbar_friendsearch_highlighted"]];
     
     // 导航条右边按钮
-    [self.navigationItem setRightBarButtonItem:[JSSItemTool itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highlightedImage:@"navigationbar_pop_highlighted"]];
+    [self.navigationItem setRightBarButtonItem:[UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highlightedImage:@"navigationbar_pop_highlighted"]];
 }
 
 - (void)friendsearch

@@ -23,6 +23,7 @@
 		7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107C81B255B0D00571CE4 /* JSSTest3ViewController.m */; };
 		7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */; };
 		7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */; };
+		7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 		7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSTest3ViewController.xib; sourceTree = "<group>"; };
 		7FD107D91B256B5E00571CE4 /* JSSItemTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSItemTool.h; sourceTree = "<group>"; };
 		7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSItemTool.m; sourceTree = "<group>"; };
+		7FD107DC1B256DE200571CE4 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,6 +212,8 @@
 			children = (
 				7FD107A71B255B0D00571CE4 /* UIView+Extension.h */,
 				7FD107A81B255B0D00571CE4 /* UIView+Extension.m */,
+				7FD107DC1B256DE200571CE4 /* UIBarButtonItem+Extension.h */,
+				7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */,
 				7FD107D31B255B0D00571CE4 /* JSSTest1ViewController.m in Sources */,
 				7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */,
+				7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */,
 				7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */,
 				7FD107D01B255B0D00571CE4 /* main.m in Sources */,
 				7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */,
