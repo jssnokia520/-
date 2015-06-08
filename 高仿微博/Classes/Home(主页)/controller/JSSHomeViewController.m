@@ -7,6 +7,8 @@
 //
 
 #import "JSSHomeViewController.h"
+#import "JSSDropDownMenu.h"
+#import "JSSTitleMenuViewController.h"
 
 @interface JSSHomeViewController ()
 
@@ -31,7 +33,7 @@
     [titleButton setWidth:200];
     [titleButton setHeight:30];
     
-    [titleButton addTarget:self action:@selector(downMunu) forControlEvents:UIControlEventTouchUpInside];
+    [titleButton addTarget:self action:@selector(titleClick) forControlEvents:UIControlEventTouchUpInside];
     
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     [titleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
@@ -44,23 +46,21 @@
     [self.navigationItem setTitleView:titleButton];
 }
 
-- (void)downMunu
+- (void)titleClick
 {
-    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    JSSDropDownMenu *menu = [JSSDropDownMenu menu];
     
-    // 添加蒙板
-    UIView *cover = [[UIView alloc] initWithFrame:window.bounds];
-    [window addSubview:cover];
+//    UIView *view = [[UIView alloc] init];
+//    [view setWidth:100];
+//    [view setHeight:100];
+//    [view setBackgroundColor:[UIColor redColor]];
+//    [menu setContent:view];
     
-    UIImageView *imageView = [[UIImageView alloc] init];
-    UIImage *image = [UIImage imageNamed:@"popover_background"];
-    [imageView setX:50];
-    [imageView setY:64];
-    [imageView setWidth:217];
-    [imageView setHeight:217];
-    [imageView setImage:image];
+    JSSTitleMenuViewController *controller = [[JSSTitleMenuViewController alloc] init];
+    controller.view.height = 44 * 3;
+    [menu setContentController:controller];
     
-    [window addSubview:imageView];
+    [menu show];
 }
 
 - (void)friendsearch
