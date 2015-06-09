@@ -21,8 +21,6 @@
     if (_containerView == nil) {
         UIImageView *containerView = [[UIImageView alloc] init];
         UIImage *image = [UIImage imageNamed:@"popover_background"];
-        [containerView setWidth:217];
-        [containerView setHeight:217];
         [containerView setImage:image];
         [self addSubview:containerView];
         _containerView = containerView;
@@ -54,7 +52,7 @@
 /**
  *  显示下拉菜单
  */
-- (void)show
+- (void)showFromView:(UIView *)from
 {
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
     // 设置蒙板大小
@@ -62,8 +60,10 @@
     [window addSubview:self];
     
     // 设置内容视图的位置
-    self.containerView.x = (self.width - self.containerView.width) * 0.5;
-    self.containerView.y = 64;
+    // 转换坐标系
+    CGRect newFrame = [from.superview convertRect:from.frame toView:window];
+    self.containerView.centerX = CGRectGetMidX(newFrame);
+    self.containerView.y = CGRectGetMaxY(newFrame);
 }
 
 /**
@@ -84,10 +84,9 @@
     content.x = 10;
     content.y = 15;
     
-    // 内容的宽度
-    content.width = self.containerView.width - 2 * content.x;
     // 内容容器的高度
     self.containerView.height = content.height + 25;
+    self.containerView.width = content.width + content.x * 2;
     
     [self.containerView addSubview:content];
 }
@@ -100,6 +99,11 @@
     _contentController = contentController;
     
     self.content = contentController.view;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self dismiss];
 }
 
 @end

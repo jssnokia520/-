@@ -18,7 +18,7 @@
 /**
  *  显示下拉菜单
  */
-- (void)show;
+- (void)showFromView:(UIView *)from;
 
 /**
  *  隐藏下拉菜单

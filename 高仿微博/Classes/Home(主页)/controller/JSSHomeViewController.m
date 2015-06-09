@@ -33,7 +33,7 @@
     [titleButton setWidth:200];
     [titleButton setHeight:30];
     
-    [titleButton addTarget:self action:@selector(titleClick) forControlEvents:UIControlEventTouchUpInside];
+    [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     [titleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
@@ -44,23 +44,27 @@
     [titleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
     
     [self.navigationItem setTitleView:titleButton];
+    
+    
+    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(50, 100, 200, 200)];
+    [grayView setBackgroundColor:[UIColor grayColor]];
+    [self.view addSubview:grayView];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, 100, 30)];
+    [button setBackgroundColor:[UIColor greenColor]];
+    [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
+    [grayView addSubview:button];
 }
 
-- (void)titleClick
+- (void)titleClick:(id)from
 {
     JSSDropDownMenu *menu = [JSSDropDownMenu menu];
     
-//    UIView *view = [[UIView alloc] init];
-//    [view setWidth:100];
-//    [view setHeight:100];
-//    [view setBackgroundColor:[UIColor redColor]];
-//    [menu setContent:view];
-    
     JSSTitleMenuViewController *controller = [[JSSTitleMenuViewController alloc] init];
-    controller.view.height = 44 * 3;
+    controller.view.height = 200;
+    controller.view.width = 200;
     [menu setContentController:controller];
     
-    [menu show];
+    [menu showFromView:from];
 }
 
 - (void)friendsearch
