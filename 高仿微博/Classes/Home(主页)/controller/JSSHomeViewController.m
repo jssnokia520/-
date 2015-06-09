@@ -44,15 +44,6 @@
     [titleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
     
     [self.navigationItem setTitleView:titleButton];
-    
-    
-    UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(50, 100, 200, 200)];
-    [grayView setBackgroundColor:[UIColor grayColor]];
-    [self.view addSubview:grayView];
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(30, 30, 100, 30)];
-    [button setBackgroundColor:[UIColor greenColor]];
-    [button addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
-    [grayView addSubview:button];
 }
 
 - (void)titleClick:(id)from

@@ -12,8 +12,9 @@
 #import "JSSDiscoverViewController.h"
 #import "JSSProfileViewController.h"
 #import "JSSNavigationController.h"
+#import "JSSTabBar.h"
 
-@interface JSSTabBarViewController ()
+@interface JSSTabBarViewController () <JSSTabBarDelegate>
 
 @end
 
@@ -35,6 +36,18 @@
     
     JSSProfileViewController *profile = [[JSSProfileViewController alloc] init];
     [self createVcWithVc:profile title:@"我" normalImage:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
+    
+    // KVC
+    JSSTabBar *tabBar = [JSSTabBar tabBar];
+    [tabBar setDelegate:self];
+    [self setValue:tabBar forKey:@"tabBar"];
+}
+
+- (void)tabBarPlusButtonDidTaped:(JSSTabBar *)tabBar
+{
+    UIViewController *controller = [[UIViewController alloc] init];
+    [controller.view setBackgroundColor:[UIColor orangeColor]];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)createVcWithVc:(UIViewController *)childVc title:(NSString *)title normalImage:(NSString *)normalImage selectedImage:(NSString *)selectedImage
