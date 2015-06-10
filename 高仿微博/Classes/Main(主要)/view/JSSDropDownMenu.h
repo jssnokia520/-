@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class JSSDropDownMenu;
+
+@protocol JSSDropDownMenuDelegate <NSObject>
+
+- (void)dropDownMenuDidDismiss:(JSSDropDownMenu *)menu;
+- (void)dropDownMenuDidShow:(JSSDropDownMenu *)menu;
+
+@end
+
 @interface JSSDropDownMenu : UIView
+
+@property (nonatomic, weak) id<JSSDropDownMenuDelegate> delegate;
 
 /**
  *  获取下拉菜单对象

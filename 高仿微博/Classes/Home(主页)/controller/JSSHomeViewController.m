@@ -10,7 +10,7 @@
 #import "JSSDropDownMenu.h"
 #import "JSSTitleMenuViewController.h"
 
-@interface JSSHomeViewController ()
+@interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
 @end
 
@@ -38,7 +38,9 @@
     [titleButton setTitle:@"首页" forState:UIControlStateNormal];
     [titleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
     [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
     
     [titleButton setImageEdgeInsets:UIEdgeInsetsMake(0, 80, 0, 0)];
     [titleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
@@ -50,12 +52,28 @@
 {
     JSSDropDownMenu *menu = [JSSDropDownMenu menu];
     
+    [menu setDelegate:self];
+    
     JSSTitleMenuViewController *controller = [[JSSTitleMenuViewController alloc] init];
     controller.view.height = 200;
     controller.view.width = 200;
     [menu setContentController:controller];
     
     [menu showFromView:from];
+}
+
+- (void)dropDownMenuDidDismiss:(JSSDropDownMenu *)menu
+{
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    [titleButton setSelected:NO];
+    // [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+}
+
+- (void)dropDownMenuDidShow:(JSSDropDownMenu *)menu
+{
+    UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
+    [titleButton setSelected:YES];
+    // [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
 }
 
 - (void)friendsearch

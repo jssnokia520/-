@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>ED223E5A-31F7-4350-9405-1D0D3D6AC043</string>
 	<key>IDESourceControlProjectName</key>
-	<string>高仿微博</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>B87A0D67B48BFD8AB7AE00197FB935122D806502</key>
 		<string>https://github.com/jssnokia520/-.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>高仿微博.xcodeproj</string>
+	<string>高仿微博.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B87A0D67B48BFD8AB7AE00197FB935122D806502</key>

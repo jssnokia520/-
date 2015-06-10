@@ -64,6 +64,10 @@
     CGRect newFrame = [from.superview convertRect:from.frame toView:window];
     self.containerView.centerX = CGRectGetMidX(newFrame);
     self.containerView.y = CGRectGetMaxY(newFrame);
+    
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuDidShow:)]) {
+        [self.delegate dropDownMenuDidShow:self];
+    }
 }
 
 /**
@@ -72,6 +76,10 @@
 - (void)dismiss
 {
     [self removeFromSuperview];
+    
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuDidDismiss:)]) {
+        [self.delegate dropDownMenuDidDismiss:self];
+    }
 }
 
 /**
