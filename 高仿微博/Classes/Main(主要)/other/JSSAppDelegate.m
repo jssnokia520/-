@@ -8,6 +8,7 @@
 
 #import "JSSAppDelegate.h"
 #import "JSSTabBarViewController.h"
+#import "JSSNewfeatureViewController.h"
 
 @implementation JSSAppDelegate
 
@@ -17,8 +18,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // 2.设置根控制器
-    UITabBarController *tabbarVc = [[JSSTabBarViewController alloc] init];
-    [self.window setRootViewController:tabbarVc];
+    // UITabBarController *tabbarVc = [[JSSTabBarViewController alloc] init];
+    // [self.window setRootViewController:tabbarVc];
+    
+    JSSNewfeatureViewController *controller = [[JSSNewfeatureViewController alloc] init];
+    [self.window setRootViewController:controller];
     
     // 3.设置窗口可见
     [self.window makeKeyAndVisible];

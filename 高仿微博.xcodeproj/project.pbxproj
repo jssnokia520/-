@@ -10,6 +10,7 @@
 		7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */; };
 		7F5F37651B25DBD000D285DC /* JSSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */; };
 		7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */; };
+		7F7A4D881B27E76D0044AA98 /* JSSNewfeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7A4D871B27E76D0044AA98 /* JSSNewfeatureViewController.m */; };
 		7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */; };
 		7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */; };
 		7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */; };
@@ -57,6 +58,8 @@
 		7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSDropDownMenu.m; sourceTree = "<group>"; };
 		7F5F37661B25E73700D285DC /* JSSTitleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTitleMenuViewController.h; sourceTree = "<group>"; };
 		7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTitleMenuViewController.m; sourceTree = "<group>"; };
+		7F7A4D861B27E76D0044AA98 /* JSSNewfeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSNewfeatureViewController.h; sourceTree = "<group>"; };
+		7F7A4D871B27E76D0044AA98 /* JSSNewfeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSNewfeatureViewController.m; sourceTree = "<group>"; };
 		7FCFBE461B2735E900DD1BC7 /* JSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBar.h; sourceTree = "<group>"; };
 		7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBar.m; sourceTree = "<group>"; };
 		7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
@@ -128,9 +131,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F7A4D841B27E74E0044AA98 /* Newfeature(新特性) */ = {
+			isa = PBXGroup;
+			children = (
+				7F7A4D851B27E74E0044AA98 /* controller */,
+			);
+			path = "Newfeature(新特性)";
+			sourceTree = "<group>";
+		};
+		7F7A4D851B27E74E0044AA98 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F7A4D861B27E76D0044AA98 /* JSSNewfeatureViewController.h */,
+				7F7A4D871B27E76D0044AA98 /* JSSNewfeatureViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		7F987D011B2483FE0096BBAA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F7A4D841B27E74E0044AA98 /* Newfeature(新特性) */,
 				7FD107A51B255B0D00571CE4 /* Main(主要) */,
 				7FD1079F1B255B0D00571CE4 /* Home(主页) */,
 				7FD107B41B255B0D00571CE4 /* MessageCenter(消息) */,
@@ -529,6 +550,7 @@
 				7FD107D11B255B0D00571CE4 /* JSSMessageCenterViewController.m in Sources */,
 				7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */,
 				7FD107D21B255B0D00571CE4 /* JSSProfileViewController.m in Sources */,
+				7F7A4D881B27E76D0044AA98 /* JSSNewfeatureViewController.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
 				7FD107CE1B255B0D00571CE4 /* JSSTabBarViewController.m in Sources */,
 				7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */,
