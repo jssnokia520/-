@@ -29,6 +29,7 @@
     [scrollView setDelegate:self];
     [scrollView setPagingEnabled:YES];
     [scrollView setShowsHorizontalScrollIndicator:NO];
+    [scrollView setBounces:NO];
     
     for (NSInteger i = 0; i < 4; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
