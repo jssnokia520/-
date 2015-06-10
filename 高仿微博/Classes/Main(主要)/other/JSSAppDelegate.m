@@ -18,13 +18,28 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // 2.设置根控制器
-    // UITabBarController *tabbarVc = [[JSSTabBarViewController alloc] init];
-    // [self.window setRootViewController:tabbarVc];
+    NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *key = @"CFBundleVersion";
+    // 获取上次打开的版本
+    NSString *lastVersion = [defaults valueForKeyPath:key];
     
-    JSSNewfeatureViewController *controller = [[JSSNewfeatureViewController alloc] init];
-    [self.window setRootViewController:controller];
+    // 获取本次打开的版本
+    NSString *currentVersion = infoDict[key];
     
-    // 3.设置窗口可见
+    // 3.判断是否是新版本
+    if ([lastVersion isEqualToString:currentVersion]) { // 两次版本不同
+        [self.window setRootViewController:[[JSSTabBarViewController alloc] init]];
+    } else {
+        [self.window setRootViewController:[[JSSNewfeatureViewController alloc] init]];
+        
+        // 将新版本写入沙盒
+        [defaults setValue:currentVersion forKey:key];
+        [defaults synchronize];
+    }
+    
+    
+    // 4.设置窗口可见
     [self.window makeKeyAndVisible];
     
     return YES;

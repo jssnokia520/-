@@ -50,7 +50,7 @@
 {
     [super layoutSubviews];
     
-    CGFloat width = self.width / (self.subviews.count - 2);
+    CGFloat width = self.width / 5;
     Class class = NSClassFromString(@"UITabBarButton");
     NSInteger currentIndex = 0;
     

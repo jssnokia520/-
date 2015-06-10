@@ -7,6 +7,7 @@
 //
 
 #import "JSSNewfeatureViewController.h"
+#import "JSSTabBarViewController.h"
 
 @interface JSSNewfeatureViewController () <UIScrollViewDelegate>
 
@@ -92,12 +93,24 @@
     [beginBtn setSize:beginBtn.currentBackgroundImage.size];
     [beginBtn setCenterX:imageView.width * 0.5];
     [beginBtn setCenterY:imageView.height * 0.8];
+    [beginBtn addTarget:self action:@selector(beginBtnTaped) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:beginBtn];
 }
 
 - (void)checkBtnTaped:(UIButton *)button
 {
     [button setSelected:!button.selected];
+}
+
+- (void)beginBtnTaped
+{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window setRootViewController:[[JSSTabBarViewController alloc] init]];
+}
+
+- (void)dealloc
+{
+    NSLog(@"JSSNewfeatureViewController.h-dealloc");
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
