@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4E98B21B2884D80081EFB7 /* JSSOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */; };
 		7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */; };
 		7F5F37651B25DBD000D285DC /* JSSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */; };
 		7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F4E98B01B2884D80081EFB7 /* JSSOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthViewController.h; sourceTree = "<group>"; };
+		7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthViewController.m; sourceTree = "<group>"; };
 		7F5F37601B25AD0A00D285DC /* JSSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSearchBar.h; sourceTree = "<group>"; };
 		7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSearchBar.m; sourceTree = "<group>"; };
 		7F5F37631B25DBD000D285DC /* JSSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDropDownMenu.h; sourceTree = "<group>"; };
@@ -131,6 +134,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F4E98AE1B2884A60081EFB7 /* OAuth(授权) */ = {
+			isa = PBXGroup;
+			children = (
+				7F4E98AF1B2884A60081EFB7 /* controller */,
+			);
+			path = "OAuth(授权)";
+			sourceTree = "<group>";
+		};
+		7F4E98AF1B2884A60081EFB7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				7F4E98B01B2884D80081EFB7 /* JSSOAuthViewController.h */,
+				7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		7F7A4D841B27E74E0044AA98 /* Newfeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +171,7 @@
 		7F987D011B2483FE0096BBAA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7F4E98AE1B2884A60081EFB7 /* OAuth(授权) */,
 				7F7A4D841B27E74E0044AA98 /* Newfeature(新特性) */,
 				7FD107A51B255B0D00571CE4 /* Main(主要) */,
 				7FD1079F1B255B0D00571CE4 /* Home(主页) */,
@@ -549,6 +570,7 @@
 				7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */,
 				7FD107D11B255B0D00571CE4 /* JSSMessageCenterViewController.m in Sources */,
 				7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */,
+				7F4E98B21B2884D80081EFB7 /* JSSOAuthViewController.m in Sources */,
 				7FD107D21B255B0D00571CE4 /* JSSProfileViewController.m in Sources */,
 				7F7A4D881B27E76D0044AA98 /* JSSNewfeatureViewController.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
