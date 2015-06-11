@@ -10,6 +10,6 @@
 
 @interface UIWindow (Extension)
 
-+ (void)switchController;
+- (void)switchController;
 
 @end

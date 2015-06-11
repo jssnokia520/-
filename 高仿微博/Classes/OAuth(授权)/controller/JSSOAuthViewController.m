@@ -90,7 +90,8 @@
         [JSSOAuthAccountTool saveAccount:account];
         
         // 切换控制器
-        [UIWindow switchController];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window switchController];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];

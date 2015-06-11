@@ -12,10 +12,8 @@
 
 @implementation UIWindow (Extension)
 
-+ (void)switchController
+- (void)switchController
 {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    
     NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *key = @"CFBundleVersion";
@@ -28,9 +26,9 @@
     
     // 判断是否是新版本
     if ([lastVersion isEqualToString:currentVersion]) { // 两次版本不同
-        [window setRootViewController:[[JSSTabBarViewController alloc] init]];
+        [self setRootViewController:[[JSSTabBarViewController alloc] init]];
     } else {
-        [window setRootViewController:[[JSSNewfeatureViewController alloc] init]];
+        [self setRootViewController:[[JSSNewfeatureViewController alloc] init]];
         
         // 将新版本写入沙盒
         [defaults setValue:currentVersion forKey:key];

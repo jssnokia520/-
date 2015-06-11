@@ -15,8 +15,6 @@
 
 + (void)saveAccount:(JSSOAuthAccount *)account
 {
-    // 存储保存用户信息时的时间
-    [account setSaveTime:[NSDate date]];
     [NSKeyedArchiver archiveRootObject:account toFile:Path];
 }
 

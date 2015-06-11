@@ -18,20 +18,19 @@
 {
     // 1.实例化window
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // 2.设置窗口可见
-    [self.window makeKeyAndVisible];
 
-    // 3.设置根控制器
+    // 2.设置根控制器
     // 获取账号信息
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
-    
     if (account) {
         // 切换控制器
-        [UIWindow switchController];
+        [self.window switchController];
     } else {
         [self.window setRootViewController:[[JSSOAuthViewController alloc] init]];
     }
+    
+    // 3.设置窗口可见
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
