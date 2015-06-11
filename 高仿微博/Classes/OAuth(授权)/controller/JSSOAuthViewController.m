@@ -12,6 +12,7 @@
 #import "JSSNewfeatureViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "JSSOAuthAccount.h"
+#import "JSSOAuthAccountTool.h"
 
 @interface JSSOAuthViewController () <UIWebViewDelegate>
 
@@ -85,11 +86,9 @@
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [MBProgressHUD  hideHUD];
         
-        // 将新浪返回的access_token转换成模型之后存入沙盒
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *path = [doc stringByAppendingPathComponent:@"access_token.plist"];
+        // 存储账号信息
         JSSOAuthAccount *account = [JSSOAuthAccount accountWithDict:responseObject];
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        [JSSOAuthAccountTool saveAccount:account];
         
         NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

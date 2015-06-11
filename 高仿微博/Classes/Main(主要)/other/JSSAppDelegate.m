@@ -11,6 +11,7 @@
 #import "JSSNewfeatureViewController.h"
 #import "JSSOAuthViewController.h"
 #import "JSSOAuthAccount.h"
+#import "JSSOAuthAccountTool.h"
 
 @implementation JSSAppDelegate
 
@@ -20,10 +21,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // 2.设置根控制器
-    // 从沙盒中取出access_token
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *path = [doc stringByAppendingPathComponent:@"access_token.plist"];
-    JSSOAuthAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    // 获取账号信息
+    JSSOAuthAccount *account = [JSSOAuthAccountTool account];
     
     if (account) {
         NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;

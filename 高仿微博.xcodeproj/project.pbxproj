@@ -11,6 +11,7 @@
 		7F395C751B292C3A006ED46A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F395C711B292C3A006ED46A /* MBProgressHUD.bundle */; };
 		7F395C761B292C3A006ED46A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C731B292C3A006ED46A /* MBProgressHUD.m */; };
 		7F395C7A1B292DEA006ED46A /* JSSOAuthAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C791B292DEA006ED46A /* JSSOAuthAccount.m */; };
+		7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */; };
 		7F4E98B21B2884D80081EFB7 /* JSSOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */; };
 		7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B61B2896580081EFB7 /* AFHTTPRequestOperation.m */; };
 		7F4E98C91B2896580081EFB7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B81B2896580081EFB7 /* AFHTTPRequestOperationManager.m */; };
@@ -73,6 +74,8 @@
 		7F395C731B292C3A006ED46A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7F395C781B292DEA006ED46A /* JSSOAuthAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthAccount.h; sourceTree = "<group>"; };
 		7F395C791B292DEA006ED46A /* JSSOAuthAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthAccount.m; sourceTree = "<group>"; };
+		7F395C7C1B293A4C006ED46A /* JSSOAuthAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthAccountTool.h; sourceTree = "<group>"; };
+		7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthAccountTool.m; sourceTree = "<group>"; };
 		7F4E98B01B2884D80081EFB7 /* JSSOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthViewController.h; sourceTree = "<group>"; };
 		7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthViewController.m; sourceTree = "<group>"; };
 		7F4E98B51B2896580081EFB7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -194,9 +197,19 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		7F395C7B1B293A2C006ED46A /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				7F395C7C1B293A4C006ED46A /* JSSOAuthAccountTool.h */,
+				7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		7F4E98AE1B2884A60081EFB7 /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
+				7F395C7B1B293A2C006ED46A /* tool */,
 				7F395C771B292DB4006ED46A /* model */,
 				7F4E98AF1B2884A60081EFB7 /* controller */,
 			);
@@ -680,6 +693,7 @@
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
 				7FD107CE1B255B0D00571CE4 /* JSSTabBarViewController.m in Sources */,
+				7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */,
 				7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */,
 				7FD107D31B255B0D00571CE4 /* JSSTest1ViewController.m in Sources */,
 				7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */,
