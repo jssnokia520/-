@@ -12,6 +12,7 @@
 #import "JSSOAuthAccount.h"
 #import "JSSOAuthAccountTool.h"
 #import "AFNetworking.h"
+#import "JSSTitleButton.h"
 
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
@@ -51,9 +52,6 @@
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
         [titleButton setTitle:responseObject[@"name"] forState:UIControlStateNormal];
         
-        // 更新导航条位置
-        [self updateNavWithTitleButton:titleButton];
-        
         [account setName:responseObject[@"name"]];
         [JSSOAuthAccountTool saveAccount:account];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -63,34 +61,14 @@
 // 自定义按钮代替导航条的标题视图
 - (void)setUpTitleButton
 {
-    UIButton *titleButton = [[UIButton alloc] init];
-    [titleButton setWidth:200];
-    [titleButton setHeight:30];
+    JSSTitleButton *titleButton = [[JSSTitleButton alloc] init];
     
     [titleButton addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     
-    JSSOAuthAccount *account = [JSSOAuthAccountTool account];
-    NSString *name = account.name;
+    NSString *name = [JSSOAuthAccountTool account].name;
     [titleButton setTitle:name?name:@"首页" forState:UIControlStateNormal];
-    [titleButton.titleLabel setFont:[UIFont boldSystemFontOfSize:17]];
-    [titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateSelected];
-    
-    // 更新导航条位置
-    [self updateNavWithTitleButton:titleButton];
     
     [self.navigationItem setTitleView:titleButton];
-}
-
-// 更新导航条内容位置
-- (void)updateNavWithTitleButton:(UIButton *)titleButton
-{
-    CGFloat imageW = titleButton.imageView.width * [UIScreen mainScreen].scale;
-    CGFloat titleW = titleButton.titleLabel.width * [UIScreen mainScreen].scale;
-    [titleButton setImageEdgeInsets:UIEdgeInsetsMake(0, titleW, 0, 0)];
-    [titleButton setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, imageW)];
 }
 
 - (void)titleClick:(id)from

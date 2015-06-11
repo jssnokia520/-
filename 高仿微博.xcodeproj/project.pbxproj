@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F10DAD21B298865000EB915 /* JSSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F10DAD11B298865000EB915 /* JSSTitleButton.m */; };
 		7F395C741B292C3A006ED46A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C701B292C3A006ED46A /* MBProgressHUD+MJ.m */; };
 		7F395C751B292C3A006ED46A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7F395C711B292C3A006ED46A /* MBProgressHUD.bundle */; };
 		7F395C761B292C3A006ED46A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C731B292C3A006ED46A /* MBProgressHUD.m */; };
@@ -68,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F10DAD01B298865000EB915 /* JSSTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTitleButton.h; sourceTree = "<group>"; };
+		7F10DAD11B298865000EB915 /* JSSTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTitleButton.m; sourceTree = "<group>"; };
 		7F395C6F1B292C3A006ED46A /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		7F395C701B292C3A006ED46A /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
 		7F395C711B292C3A006ED46A /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 			children = (
 				7F5F37661B25E73700D285DC /* JSSTitleMenuViewController.h */,
 				7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */,
+				7F10DAD01B298865000EB915 /* JSSTitleButton.h */,
+				7F10DAD11B298865000EB915 /* JSSTitleButton.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -709,6 +714,7 @@
 				7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */,
 				7FD107D01B255B0D00571CE4 /* main.m in Sources */,
 				7F395C761B292C3A006ED46A /* MBProgressHUD.m in Sources */,
+				7F10DAD21B298865000EB915 /* JSSTitleButton.m in Sources */,
 				7F4E98C91B2896580081EFB7 /* AFHTTPRequestOperationManager.m in Sources */,
 				7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */,
 				7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */,
