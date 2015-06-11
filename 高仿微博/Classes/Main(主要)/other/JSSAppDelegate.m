@@ -10,6 +10,7 @@
 #import "JSSTabBarViewController.h"
 #import "JSSNewfeatureViewController.h"
 #import "JSSOAuthViewController.h"
+#import "JSSOAuthAccount.h"
 
 @implementation JSSAppDelegate
 
@@ -22,9 +23,9 @@
     // 从沙盒中取出access_token
     NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *path = [doc stringByAppendingPathComponent:@"access_token.plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
+    JSSOAuthAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     
-    if (dict) {
+    if (account) {
         NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSString *key = @"CFBundleVersion";
