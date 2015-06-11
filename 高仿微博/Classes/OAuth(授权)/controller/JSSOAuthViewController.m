@@ -8,11 +8,10 @@
 
 #import "JSSOAuthViewController.h"
 #import "AFNetworking.h"
-#import "JSSTabBarViewController.h"
-#import "JSSNewfeatureViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "JSSOAuthAccount.h"
 #import "JSSOAuthAccountTool.h"
+#import "UIWindow+Extension.h"
 
 @interface JSSOAuthViewController () <UIWebViewDelegate>
 
@@ -90,27 +89,8 @@
         JSSOAuthAccount *account = [JSSOAuthAccount accountWithDict:responseObject];
         [JSSOAuthAccountTool saveAccount:account];
         
-        NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *key = @"CFBundleVersion";
-        // 获取上次打开的版本
-        NSString *lastVersion = [defaults valueForKeyPath:key];
-        
-        // 获取本次打开的版本
-        NSString *currentVersion = infoDict[key];
-        
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        
-        // 3.判断是否是新版本
-        if ([lastVersion isEqualToString:currentVersion]) { // 两次版本不同
-            [window setRootViewController:[[JSSTabBarViewController alloc] init]];
-        } else {
-            [window setRootViewController:[[JSSNewfeatureViewController alloc] init]];
-            
-            // 将新版本写入沙盒
-            [defaults setValue:currentVersion forKey:key];
-            [defaults synchronize];
-        }
+        // 切换控制器
+        [UIWindow switchController];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUD];

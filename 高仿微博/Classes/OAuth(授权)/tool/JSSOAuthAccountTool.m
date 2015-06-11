@@ -30,11 +30,12 @@
     // 当前时间
     NSDate *currentDate = [NSDate date];
     
+    // 计算过期时间
     NSDate *expiresDate = [saveDate dateByAddingTimeInterval:account.expires_in.longLongValue];
     
     // 判断是否已过期
     NSComparisonResult result = [expiresDate compare:currentDate];
-    if (result == NSOrderedDescending) {
+    if (result != NSOrderedDescending) {
         return nil;
     }
     

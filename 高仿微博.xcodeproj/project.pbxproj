@@ -12,6 +12,7 @@
 		7F395C761B292C3A006ED46A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C731B292C3A006ED46A /* MBProgressHUD.m */; };
 		7F395C7A1B292DEA006ED46A /* JSSOAuthAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C791B292DEA006ED46A /* JSSOAuthAccount.m */; };
 		7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */; };
+		7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C801B294A12006ED46A /* UIWindow+Extension.m */; };
 		7F4E98B21B2884D80081EFB7 /* JSSOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */; };
 		7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B61B2896580081EFB7 /* AFHTTPRequestOperation.m */; };
 		7F4E98C91B2896580081EFB7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B81B2896580081EFB7 /* AFHTTPRequestOperationManager.m */; };
@@ -76,6 +77,8 @@
 		7F395C791B292DEA006ED46A /* JSSOAuthAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthAccount.m; sourceTree = "<group>"; };
 		7F395C7C1B293A4C006ED46A /* JSSOAuthAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthAccountTool.h; sourceTree = "<group>"; };
 		7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthAccountTool.m; sourceTree = "<group>"; };
+		7F395C7F1B294A12006ED46A /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		7F395C801B294A12006ED46A /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		7F4E98B01B2884D80081EFB7 /* JSSOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthViewController.h; sourceTree = "<group>"; };
 		7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthViewController.m; sourceTree = "<group>"; };
 		7F4E98B51B2896580081EFB7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				7FD107A81B255B0D00571CE4 /* UIView+Extension.m */,
 				7FD107DC1B256DE200571CE4 /* UIBarButtonItem+Extension.h */,
 				7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */,
+				7F395C7F1B294A12006ED46A /* UIWindow+Extension.h */,
+				7F395C801B294A12006ED46A /* UIWindow+Extension.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 				7FD107D21B255B0D00571CE4 /* JSSProfileViewController.m in Sources */,
 				7F7A4D881B27E76D0044AA98 /* JSSNewfeatureViewController.m in Sources */,
 				7F395C7A1B292DEA006ED46A /* JSSOAuthAccount.m in Sources */,
+				7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */,
 				7F4E98CC1B2896580081EFB7 /* AFSecurityPolicy.m in Sources */,
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
