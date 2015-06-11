@@ -108,11 +108,6 @@
     [window setRootViewController:[[JSSTabBarViewController alloc] init]];
 }
 
-- (void)dealloc
-{
-    NSLog(@"JSSNewfeatureViewController.h-dealloc");
-}
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSInteger currentPage =  (NSInteger)(scrollView.contentOffset.x / scrollView.width + 0.5);

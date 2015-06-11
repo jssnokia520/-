@@ -19,28 +19,34 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // 2.设置根控制器
-    [self.window setRootViewController:[[JSSOAuthViewController alloc] init]];
+    // 从沙盒中取出access_token
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *path = [doc stringByAppendingPathComponent:@"access_token.plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:path];
     
-//    NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    NSString *key = @"CFBundleVersion";
-//    // 获取上次打开的版本
-//    NSString *lastVersion = [defaults valueForKeyPath:key];
-//    
-//    // 获取本次打开的版本
-//    NSString *currentVersion = infoDict[key];
-//    
-//    // 3.判断是否是新版本
-//    if ([lastVersion isEqualToString:currentVersion]) { // 两次版本不同
-//        [self.window setRootViewController:[[JSSTabBarViewController alloc] init]];
-//    } else {
-//        [self.window setRootViewController:[[JSSNewfeatureViewController alloc] init]];
-//        
-//        // 将新版本写入沙盒
-//        [defaults setValue:currentVersion forKey:key];
-//        [defaults synchronize];
-//    }
-    
+    if (dict) {
+        NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *key = @"CFBundleVersion";
+        // 获取上次打开的版本
+        NSString *lastVersion = [defaults valueForKeyPath:key];
+        
+        // 获取本次打开的版本
+        NSString *currentVersion = infoDict[key];
+        
+        // 3.判断是否是新版本
+        if ([lastVersion isEqualToString:currentVersion]) { // 两次版本不同
+            [self.window setRootViewController:[[JSSTabBarViewController alloc] init]];
+        } else {
+            [self.window setRootViewController:[[JSSNewfeatureViewController alloc] init]];
+            
+            // 将新版本写入沙盒
+            [defaults setValue:currentVersion forKey:key];
+            [defaults synchronize];
+        }
+    } else {
+        [self.window setRootViewController:[[JSSOAuthViewController alloc] init]];
+    }
     
     // 4.设置窗口可见
     [self.window makeKeyAndVisible];
