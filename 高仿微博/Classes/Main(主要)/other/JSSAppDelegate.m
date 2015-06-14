@@ -11,6 +11,7 @@
 #import "JSSOAuthAccount.h"
 #import "JSSOAuthAccountTool.h"
 #import "UIWindow+Extension.h"
+#import "SDWebImageManager.h"
 
 @implementation JSSAppDelegate
 
@@ -33,6 +34,16 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
+{
+    SDWebImageManager *manager = [SDWebImageManager sharedManager];
+    // 取消下载任务
+    [manager cancelAll];
+    
+    // 清空内存
+    [manager.imageCache clearMemory];
 }
 
 @end
