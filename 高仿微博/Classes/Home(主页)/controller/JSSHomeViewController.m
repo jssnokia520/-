@@ -14,14 +14,27 @@
 #import "AFNetworking.h"
 #import "JSSTitleButton.h"
 #import "UIImageView+WebCache.h"
+#import "JSSUser.h"
+#import "JSSStatus.h"
 
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
-@property (nonatomic, strong) NSArray *statuses;
+/**
+ *  微博模型
+ */
+@property (nonatomic, strong) NSMutableArray *statuses;
 
 @end
 
 @implementation JSSHomeViewController
+
+- (NSMutableArray *)statuses
+{
+    if (_statuses == nil) {
+        _statuses = [NSMutableArray array];
+    }
+    return _statuses;
+}
 
 - (void)viewDidLoad
 {
@@ -51,7 +64,13 @@
     parameters[@"count"] = @10;
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        self.statuses = responseObject[@"statuses"];
+        
+        NSArray *array = responseObject[@"statuses"];
+        for (NSDictionary *dict in array) {
+            JSSStatus *status = [JSSStatus statusWithDict:dict];
+            [self.statuses addObject:status];
+        }
+        
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
@@ -72,11 +91,12 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     
-    NSDictionary *status = self.statuses[indexPath.row];
+    JSSStatus *status = self.statuses[indexPath.row];
+    JSSUser *user = status.user;
     
-    [cell.textLabel setText:status[@"user"][@"name"]];
-    [cell.detailTextLabel setText:status[@"text"]];
-    [cell.imageView sd_setImageWithURL:status[@"user"][@"profile_image_url"] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    [cell.textLabel setText:user.name];
+    [cell.detailTextLabel setText:status.text];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     return cell;
 }
@@ -94,9 +114,10 @@
     
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
-        [titleButton setTitle:responseObject[@"name"] forState:UIControlStateNormal];
+        JSSUser *user = [JSSUser userWithDict:responseObject];
+        [titleButton setTitle:user.name forState:UIControlStateNormal];
         
-        [account setName:responseObject[@"name"]];
+        [account setName:user.name];
         [JSSOAuthAccountTool saveAccount:account];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
@@ -139,14 +160,12 @@
 {
     UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
     [titleButton setSelected:NO];
-    // [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
 }
 
 - (void)dropDownMenuDidShow:(JSSDropDownMenu *)menu
 {
     UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
     [titleButton setSelected:YES];
-    // [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
 }
 
 - (void)friendsearch
