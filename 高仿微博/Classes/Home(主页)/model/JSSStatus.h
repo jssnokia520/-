@@ -26,6 +26,4 @@
  */
 @property (nonatomic, strong) JSSUser *user;
 
-+ (instancetype)statusWithDict:(NSDictionary *)dict;
-
 @end

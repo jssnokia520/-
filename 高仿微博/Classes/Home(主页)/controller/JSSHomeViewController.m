@@ -16,6 +16,7 @@
 #import "UIImageView+WebCache.h"
 #import "JSSUser.h"
 #import "JSSStatus.h"
+#import "MJExtension.h"
 
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
@@ -48,6 +49,56 @@
     
     // 加载微博数据
     [self loadNewStatus];
+    
+    // 添加下拉刷新控件
+    [self setRefreshControl];
+    
+    [self refresh:nil];
+}
+
+/**
+ *  添加下拉刷新控件
+ */
+- (void)setRefreshControl
+{
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+}
+
+/**
+ *  监听下拉刷新控件
+ */
+- (void)refresh:(UIRefreshControl *)refreshControl
+{
+    // 再次发送请求获取数据
+    JSSOAuthAccount *account = [JSSOAuthAccountTool account];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = account.access_token;
+    // 获取第一条微博
+    JSSStatus *status = [self.statuses firstObject];
+    if (status) {
+        parameters[@"since_id"] = status.idstr;
+    }
+    
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        // 结束刷新
+        [refreshControl endRefreshing];
+        NSArray *status = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSRange range = NSMakeRange(0, status.count);
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:status atIndexes:indexSet];
+        
+        // 刷新表格
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // 结束刷新
+        [refreshControl endRefreshing];
+    }];
 }
 
 /**
@@ -61,16 +112,10 @@
 
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
-    parameters[@"count"] = @10;
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        
-        NSArray *array = responseObject[@"statuses"];
-        for (NSDictionary *dict in array) {
-            JSSStatus *status = [JSSStatus statusWithDict:dict];
-            [self.statuses addObject:status];
-        }
-        
+        NSArray *status = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        [self.statuses addObjectsFromArray:status];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
@@ -114,7 +159,7 @@
     
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
-        JSSUser *user = [JSSUser userWithDict:responseObject];
+        JSSUser *user = [JSSUser objectWithKeyValues:responseObject];
         [titleButton setTitle:user.name forState:UIControlStateNormal];
         
         [account setName:user.name];

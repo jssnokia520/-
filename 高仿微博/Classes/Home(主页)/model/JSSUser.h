@@ -25,6 +25,4 @@
  */
 @property (nonatomic, copy) NSString *profile_image_url;
 
-+ (instancetype)userWithDict:(NSDictionary *)dict;
-
 @end

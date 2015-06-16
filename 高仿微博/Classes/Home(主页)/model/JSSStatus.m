@@ -7,19 +7,7 @@
 //
 
 #import "JSSStatus.h"
-#import "JSSUser.h"
 
 @implementation JSSStatus
-
-+ (instancetype)statusWithDict:(NSDictionary *)dict
-{
-    JSSStatus *status = [[self alloc] init];
-    
-    status.idstr = dict[@"idstr"];
-    status.text = dict[@"text"];
-    status.user = [JSSUser userWithDict:dict[@"user"]];
-    
-    return status;
-}
 
 @end
