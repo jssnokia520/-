@@ -57,6 +57,8 @@
 		7FAA88871B2F1B1300C50303 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887A1B2F1B1300C50303 /* NSObject+MJCoding.m */; };
 		7FAA88881B2F1B1300C50303 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887C1B2F1B1300C50303 /* NSObject+MJKeyValue.m */; };
 		7FAA88891B2F1B1300C50303 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */; };
+		7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */; };
+		7FC5E09F1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */; };
 		7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */; };
 		7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */; };
 		7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */; };
@@ -200,6 +202,9 @@
 		7FAA887C1B2F1B1300C50303 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		7FAA887D1B2F1B1300C50303 /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
 		7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
+		7FC5E09B1B32F569002E3BD8 /* JSSLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSLoadMoreFooter.h; sourceTree = "<group>"; };
+		7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSLoadMoreFooter.m; sourceTree = "<group>"; };
+		7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSLoadMoreFooter.xib; sourceTree = "<group>"; };
 		7FCFBE461B2735E900DD1BC7 /* JSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBar.h; sourceTree = "<group>"; };
 		7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBar.m; sourceTree = "<group>"; };
 		7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
@@ -529,6 +534,9 @@
 				7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */,
 				7F10DAD01B298865000EB915 /* JSSTitleButton.h */,
 				7F10DAD11B298865000EB915 /* JSSTitleButton.m */,
+				7FC5E09B1B32F569002E3BD8 /* JSSLoadMoreFooter.h */,
+				7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */,
+				7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -835,6 +843,7 @@
 				7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */,
 				7FD107D41B255B0D00571CE4 /* JSSTest1ViewController.xib in Resources */,
 				7F395C751B292C3A006ED46A /* MBProgressHUD.bundle in Resources */,
+				7FC5E09F1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +886,7 @@
 				7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */,
 				7F4E98CC1B2896580081EFB7 /* AFSecurityPolicy.m in Sources */,
 				7FAA88871B2F1B1300C50303 /* NSObject+MJCoding.m in Sources */,
+				7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */,
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
 				7F2D928D1B2DE28100A8657C /* UIImage+WebP.m in Sources */,

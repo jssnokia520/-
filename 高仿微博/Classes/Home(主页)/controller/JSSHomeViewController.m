@@ -17,6 +17,7 @@
 #import "JSSUser.h"
 #import "JSSStatus.h"
 #import "MJExtension.h"
+#import "JSSLoadMoreFooter.h"
 
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
@@ -52,6 +53,17 @@
     
     // 添加下拉刷新控件
     [self setRefreshControl];
+    
+    // 添加上拉刷新控件
+    [self setFooter];
+}
+
+/**
+ *  添加上拉刷新控件
+ */
+- (void)setFooter {
+    JSSLoadMoreFooter *footer = [JSSLoadMoreFooter footer];
+    self.tableView.tableFooterView = footer;
 }
 
 /**
@@ -117,10 +129,10 @@
     UILabel *label = [[UILabel alloc] init];
     [label setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]]];
     [label setTextAlignment:NSTextAlignmentCenter];
-    [label setFont:[UIFont systemFontOfSize:13]];
+    [label setFont:[UIFont systemFontOfSize:15]];
     [label setTextColor:[UIColor whiteColor]];
     [label setWidth:self.view.width];
-    [label setHeight:20];
+    [label setHeight:35];
     CGFloat labelY = self.navigationController.navigationBar.height - label.height + 20;
     [label setY:labelY];
     [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
@@ -133,10 +145,12 @@
 
     CGFloat duration = 1.0;
     [UIView animateWithDuration:duration animations:^{
-        [label setY:labelY + label.height];
+        // [label setY:labelY + label.height];
+        [label setTransform:CGAffineTransformMakeTranslation(0, label.height)];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:duration delay:duration options:UIViewAnimationOptionCurveLinear animations:^{
-            [label setY:labelY - label.height];
+            // [label setY:labelY - label.height];
+            [label setTransform:CGAffineTransformIdentity];
         } completion:^(BOOL finished) {
             [label removeFromSuperview];
         }];
