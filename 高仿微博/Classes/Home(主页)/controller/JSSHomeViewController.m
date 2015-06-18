@@ -52,8 +52,6 @@
     
     // 添加下拉刷新控件
     [self setRefreshControl];
-    
-    [self refresh:nil];
 }
 
 /**
@@ -62,8 +60,13 @@
 - (void)setRefreshControl
 {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refreshControl];
+    
+    // 开始刷新
+    [refreshControl beginRefreshing];
+    [self refresh:refreshControl];
 }
 
 /**
@@ -87,6 +90,8 @@
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         // 结束刷新
         [refreshControl endRefreshing];
+        
+        // 获取微博数据
         NSArray *status = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         NSRange range = NSMakeRange(0, status.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -95,9 +100,46 @@
         // 刷新表格
         [self.tableView reloadData];
         
+        // 显示提示标签
+        [self setTipLabel:status.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 结束刷新
         [refreshControl endRefreshing];
+    }];
+}
+
+/**
+ *  显示提示标签
+ */
+- (void)setTipLabel:(NSInteger)count
+{
+    // 创建标签
+    UILabel *label = [[UILabel alloc] init];
+    [label setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setFont:[UIFont systemFontOfSize:13]];
+    [label setTextColor:[UIColor whiteColor]];
+    [label setWidth:self.view.width];
+    [label setHeight:20];
+    CGFloat labelY = self.navigationController.navigationBar.height - label.height + 20;
+    [label setY:labelY];
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    if (count == 0) {
+        [label setText:@"暂时没有新的微博数据,请稍后再试!"];
+    } else {
+        [label setText:[NSString stringWithFormat:@"共有%ld条新的微博数据!", count]];
+    }
+
+    CGFloat duration = 1.0;
+    [UIView animateWithDuration:duration animations:^{
+        [label setY:labelY + label.height];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:duration delay:duration options:UIViewAnimationOptionCurveLinear animations:^{
+            [label setY:labelY - label.height];
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
     }];
 }
 
@@ -114,6 +156,7 @@
     parameters[@"access_token"] = account.access_token;
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        // 获取微博数据
         NSArray *status = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         [self.statuses addObjectsFromArray:status];
         [self.tableView reloadData];
