@@ -7,6 +7,7 @@
 //
 
 #import "JSSTitleButton.h"
+#define JSSMargin 5
 
 @implementation JSSTitleButton
 
@@ -23,12 +24,19 @@
     return self;
 }
 
+// 重写setFrame方法以调整控件位置
+- (void)setFrame:(CGRect)frame
+{
+    frame.size.width += JSSMargin;
+    [super setFrame:frame];
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
     [self.titleLabel setX:self.imageView.x];
-    [self.imageView setX:CGRectGetMaxX(self.titleLabel.frame)];
+    [self.imageView setX:CGRectGetMaxX(self.titleLabel.frame) + JSSMargin];
 }
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state
