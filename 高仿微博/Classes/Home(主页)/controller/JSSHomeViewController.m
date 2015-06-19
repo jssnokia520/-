@@ -18,6 +18,8 @@
 #import "JSSStatus.h"
 #import "MJExtension.h"
 #import "JSSLoadMoreFooter.h"
+#import "JSSStatusCell.h"
+#import "JSSStatusFrame.h"
 
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
@@ -220,20 +222,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"status";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    JSSStatusCell *cell = [JSSStatusCell cellWithTableView:tableView];
     
     JSSStatus *status = self.statuses[indexPath.row];
-    JSSUser *user = status.user;
     
-    [cell.textLabel setText:user.name];
-    [cell.detailTextLabel setText:status.text];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    cell.statusFrame.status = status;
     
     return cell;
 }

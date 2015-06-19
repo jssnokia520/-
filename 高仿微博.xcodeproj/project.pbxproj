@@ -77,6 +77,8 @@
 		7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */; };
 		7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */; };
 		7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */; };
+		7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956631B346A58006B3317 /* JSSStatusCell.m */; };
+		7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956661B3475AB006B3317 /* JSSStatusFrame.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -237,6 +239,10 @@
 		7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSItemTool.m; sourceTree = "<group>"; };
 		7FD107DC1B256DE200571CE4 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		7FE956621B346A58006B3317 /* JSSStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusCell.h; sourceTree = "<group>"; };
+		7FE956631B346A58006B3317 /* JSSStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusCell.m; sourceTree = "<group>"; };
+		7FE956651B3475AB006B3317 /* JSSStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusFrame.h; sourceTree = "<group>"; };
+		7FE956661B3475AB006B3317 /* JSSStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusFrame.m; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -523,6 +529,8 @@
 				7FAA88621B2F08BC00C50303 /* JSSStatus.m */,
 				7FAA88641B2F091200C50303 /* JSSUser.h */,
 				7FAA88651B2F091200C50303 /* JSSUser.m */,
+				7FE956651B3475AB006B3317 /* JSSStatusFrame.h */,
+				7FE956661B3475AB006B3317 /* JSSStatusFrame.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -537,6 +545,8 @@
 				7FC5E09B1B32F569002E3BD8 /* JSSLoadMoreFooter.h */,
 				7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */,
 				7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */,
+				7FE956621B346A58006B3317 /* JSSStatusCell.h */,
+				7FE956631B346A58006B3317 /* JSSStatusCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -873,6 +883,7 @@
 				7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */,
 				7F4E98D01B2896580081EFB7 /* AFURLSessionManager.m in Sources */,
 				7FAA88861B2F1B1300C50303 /* MJTypeEncoding.m in Sources */,
+				7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */,
 				7F2D928A1B2DE28100A8657C /* UIButton+WebCache.m in Sources */,
 				7F395C741B292C3A006ED46A /* MBProgressHUD+MJ.m in Sources */,
 				7F4E98B21B2884D80081EFB7 /* JSSOAuthViewController.m in Sources */,
@@ -890,6 +901,7 @@
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
 				7F2D928D1B2DE28100A8657C /* UIImage+WebP.m in Sources */,
+				7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */,
 				7FD107CE1B255B0D00571CE4 /* JSSTabBarViewController.m in Sources */,
 				7F2D92871B2DE28100A8657C /* SDWebImageDownloaderOperation.m in Sources */,
 				7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */,
