@@ -64,6 +64,7 @@
 - (void)setFooter {
     JSSLoadMoreFooter *footer = [JSSLoadMoreFooter footer];
     self.tableView.tableFooterView = footer;
+    [self.tableView.tableFooterView setHidden:YES];
 }
 
 /**
@@ -145,11 +146,9 @@
 
     CGFloat duration = 1.0;
     [UIView animateWithDuration:duration animations:^{
-        // [label setY:labelY + label.height];
         [label setTransform:CGAffineTransformMakeTranslation(0, label.height)];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:duration delay:duration options:UIViewAnimationOptionCurveLinear animations:^{
-            // [label setY:labelY - label.height];
             [label setTransform:CGAffineTransformIdentity];
         } completion:^(BOOL finished) {
             [label removeFromSuperview];
@@ -201,6 +200,25 @@
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     return cell;
+}
+
+/**
+ *  当表格滚动到最末尾的时候显示上拉刷新控件
+ */
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 如果没有数据就直接返回
+    if (self.statuses.count == 0) {
+        return;
+    }
+    
+    CGFloat offsetY = scrollView.contentOffset.y;
+    
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+    
+    if (offsetY >= judgeOffsetY) {
+        [self.tableView.tableFooterView setHidden:NO];
+    }
 }
 
 // 更新首页
