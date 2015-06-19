@@ -46,4 +46,11 @@
     [manager.imageCache clearMemory];
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    UIBackgroundTaskIdentifier back = [application beginBackgroundTaskWithExpirationHandler:^{
+        [application endBackgroundTask:back];
+    }];
+}
+
 @end

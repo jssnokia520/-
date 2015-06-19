@@ -56,6 +56,39 @@
     
     // 添加上拉刷新控件
     [self setFooter];
+    
+    // 每隔一段时间自动刷新微博
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(autoRefresh) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+/**
+ *  自动刷新微博
+ */
+- (void)autoRefresh
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    JSSOAuthAccount *account = [JSSOAuthAccountTool account];
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = account.access_token;
+    parameters[@"uid"] = account.uid;
+    
+    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        [self setBadge:[responseObject[@"status"] stringValue]];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    }];
+}
+
+- (void)setBadge:(NSString *)unread
+{
+    if (unread.integerValue == 0) {
+        [self.tabBarItem setBadgeValue:nil];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    } else {
+        [self.tabBarItem setBadgeValue:unread];
+        [[UIApplication sharedApplication] setApplicationIconBadgeNumber:unread.integerValue];
+    }
 }
 
 /**
@@ -87,6 +120,9 @@
  */
 - (void)refresh:(UIRefreshControl *)refreshControl
 {
+    [self.tabBarItem setBadgeValue:nil];
+    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+    
     // 再次发送请求获取数据
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
     
@@ -214,7 +250,7 @@
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
-    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height;
     
     if (offsetY >= judgeOffsetY) {
         [self.tableView.tableFooterView setHidden:NO];
