@@ -76,6 +76,7 @@
     [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         [self setBadge:[responseObject[@"status"] stringValue]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
     }];
 }
 
@@ -154,6 +155,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 结束刷新
         [refreshControl endRefreshing];
+        NSLog(@"%@", error);
     }];
 }
 
@@ -233,17 +235,46 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // 如果没有数据就直接返回
-    if (self.statusFrames.count == 0) {
+    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.hidden == NO) {
         return;
     }
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
-    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height;
+    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
     
     if (offsetY >= judgeOffsetY) {
         [self.tableView.tableFooterView setHidden:NO];
+        
+        // 加载更多微博数据
+        [self loadMoreStatus];
     }
+}
+
+/**
+ *  加载更多微博数据
+ */
+- (void)loadMoreStatus
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    JSSOAuthAccount *account = [JSSOAuthAccountTool account];
+    parameters[@"access_token"] = account.access_token;
+    JSSStatusFrame *statusFrame = [self.statusFrames lastObject];
+    if (statusFrame.status) {
+        parameters[@"max_id"] = @(statusFrame.status.idstr.longLongValue);
+    }
+
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+        NSArray *statuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusFrames = [self statusFramesWithStatus:statuses];
+        [self.statusFrames addObjectsFromArray:statusFrames];
+        [self.tableView reloadData];
+        [self.tableView.tableFooterView setHidden:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self.tableView.tableFooterView setHidden:YES];
+    }];
 }
 
 // 更新首页
@@ -265,6 +296,7 @@
         [account setName:user.name];
         [JSSOAuthAccountTool saveAccount:account];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
     }];
 }
 
