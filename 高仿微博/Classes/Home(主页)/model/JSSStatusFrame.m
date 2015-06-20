@@ -111,6 +111,18 @@
     }
     
     /**
+     *  转发微博视图
+     */
+    
+    /**
+     *  转发的微博正文 + 昵称
+     */
+    
+    /**
+     *  转发的微博图片
+     */
+    
+    /**
      *  上半部分视图的父视图
      */
     self.originalFrame = CGRectMake(0, 0, screenWidth, originalHeight);

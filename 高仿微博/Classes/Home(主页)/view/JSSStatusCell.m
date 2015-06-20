@@ -16,7 +16,7 @@
 @interface JSSStatusCell ()
 
 /**
- *  上半部分视图的父视图
+ *  原创微博视图
  */
 @property (nonatomic, weak) UIView *originalView;
 
@@ -55,6 +55,21 @@
  */
 @property (nonatomic, weak) UIImageView *photoImageView;
 
+/**
+ *  转发微博视图
+ */
+@property (nonatomic, weak) UIView *retweetView;
+
+/**
+ *  转发的微博正文 + 昵称
+ */
+@property (nonatomic, weak) UILabel *retweetContentLabel;
+
+/**
+ *  转发的微博图片
+ */
+@property (nonatomic, weak) UIImageView *retweetPhotoImageView;
+
 @end
 
 @implementation JSSStatusCell
@@ -82,41 +97,72 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        UIView *originalView = [[UIView alloc] init];
-        [self.contentView addSubview:originalView];
-        self.originalView = originalView;
+        // 原创微博视图
+        [self setupOriginal];
         
-        UIImageView *iconImageView = [[UIImageView alloc] init];
-        [originalView addSubview:iconImageView];
-        self.iconImageView = iconImageView;
-        
-        UILabel *nameLabel = [[UILabel alloc] init];
-        [originalView addSubview:nameLabel];
-        self.nameLabel = nameLabel;
-        
-        UIImageView *vipImageView = [[UIImageView alloc] init];
-        [vipImageView setContentMode:UIViewContentModeCenter];
-        [originalView addSubview:vipImageView];
-        self.vipImageView = vipImageView;
-        
-        UILabel *timeLabel = [[UILabel alloc] init];
-        [originalView addSubview:timeLabel];
-        self.timeLabel = timeLabel;
-        
-        UILabel *sourceLabel = [[UILabel alloc] init];
-        [originalView addSubview:sourceLabel];
-        self.sourceLabel = sourceLabel;
-        
-        UILabel *contentLabel = [[UILabel alloc] init];
-        [originalView addSubview:contentLabel];
-        [contentLabel setNumberOfLines:0];
-        self.contentLabel = contentLabel;
-        
-        UIImageView *photoImageView = [[UIImageView alloc] init];
-        [originalView addSubview:photoImageView];
-        self.photoImageView = photoImageView;
+        // 转发微博视图
+        [self setupRetweet];
     }
     return self;
+}
+
+/**
+ *  转发微博视图
+ */
+- (void)setupRetweet
+{
+    UIView *retweetView = [[UIView alloc] init];
+    [self.originalView addSubview:retweetView];
+    self.retweetView = retweetView;
+    
+    
+    UILabel *retweetContentLabel = [[UILabel alloc] init];
+    [retweetView addSubview:retweetContentLabel];
+    self.retweetContentLabel = retweetContentLabel;
+    
+    UIImageView *retweetPhotoImageView = [[UIImageView alloc] init];
+    self.retweetPhotoImageView = retweetPhotoImageView;
+    [self.retweetView addSubview:retweetPhotoImageView];
+}
+
+/**
+ *  原创微博视图
+ */
+- (void)setupOriginal
+{
+    UIView *originalView = [[UIView alloc] init];
+    [self.contentView addSubview:originalView];
+    self.originalView = originalView;
+    
+    UIImageView *iconImageView = [[UIImageView alloc] init];
+    [originalView addSubview:iconImageView];
+    self.iconImageView = iconImageView;
+    
+    UILabel *nameLabel = [[UILabel alloc] init];
+    [originalView addSubview:nameLabel];
+    self.nameLabel = nameLabel;
+    
+    UIImageView *vipImageView = [[UIImageView alloc] init];
+    [vipImageView setContentMode:UIViewContentModeCenter];
+    [originalView addSubview:vipImageView];
+    self.vipImageView = vipImageView;
+    
+    UILabel *timeLabel = [[UILabel alloc] init];
+    [originalView addSubview:timeLabel];
+    self.timeLabel = timeLabel;
+    
+    UILabel *sourceLabel = [[UILabel alloc] init];
+    [originalView addSubview:sourceLabel];
+    self.sourceLabel = sourceLabel;
+    
+    UILabel *contentLabel = [[UILabel alloc] init];
+    [originalView addSubview:contentLabel];
+    [contentLabel setNumberOfLines:0];
+    self.contentLabel = contentLabel;
+    
+    UIImageView *photoImageView = [[UIImageView alloc] init];
+    [originalView addSubview:photoImageView];
+    self.photoImageView = photoImageView;
 }
 
 /**

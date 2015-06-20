@@ -41,4 +41,9 @@
  */
 @property (nonatomic, strong) NSArray *pic_urls;
 
+/**
+ *  转发的微博
+ */
+@property (nonatomic, strong) JSSStatus *retweeted_status;
+
 @end

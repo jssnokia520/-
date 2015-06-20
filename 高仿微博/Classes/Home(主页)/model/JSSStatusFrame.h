@@ -22,7 +22,7 @@
 @property (nonatomic, strong) JSSStatus *status;
 
 /**
- *  上半部分视图的父视图
+ *  原创微博视图
  */
 @property (nonatomic, assign) CGRect originalFrame;
 
@@ -65,5 +65,21 @@
  *  高度
  */
 @property (nonatomic, assign) CGFloat cellHeight;
+
+/**
+ *  转发微博视图
+ */
+@property (nonatomic, assign) CGRect retweetViewFrame;
+
+/**
+ *  转发的微博正文 + 昵称
+ */
+@property (nonatomic, assign) CGRect retweetContentLabelFrame;
+
+/**
+ *  转发的微博图片
+ */
+@property (nonatomic, assign) CGRect retweetPhotoImageViewFrame;
+
 
 @end
