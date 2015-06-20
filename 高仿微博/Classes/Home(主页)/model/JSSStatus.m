@@ -7,7 +7,14 @@
 //
 
 #import "JSSStatus.h"
+#import "MJExtension.h"
+#import "JSSPhoto.h"
 
 @implementation JSSStatus
+
+- (NSDictionary *)objectClassInArray
+{
+    return @{@"pic_urls" : [JSSPhoto class]};
+}
 
 @end

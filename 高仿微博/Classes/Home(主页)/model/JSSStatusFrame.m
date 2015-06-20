@@ -48,7 +48,7 @@
      */
     CGFloat iconX = JSSStatusCellMargin;
     CGFloat iconY = JSSStatusCellMargin;
-    CGFloat iconWH = 50;
+    CGFloat iconWH = 35;
     self.iconFrame = CGRectMake(iconX, iconY, iconWH, iconWH);
     
     /**
@@ -98,11 +98,21 @@
     /**
      *  图片
      */
+    CGFloat originalHeight;
+    if (status.pic_urls.count) { // 有图片
+        CGFloat photoX = contentX;
+        CGFloat photoY = CGRectGetMaxY(self.contentFrame) + JSSStatusCellMargin;
+        CGFloat photoW = 100;
+        CGFloat photoH = 120;
+        self.photoFrame = CGRectMake(photoX, photoY, photoW, photoH);
+        originalHeight = CGRectGetMaxY(self.photoFrame);
+    } else { // 没有图片
+        originalHeight = CGRectGetMaxY(self.contentFrame);
+    }
     
     /**
      *  上半部分视图的父视图
      */
-    CGFloat originalHeight = CGRectGetMaxY(self.contentFrame);
     self.originalFrame = CGRectMake(0, 0, screenWidth, originalHeight);
     
     /**

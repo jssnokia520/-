@@ -11,6 +11,7 @@
 #import "JSSStatus.h"
 #import "JSSUser.h"
 #import "UIImageView+WebCache.h"
+#import "JSSPhoto.h"
 
 @interface JSSStatusCell ()
 
@@ -99,7 +100,6 @@
         self.vipImageView = vipImageView;
         
         UILabel *timeLabel = [[UILabel alloc] init];
-        [timeLabel setTextColor:[UIColor orangeColor]];
         [originalView addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
@@ -141,6 +141,7 @@
     [self.vipImageView setFrame:statusFrame.vipFrame];
     if (user.isVip) {
         [self.vipImageView setHidden:NO];
+        [self.nameLabel setTextColor:[UIColor orangeColor]];
         NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%ld", user.mbrank];
         [self.vipImageView setImage:[UIImage imageNamed:vipName]];
     } else {
@@ -159,7 +160,15 @@
     [self.contentLabel setFont:JSSContentFont];
     [self.contentLabel setText:status.text];
     
-    [self.photoImageView setFrame:statusFrame.photoFrame];
+    if (status.pic_urls.count) {
+        [self.photoImageView setHidden:NO];
+        [self.photoImageView setFrame:statusFrame.photoFrame];
+        JSSPhoto *photo = [status.pic_urls lastObject];
+        NSURL *url = [NSURL URLWithString:photo.thumbnail_pic];
+        [self.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+    } else {
+        [self.photoImageView setHidden:YES];
+    }
 }
 
 @end

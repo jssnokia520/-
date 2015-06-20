@@ -50,9 +50,6 @@
     // 更新首页
     [self updateHomePage];
     
-    // 加载微博数据
-    [self loadNewStatus];
-    
     // 添加下拉刷新控件
     [self setRefreshControl];
     
@@ -205,28 +202,6 @@
         } completion:^(BOOL finished) {
             [label removeFromSuperview];
         }];
-    }];
-}
-
-/**
- *  加载微博数据
- */
-- (void)loadNewStatus
-{
-    JSSOAuthAccount *account = [JSSOAuthAccountTool account];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"access_token"] = account.access_token;
-    
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        // 获取微博数据
-        NSArray *statuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        NSArray *statusFrames = [self statusFramesWithStatus:statuses];
-        [self.statusFrames addObjectsFromArray:statusFrames];
-        [self.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
 }
 

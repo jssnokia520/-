@@ -40,6 +40,7 @@
 		7F4E98CE1B2896580081EFB7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98C31B2896580081EFB7 /* AFURLRequestSerialization.m */; };
 		7F4E98CF1B2896580081EFB7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98C51B2896580081EFB7 /* AFURLResponseSerialization.m */; };
 		7F4E98D01B2896580081EFB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98C71B2896580081EFB7 /* AFURLSessionManager.m */; };
+		7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */; };
 		7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */; };
 		7F5F37651B25DBD000D285DC /* JSSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */; };
 		7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */; };
@@ -169,6 +170,8 @@
 		7F4E98C51B2896580081EFB7 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		7F4E98C61B2896580081EFB7 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		7F4E98C71B2896580081EFB7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		7F57F04D1B355DDA00ACD4B8 /* JSSPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSPhoto.h; sourceTree = "<group>"; };
+		7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSPhoto.m; sourceTree = "<group>"; };
 		7F5F37601B25AD0A00D285DC /* JSSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSearchBar.h; sourceTree = "<group>"; };
 		7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSearchBar.m; sourceTree = "<group>"; };
 		7F5F37631B25DBD000D285DC /* JSSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDropDownMenu.h; sourceTree = "<group>"; };
@@ -531,6 +534,8 @@
 				7FAA88651B2F091200C50303 /* JSSUser.m */,
 				7FE956651B3475AB006B3317 /* JSSStatusFrame.h */,
 				7FE956661B3475AB006B3317 /* JSSStatusFrame.m */,
+				7F57F04D1B355DDA00ACD4B8 /* JSSPhoto.h */,
+				7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -895,6 +900,7 @@
 				7FAA88811B2F1B1300C50303 /* MJFoundation.m in Sources */,
 				7F2D92851B2DE28100A8657C /* SDWebImageDecoder.m in Sources */,
 				7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */,
+				7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */,
 				7F4E98CC1B2896580081EFB7 /* AFSecurityPolicy.m in Sources */,
 				7FAA88871B2F1B1300C50303 /* NSObject+MJCoding.m in Sources */,
 				7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */,

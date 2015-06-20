@@ -36,4 +36,9 @@
  */
 @property (nonatomic, copy) NSString *source;
 
+/**
+ *  图片数组
+ */
+@property (nonatomic, strong) NSArray *pic_urls;
+
 @end
