@@ -26,4 +26,14 @@
  */
 @property (nonatomic, strong) JSSUser *user;
 
+/**
+ *  微博创建时间
+ */
+@property (nonatomic, copy) NSString *created_at;
+
+/**
+ *  微博来源
+ */
+@property (nonatomic, copy) NSString *source;
+
 @end

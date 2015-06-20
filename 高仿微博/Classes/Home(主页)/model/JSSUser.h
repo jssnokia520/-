@@ -25,4 +25,18 @@
  */
 @property (nonatomic, copy) NSString *profile_image_url;
 
+/**
+ *  是否会员
+ */
+@property (nonatomic, assign, getter = isVip) BOOL vip;
+
+/**
+ *  会员类型
+ */
+@property (nonatomic, assign) NSInteger mbtype;
+/**
+ *  会员等级
+ */
+@property (nonatomic, assign) NSInteger mbrank;
+
 @end

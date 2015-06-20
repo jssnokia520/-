@@ -24,20 +24,20 @@
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
 /**
- *  微博模型
+ *  微博控件
  */
-@property (nonatomic, strong) NSMutableArray *statuses;
+@property (nonatomic, strong) NSMutableArray *statusFrames;
 
 @end
 
 @implementation JSSHomeViewController
 
-- (NSMutableArray *)statuses
+- (NSMutableArray *)statusFrames
 {
-    if (_statuses == nil) {
-        _statuses = [NSMutableArray array];
+    if (_statusFrames == nil) {
+        _statusFrames = [NSMutableArray array];
     }
-    return _statuses;
+    return _statusFrames;
 }
 
 - (void)viewDidLoad
@@ -60,7 +60,7 @@
     [self setFooter];
     
     // 每隔一段时间自动刷新微博
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(autoRefresh) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60.0 target:self selector:@selector(autoRefresh) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
@@ -133,9 +133,9 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
     // 获取第一条微博
-    JSSStatus *status = [self.statuses firstObject];
-    if (status) {
-        parameters[@"since_id"] = status.idstr;
+    JSSStatusFrame *statusFrame = [self.statusFrames firstObject];
+    if (statusFrame.status) {
+        parameters[@"since_id"] = statusFrame.status.idstr;
     }
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
@@ -143,20 +143,34 @@
         [refreshControl endRefreshing];
         
         // 获取微博数据
-        NSArray *status = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        NSRange range = NSMakeRange(0, status.count);
+        NSArray *newStatuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatusFrames = [self statusFramesWithStatus:newStatuses];
+        NSRange range = NSMakeRange(0, newStatuses.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-        [self.statuses insertObjects:status atIndexes:indexSet];
+        [self.statusFrames insertObjects:newStatusFrames atIndexes:indexSet];
         
         // 刷新表格
         [self.tableView reloadData];
         
         // 显示提示标签
-        [self setTipLabel:status.count];
+        [self setTipLabel:newStatusFrames.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 结束刷新
         [refreshControl endRefreshing];
     }];
+}
+
+- (NSArray *)statusFramesWithStatus:(NSArray *)statuses
+{
+    NSMutableArray *statusFrames = [NSMutableArray array];
+    
+    for (JSSStatus *status in statuses) {
+        JSSStatusFrame *frame = [[JSSStatusFrame alloc] init];
+        frame.status = status;
+        [statusFrames addObject:frame];
+    }
+    
+    return statusFrames;
 }
 
 /**
@@ -208,8 +222,9 @@
     
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
         // 获取微博数据
-        NSArray *status = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-        [self.statuses addObjectsFromArray:status];
+        NSArray *statuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusFrames = [self statusFramesWithStatus:statuses];
+        [self.statusFrames addObjectsFromArray:statusFrames];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     }];
@@ -217,18 +232,24 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.statuses.count;
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     JSSStatusCell *cell = [JSSStatusCell cellWithTableView:tableView];
     
-    JSSStatus *status = self.statuses[indexPath.row];
+    JSSStatusFrame *statusFrame = self.statusFrames[indexPath.row];
     
-    cell.statusFrame.status = status;
+    cell.statusFrame = statusFrame;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    JSSStatusFrame *frame = self.statusFrames[indexPath.row];
+    return frame.cellHeight;
 }
 
 /**
@@ -237,7 +258,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     // 如果没有数据就直接返回
-    if (self.statuses.count == 0) {
+    if (self.statusFrames.count == 0) {
         return;
     }
     

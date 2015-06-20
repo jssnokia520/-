@@ -10,4 +10,11 @@
 
 @implementation JSSUser
 
+- (void)setMbrank:(NSInteger )mbrank
+{
+    _mbrank = mbrank;
+    
+    self.vip = _mbrank > 2;
+}
+
 @end

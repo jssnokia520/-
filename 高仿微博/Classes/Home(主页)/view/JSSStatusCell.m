@@ -82,6 +82,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         UIView *originalView = [[UIView alloc] init];
+        [self.contentView addSubview:originalView];
         self.originalView = originalView;
         
         UIImageView *iconImageView = [[UIImageView alloc] init];
@@ -93,10 +94,12 @@
         self.nameLabel = nameLabel;
         
         UIImageView *vipImageView = [[UIImageView alloc] init];
+        [vipImageView setContentMode:UIViewContentModeCenter];
         [originalView addSubview:vipImageView];
         self.vipImageView = vipImageView;
         
         UILabel *timeLabel = [[UILabel alloc] init];
+        [timeLabel setTextColor:[UIColor orangeColor]];
         [originalView addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
@@ -106,6 +109,7 @@
         
         UILabel *contentLabel = [[UILabel alloc] init];
         [originalView addSubview:contentLabel];
+        [contentLabel setNumberOfLines:0];
         self.contentLabel = contentLabel;
         
         UIImageView *photoImageView = [[UIImageView alloc] init];
@@ -131,16 +135,28 @@
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     [self.nameLabel setFrame:statusFrame.nameFrame];
+    [self.nameLabel setFont:JSSNameFont];
     [self.nameLabel setText:user.name];
     
     [self.vipImageView setFrame:statusFrame.vipFrame];
-    [self.vipImageView setImage:[UIImage imageNamed:@"common_icon_membership_level1"]];
+    if (user.isVip) {
+        [self.vipImageView setHidden:NO];
+        NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%ld", user.mbrank];
+        [self.vipImageView setImage:[UIImage imageNamed:vipName]];
+    } else {
+        [self.vipImageView setHidden:YES];
+    }
     
     [self.timeLabel setFrame:statusFrame.timeFrame];
+    [self.timeLabel setFont:JSSTimeFont];
+    [self.timeLabel setText:status.created_at];
     
     [self.sourceLabel setFrame:statusFrame.sourceFrame];
+    [self.sourceLabel setFont:JSSSourceFont];
+    [self.sourceLabel setText:status.source];
     
     [self.contentLabel setFrame:statusFrame.contentFrame];
+    [self.contentLabel setFont:JSSContentFont];
     [self.contentLabel setText:status.text];
     
     [self.photoImageView setFrame:statusFrame.photoFrame];

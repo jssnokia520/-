@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 @class JSSStatus;
 
+#define JSSNameFont [UIFont systemFontOfSize:15]
+#define JSSTimeFont [UIFont systemFontOfSize:13]
+#define JSSSourceFont [UIFont systemFontOfSize:13]
+#define JSSContentFont [UIFont systemFontOfSize:13]
+
 @interface JSSStatusFrame : NSObject
 
 /**
@@ -59,6 +64,6 @@
 /**
  *  高度
  */
-@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, assign) CGFloat cellHeight;
 
 @end
