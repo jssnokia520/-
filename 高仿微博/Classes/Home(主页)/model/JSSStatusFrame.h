@@ -13,6 +13,7 @@
 #define JSSTimeFont [UIFont systemFontOfSize:13]
 #define JSSSourceFont [UIFont systemFontOfSize:13]
 #define JSSContentFont [UIFont systemFontOfSize:13]
+#define JSSRetweetContentFont [UIFont systemFontOfSize:13]
 
 @interface JSSStatusFrame : NSObject
 

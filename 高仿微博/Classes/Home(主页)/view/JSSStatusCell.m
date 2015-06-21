@@ -84,7 +84,7 @@
     JSSStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     if (cell == nil) {
-        cell = [[self alloc] init];
+        cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
     return cell;
@@ -112,11 +112,14 @@
 - (void)setupRetweet
 {
     UIView *retweetView = [[UIView alloc] init];
+    [retweetView setBackgroundColor:JSSColor(241, 241, 241)];
     [self.originalView addSubview:retweetView];
     self.retweetView = retweetView;
     
     
     UILabel *retweetContentLabel = [[UILabel alloc] init];
+    [retweetContentLabel setNumberOfLines:0];
+    [retweetContentLabel setFont:JSSRetweetContentFont];
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
     
@@ -214,6 +217,26 @@
         [self.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
     } else {
         [self.photoImageView setHidden:YES];
+    }
+    
+    if (status.retweeted_status) { // 有转发微博
+        [self.retweetView setHidden:NO];
+        [self.retweetView setFrame:statusFrame.retweetViewFrame];
+        
+        [self.retweetContentLabel setFrame:statusFrame.retweetContentLabelFrame];
+        [self.retweetContentLabel setText:[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text]];
+        
+        if (status.retweeted_status.pic_urls.count) { // 转发微博有图片
+            [self.retweetPhotoImageView setHidden:NO];
+            [self.retweetPhotoImageView setFrame:statusFrame.retweetPhotoImageViewFrame];
+            JSSPhoto *photo = [status.retweeted_status.pic_urls firstObject];
+            NSURL *url = [NSURL URLWithString:photo.thumbnail_pic];
+            [self.retweetPhotoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        } else {
+            [self.retweetPhotoImageView setHidden:YES];
+        }
+    } else {
+        [self.retweetView setHidden:YES];
     }
 }
 

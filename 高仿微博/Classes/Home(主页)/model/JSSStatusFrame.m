@@ -106,31 +106,56 @@
         CGFloat photoH = 120;
         self.photoFrame = CGRectMake(photoX, photoY, photoW, photoH);
         originalHeight = CGRectGetMaxY(self.photoFrame);
-    } else { // 没有图片
+    } else {
         originalHeight = CGRectGetMaxY(self.contentFrame);
     }
-    
-    /**
-     *  转发微博视图
-     */
-    
-    /**
-     *  转发的微博正文 + 昵称
-     */
-    
-    /**
-     *  转发的微博图片
-     */
     
     /**
      *  上半部分视图的父视图
      */
     self.originalFrame = CGRectMake(0, 0, screenWidth, originalHeight);
     
+    CGFloat cellHeight;
+    if (status.retweeted_status) { // 有转发的时候
+        /**
+         *  转发的微博正文 + 昵称
+         */
+        CGFloat retweetContentX = JSSStatusCellMargin;
+        CGFloat retweetContentY = JSSStatusCellMargin;
+        CGSize retweetContentSize = [self textSizeWithText:[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text] font:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
+        self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
+        
+        /**
+         *  转发的微博图片
+         */
+        CGFloat retweetHeight;
+        if (status.retweeted_status.pic_urls.count) { // 转发微博有图片
+            CGFloat retweetPhotoX = JSSStatusCellMargin;
+            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
+            CGFloat retweetPhotoW = 100;
+            CGFloat retweetPhotoH = 120;
+            self.retweetPhotoImageViewFrame = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoW, retweetPhotoH);
+            retweetHeight = CGRectGetMaxY(self.retweetPhotoImageViewFrame) + JSSStatusCellMargin;
+        } else {
+            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
+        }
+        
+        /**
+         *  转发微博视图
+         */
+        CGFloat retweetViewX = 0;
+        CGFloat retweetViewY = CGRectGetMaxY(self.originalFrame) + JSSStatusCellMargin;
+        CGFloat retweetViewW = screenWidth;
+        self.retweetViewFrame = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetHeight);
+        cellHeight = CGRectGetMaxY(self.retweetViewFrame) + JSSStatusCellMargin;
+    } else { // 没有转发的时候
+        cellHeight = CGRectGetMaxY(self.originalFrame) + JSSStatusCellMargin;
+    }
+    
     /**
      *  高度
      */
-    self.cellHeight = CGRectGetMaxY(self.originalFrame) + JSSStatusCellMargin;
+    self.cellHeight = cellHeight;
 }
 
 @end
