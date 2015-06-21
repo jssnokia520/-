@@ -126,7 +126,7 @@
  */
 - (void)setupToolbar
 {
-    JSSToolbar *toolbar = [[JSSToolbar alloc] init];
+    JSSToolbar *toolbar = [JSSToolbar toolbar];
     [self addSubview:toolbar];
     self.toolbar = toolbar;
 }
@@ -267,6 +267,7 @@
     }
     
     [self.toolbar setFrame:statusFrame.toolbarFrame];
+    [self.toolbar setStatus:status];
 }
 
 @end

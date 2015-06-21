@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JSSStatus;
 
 @interface JSSToolbar : UIView
+
++ (instancetype)toolbar;
+
+@property (nonatomic, strong) JSSStatus *status;
 
 @end

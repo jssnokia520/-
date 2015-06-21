@@ -149,7 +149,7 @@
         self.retweetViewFrame = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetHeight);
         cellHeight = CGRectGetMaxY(self.retweetViewFrame) + JSSStatusCellMargin;
     } else { // 没有转发的时候
-        cellHeight = CGRectGetMaxY(self.originalFrame) + JSSStatusCellMargin;
+        cellHeight = CGRectGetMaxY(self.originalFrame);
     }
     
     /**

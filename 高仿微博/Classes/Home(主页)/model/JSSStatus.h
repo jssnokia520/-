@@ -46,4 +46,19 @@
  */
 @property (nonatomic, strong) JSSStatus *retweeted_status;
 
+/**
+ *  转发数
+ */
+@property (nonatomic, assign) NSInteger reposts_count;
+
+/**
+ *  评论数
+ */
+@property (nonatomic, assign) NSInteger comments_count;
+
+/**
+ *  表态数
+ */
+@property (nonatomic, assign) NSInteger attitudes_count;
+
 @end
