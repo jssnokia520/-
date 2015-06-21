@@ -12,6 +12,7 @@
 #import "JSSUser.h"
 #import "UIImageView+WebCache.h"
 #import "JSSPhoto.h"
+#import "JSSToolbar.h"
 
 @interface JSSStatusCell ()
 
@@ -73,7 +74,7 @@
 /**
  *  工具条视图
  */
-@property (nonatomic, weak) UIView *toolbar;
+@property (nonatomic, weak) JSSToolbar *toolbar;
 
 @end
 
@@ -102,7 +103,11 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        [self setBackgroundColor:JSSColor(241, 241, 241)];
+        // 取消选中样式
+        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        // 清空Cell北京颜色
+        [self setBackgroundColor:[UIColor clearColor]];
         
         // 原创微博视图
         [self setupOriginal];
@@ -121,8 +126,7 @@
  */
 - (void)setupToolbar
 {
-    UIView *toolbar = [[UIView alloc] init];
-    [toolbar setBackgroundColor:[UIColor orangeColor]];
+    JSSToolbar *toolbar = [[JSSToolbar alloc] init];
     [self addSubview:toolbar];
     self.toolbar = toolbar;
 }

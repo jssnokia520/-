@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7F10DAD21B298865000EB915 /* JSSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F10DAD11B298865000EB915 /* JSSTitleButton.m */; };
+		7F131D061B36ABB400CEF02F /* JSSToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F131D051B36ABB400CEF02F /* JSSToolbar.m */; };
 		7F2D92811B2DE28100A8657C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D92611B2DE28100A8657C /* MKAnnotationView+WebCache.m */; };
 		7F2D92821B2DE28100A8657C /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D92631B2DE28100A8657C /* NSData+ImageContentType.m */; };
 		7F2D92831B2DE28100A8657C /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D92651B2DE28100A8657C /* SDImageCache.m */; };
@@ -105,6 +106,8 @@
 /* Begin PBXFileReference section */
 		7F10DAD01B298865000EB915 /* JSSTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTitleButton.h; sourceTree = "<group>"; };
 		7F10DAD11B298865000EB915 /* JSSTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTitleButton.m; sourceTree = "<group>"; };
+		7F131D041B36ABB400CEF02F /* JSSToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSToolbar.h; sourceTree = "<group>"; };
+		7F131D051B36ABB400CEF02F /* JSSToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSToolbar.m; sourceTree = "<group>"; };
 		7F2D92601B2DE28100A8657C /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		7F2D92611B2DE28100A8657C /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		7F2D92621B2DE28100A8657C /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 				7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */,
 				7FE956621B346A58006B3317 /* JSSStatusCell.h */,
 				7FE956631B346A58006B3317 /* JSSStatusCell.m */,
+				7F131D041B36ABB400CEF02F /* JSSToolbar.h */,
+				7F131D051B36ABB400CEF02F /* JSSToolbar.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -931,6 +936,7 @@
 				7F10DAD21B298865000EB915 /* JSSTitleButton.m in Sources */,
 				7FAA88821B2F1B1300C50303 /* MJIvar.m in Sources */,
 				7FAA88841B2F1B1300C50303 /* MJMethod.m in Sources */,
+				7F131D061B36ABB400CEF02F /* JSSToolbar.m in Sources */,
 				7F4E98C91B2896580081EFB7 /* AFHTTPRequestOperationManager.m in Sources */,
 				7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */,
 				7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */,

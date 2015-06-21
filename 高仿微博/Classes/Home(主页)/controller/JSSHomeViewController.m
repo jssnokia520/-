@@ -44,6 +44,10 @@
 {
     [super viewDidLoad];
     
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self.tableView setBackgroundColor:JSSColor(241, 241, 241)];
+    
     // 自定义按钮代替导航条的标题视图
     [self setUpTitleButton];
     

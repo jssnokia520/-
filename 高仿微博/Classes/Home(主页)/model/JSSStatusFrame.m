@@ -113,7 +113,7 @@
     /**
      *  上半部分视图的父视图
      */
-    self.originalFrame = CGRectMake(0, 0, screenWidth, originalHeight);
+    self.originalFrame = CGRectMake(0, JSSStatusCellMargin, screenWidth, originalHeight);
     
     CGFloat cellHeight;
     if (status.retweeted_status) { // 有转发的时候
@@ -121,7 +121,7 @@
          *  转发的微博正文 + 昵称
          */
         CGFloat retweetContentX = JSSStatusCellMargin;
-        CGFloat retweetContentY = JSSStatusCellMargin;
+        CGFloat retweetContentY = 0;
         CGSize retweetContentSize = [self textSizeWithText:[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text] font:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
         self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
@@ -135,9 +135,9 @@
             CGFloat retweetPhotoW = 100;
             CGFloat retweetPhotoH = 120;
             self.retweetPhotoImageViewFrame = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoW, retweetPhotoH);
-            retweetHeight = CGRectGetMaxY(self.retweetPhotoImageViewFrame);
+            retweetHeight = CGRectGetMaxY(self.retweetPhotoImageViewFrame) + JSSStatusCellMargin;
         } else {
-            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame);
+            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
         }
         
         /**
@@ -164,7 +164,7 @@
     /**
      *  高度
      */
-    self.cellHeight = CGRectGetMaxY(self.toolbarFrame) + JSSStatusCellMargin;
+    self.cellHeight = CGRectGetMaxY(self.toolbarFrame);
 }
 
 @end
