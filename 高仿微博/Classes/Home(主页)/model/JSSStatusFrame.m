@@ -105,9 +105,9 @@
         CGFloat photoW = 100;
         CGFloat photoH = 120;
         self.photoFrame = CGRectMake(photoX, photoY, photoW, photoH);
-        originalHeight = CGRectGetMaxY(self.photoFrame);
+        originalHeight = CGRectGetMaxY(self.photoFrame) + JSSStatusCellMargin;
     } else {
-        originalHeight = CGRectGetMaxY(self.contentFrame);
+        originalHeight = CGRectGetMaxY(self.contentFrame) + JSSStatusCellMargin;
     }
     
     /**
@@ -135,16 +135,16 @@
             CGFloat retweetPhotoW = 100;
             CGFloat retweetPhotoH = 120;
             self.retweetPhotoImageViewFrame = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoW, retweetPhotoH);
-            retweetHeight = CGRectGetMaxY(self.retweetPhotoImageViewFrame) + JSSStatusCellMargin;
+            retweetHeight = CGRectGetMaxY(self.retweetPhotoImageViewFrame);
         } else {
-            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
+            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame);
         }
         
         /**
          *  转发微博视图
          */
         CGFloat retweetViewX = 0;
-        CGFloat retweetViewY = CGRectGetMaxY(self.originalFrame) + JSSStatusCellMargin;
+        CGFloat retweetViewY = CGRectGetMaxY(self.originalFrame);
         CGFloat retweetViewW = screenWidth;
         self.retweetViewFrame = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetHeight);
         cellHeight = CGRectGetMaxY(self.retweetViewFrame) + JSSStatusCellMargin;
@@ -153,9 +153,18 @@
     }
     
     /**
+     *  工具条视图
+     */
+    CGFloat toolbarX = 0;
+    CGFloat toolbarY = cellHeight;
+    CGFloat toolbarW = screenWidth;
+    CGFloat toolbarH = 35;
+    self.toolbarFrame = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
+    
+    /**
      *  高度
      */
-    self.cellHeight = cellHeight;
+    self.cellHeight = CGRectGetMaxY(self.toolbarFrame) + JSSStatusCellMargin;
 }
 
 @end

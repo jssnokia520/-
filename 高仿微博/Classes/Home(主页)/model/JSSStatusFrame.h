@@ -82,5 +82,9 @@
  */
 @property (nonatomic, assign) CGRect retweetPhotoImageViewFrame;
 
+/**
+ *  工具条视图
+ */
+@property (nonatomic, assign) CGRect toolbarFrame;
 
 @end

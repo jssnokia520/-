@@ -70,6 +70,11 @@
  */
 @property (nonatomic, weak) UIImageView *retweetPhotoImageView;
 
+/**
+ *  工具条视图
+ */
+@property (nonatomic, weak) UIView *toolbar;
+
 @end
 
 @implementation JSSStatusCell
@@ -97,13 +102,29 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        [self setBackgroundColor:JSSColor(241, 241, 241)];
+        
         // 原创微博视图
         [self setupOriginal];
         
         // 转发微博视图
         [self setupRetweet];
+        
+        // 工具条视图
+        [self setupToolbar];
     }
     return self;
+}
+
+/**
+ *  工具条视图
+ */
+- (void)setupToolbar
+{
+    UIView *toolbar = [[UIView alloc] init];
+    [toolbar setBackgroundColor:[UIColor orangeColor]];
+    [self addSubview:toolbar];
+    self.toolbar = toolbar;
 }
 
 /**
@@ -134,6 +155,7 @@
 - (void)setupOriginal
 {
     UIView *originalView = [[UIView alloc] init];
+    [originalView setBackgroundColor:[UIColor whiteColor]];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
@@ -195,6 +217,7 @@
         [self.vipImageView setImage:[UIImage imageNamed:vipName]];
     } else {
         [self.vipImageView setHidden:YES];
+        [self.nameLabel setTextColor:[UIColor blackColor]];
     }
     
     [self.timeLabel setFrame:statusFrame.timeFrame];
@@ -238,6 +261,8 @@
     } else {
         [self.retweetView setHidden:YES];
     }
+    
+    [self.toolbar setFrame:statusFrame.toolbarFrame];
 }
 
 @end
