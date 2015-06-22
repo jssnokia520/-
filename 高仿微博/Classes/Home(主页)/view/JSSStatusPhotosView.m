@@ -7,8 +7,7 @@
 //
 
 #import "JSSStatusPhotosView.h"
-#import "JSSPhoto.h"
-#import "UIImageView+WebCache.h"
+#import "JSSStatusPhotoView.h"
 
 #define JSSPhotoWH 80
 #define JSSMargin 10
@@ -24,16 +23,15 @@
     _photos = photos;
     
     while (self.subviews.count < photos.count) {
-        UIImageView *imageView = [[UIImageView alloc] init];
+        JSSStatusPhotoView *imageView = [[JSSStatusPhotoView alloc] init];
         [self addSubview:imageView];
     }
     
     for (NSInteger i = 0; i < self.subviews.count; i++) {
-        UIImageView *imageView = self.subviews[i];
+        JSSStatusPhotoView *imageView = self.subviews[i];
         if (i < photos.count) {
             [imageView setHidden:NO];
-            JSSPhoto *photo = photos[i];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            imageView.photo = photos[i];
         } else {
             [imageView setHidden:YES];
         }
@@ -49,13 +47,13 @@
     
     NSInteger maxRows = JSSMaxRows(self.subviews.count);
     for (NSInteger i = 0; i < self.subviews.count; i++) {
-        UIImageView *imageView = self.subviews[i];
+        JSSStatusPhotoView *imageView = self.subviews[i];
         
         NSInteger col = i / maxRows;
         NSInteger row = i % maxRows;
         
-        CGFloat imageViewX = (JSSPhotoWH + JSSMargin) * row + JSSMargin;
-        CGFloat imageViewY = (JSSPhotoWH + JSSMargin) * col + JSSMargin;
+        CGFloat imageViewX = (JSSPhotoWH + JSSMargin) * row;
+        CGFloat imageViewY = (JSSPhotoWH + JSSMargin) * col;
         
         [imageView setFrame:CGRectMake(imageViewX, imageViewY, JSSPhotoWH, JSSPhotoWH)];
     }
@@ -66,8 +64,8 @@
  */
 + (CGSize)sizeWithCount:(NSInteger)count
 {
-    CGFloat width = (JSSPhotoWH + JSSMargin) * JSSMaxRows(count) + JSSMargin;
-    CGFloat height = (JSSPhotoWH + JSSMargin) * ((count + JSSMaxRows(count) - 1) / JSSMaxRows(count)) + JSSMargin;
+    CGFloat width = (JSSPhotoWH + JSSMargin) * JSSMaxRows(count);
+    CGFloat height = (JSSPhotoWH + JSSMargin) * ((count + JSSMaxRows(count) - 1) / JSSMaxRows(count)) - JSSMargin;
     
     return CGSizeMake(width, height);
 }
