@@ -10,27 +10,9 @@
 #import "JSSStatus.h"
 #import "JSSUser.h"
 
-#define JSSStatusCellMargin 10
-
-
 @implementation JSSStatusFrame
 
-/**
- *  根据文字生成控件大小
- */
-- (CGSize)textSizeWithText:(NSString *)text font:(UIFont *)font
-{
-    return [self textSizeWithText:text font:font textWidth:MAXFLOAT];
-}
 
-- (CGSize)textSizeWithText:(NSString *)text font:(UIFont *)font textWidth:(CGFloat)width
-{
-    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
-    attr[NSFontAttributeName] = font;
-    
-    CGSize size = CGSizeMake(width, MAXFLOAT);
-    return [text boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attr context:nil].size;
-}
 
 /**
  *  微博模型
@@ -56,7 +38,7 @@
      */
     CGFloat nameX = CGRectGetMaxX(self.iconFrame) + JSSStatusCellMargin;
     CGFloat nameY = iconY;
-    CGSize nameSize = [self textSizeWithText:user.name font:JSSNameFont];
+    CGSize nameSize = [user.name textSizeWithFont:JSSNameFont];
     self.nameFrame = (CGRect){{nameX, nameY}, nameSize};
     
     /**
@@ -74,7 +56,7 @@
      */
     CGFloat timeX = CGRectGetMaxX(self.iconFrame) + JSSStatusCellMargin;
     CGFloat timeY = CGRectGetMaxY(self.nameFrame) + JSSStatusCellMargin;
-    CGSize timeSize = [self textSizeWithText:status.created_at font:JSSTimeFont];
+    CGSize timeSize = [status.created_at textSizeWithFont:JSSTimeFont];
     self.timeFrame = (CGRect){{timeX, timeY}, timeSize};
     
     /**
@@ -82,7 +64,7 @@
      */
     CGFloat sourceX = CGRectGetMaxX(self.timeFrame) + JSSStatusCellMargin;
     CGFloat sourceY = CGRectGetMaxY(self.nameFrame) + JSSStatusCellMargin;
-    CGSize sourceSize = [self textSizeWithText:status.source font:JSSSourceFont];
+    CGSize sourceSize = [status.source textSizeWithFont:JSSSourceFont];
     self.sourceFrame = (CGRect){{sourceX, sourceY}, sourceSize};
     
     /**
@@ -92,7 +74,7 @@
     CGFloat contentY = MAX(CGRectGetMaxY(self.iconFrame), CGRectGetMaxY(self.timeFrame)) + JSSStatusCellMargin;
     CGFloat contentX = iconX;
     CGFloat width = screenWidth - contentX * 2;
-    CGSize contentSize = [self textSizeWithText:status.text font:JSSContentFont textWidth:width];
+    CGSize contentSize = [status.text textSizeWithFont:JSSContentFont textWidth:width];
     self.contentFrame = (CGRect){{contentX, contentY}, contentSize};
     
     /**
@@ -122,7 +104,7 @@
          */
         CGFloat retweetContentX = JSSStatusCellMargin;
         CGFloat retweetContentY = 0;
-        CGSize retweetContentSize = [self textSizeWithText:[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text] font:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
+        CGSize retweetContentSize = [[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text] textSizeWithFont:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
         self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
         /**

@@ -82,6 +82,8 @@
 		7FE130651B37E3F2007A5E09 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */; };
 		7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956631B346A58006B3317 /* JSSStatusCell.m */; };
 		7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956661B3475AB006B3317 /* JSSStatusFrame.m */; };
+		7FEE15F41B381970007A5765 /* fakeStatus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE15F31B38196F007A5765 /* fakeStatus.plist */; };
+		7FEE15F71B38206C007A5765 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE15F61B38206C007A5765 /* NSString+Extension.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -252,6 +254,9 @@
 		7FE956631B346A58006B3317 /* JSSStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusCell.m; sourceTree = "<group>"; };
 		7FE956651B3475AB006B3317 /* JSSStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusFrame.h; sourceTree = "<group>"; };
 		7FE956661B3475AB006B3317 /* JSSStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusFrame.m; sourceTree = "<group>"; };
+		7FEE15F31B38196F007A5765 /* fakeStatus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fakeStatus.plist; sourceTree = "<group>"; };
+		7FEE15F51B38206C007A5765 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		7FEE15F61B38206C007A5765 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -588,6 +593,8 @@
 				7F395C801B294A12006ED46A /* UIWindow+Extension.m */,
 				7FE130631B37E3F2007A5E09 /* NSDate+Extension.h */,
 				7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */,
+				7FEE15F51B38206C007A5765 /* NSString+Extension.h */,
+				7FEE15F61B38206C007A5765 /* NSString+Extension.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -759,6 +766,7 @@
 		7FFD45D91B24677C00A7F4BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FEE15F31B38196F007A5765 /* fakeStatus.plist */,
 				7FFD45EA1B24677C00A7F4BF /* Images.xcassets */,
 				7FFD45DA1B24677C00A7F4BF /* 高仿微博-Info.plist */,
 				7FFD45DB1B24677C00A7F4BF /* InfoPlist.strings */,
@@ -867,6 +875,7 @@
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
 				7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */,
 				7FD107D41B255B0D00571CE4 /* JSSTest1ViewController.xib in Resources */,
+				7FEE15F41B381970007A5765 /* fakeStatus.plist in Resources */,
 				7F395C751B292C3A006ED46A /* MBProgressHUD.bundle in Resources */,
 				7FC5E09F1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib in Resources */,
 			);
@@ -892,6 +901,7 @@
 				7F4E98CE1B2896580081EFB7 /* AFURLRequestSerialization.m in Sources */,
 				7F4E98CD1B2896580081EFB7 /* AFURLConnectionOperation.m in Sources */,
 				7FAA88631B2F08BC00C50303 /* JSSStatus.m in Sources */,
+				7FEE15F71B38206C007A5765 /* NSString+Extension.m in Sources */,
 				7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */,
 				7FD107D11B255B0D00571CE4 /* JSSMessageCenterViewController.m in Sources */,
 				7F2D92841B2DE28100A8657C /* SDWebImageCompat.m in Sources */,

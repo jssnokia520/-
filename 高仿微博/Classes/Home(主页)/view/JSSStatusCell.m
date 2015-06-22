@@ -228,9 +228,17 @@
     [self.timeLabel setFont:JSSTimeFont];
     [self.timeLabel setText:status.created_at];
     
+    // 重新计算时间标签
+    CGSize timeSize = [status.created_at textSizeWithFont:JSSTimeFont];
+    self.timeLabel.size = timeSize;
+    
     [self.sourceLabel setFrame:statusFrame.sourceFrame];
     [self.sourceLabel setFont:JSSSourceFont];
     [self.sourceLabel setText:status.source];
+    
+    // 重新计算来源标签
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame);
+    self.sourceLabel.x = sourceX + JSSStatusCellMargin;
     
     [self.contentLabel setFrame:statusFrame.contentFrame];
     [self.contentLabel setFont:JSSContentFont];

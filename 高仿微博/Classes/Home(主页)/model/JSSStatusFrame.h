@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class JSSStatus;
 
+#define JSSStatusCellMargin 10
 #define JSSNameFont [UIFont systemFontOfSize:15]
 #define JSSTimeFont [UIFont systemFontOfSize:13]
 #define JSSSourceFont [UIFont systemFontOfSize:13]
