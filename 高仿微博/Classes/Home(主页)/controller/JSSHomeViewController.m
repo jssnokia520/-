@@ -267,7 +267,7 @@
     parameters[@"access_token"] = account.access_token;
     JSSStatusFrame *statusFrame = [self.statusFrames lastObject];
     if (statusFrame.status) {
-        parameters[@"max_id"] = @(statusFrame.status.idstr.longLongValue);
+        parameters[@"max_id"] = @(statusFrame.status.idstr.longLongValue - 1);
     }
 
     [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
