@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    JSSVerifiedTypeNone = -1,
+    JSSVerifiedTypePersonal = 0,
+    JSSVerifiedTypeEnterprice = 2,
+    JSSVerifiedTypeMedia = 3,
+    JSSVerifiedTypeWebsite = 5,
+    JSSVerifiedTypeDaren = 220
+} JSSVerifiedType;
+
 @interface JSSUser : NSObject
 
 /**
@@ -38,5 +47,10 @@
  *  会员等级
  */
 @property (nonatomic, assign) NSInteger mbrank;
+
+/**
+ *  verified_type 认证类型
+ */
+@property (nonatomic, assign) JSSVerifiedType verifiedType;
 
 @end

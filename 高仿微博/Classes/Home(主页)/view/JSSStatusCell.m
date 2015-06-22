@@ -14,6 +14,7 @@
 #import "JSSPhoto.h"
 #import "JSSToolbar.h"
 #import "JSSStatusPhotosView.h"
+#import "JSSIconImageView.h"
 
 @interface JSSStatusCell ()
 
@@ -25,7 +26,7 @@
 /**
  *  头像
  */
-@property (nonatomic, weak) UIImageView *iconImageView;
+@property (nonatomic, weak) JSSIconImageView *iconImageView;
 
 /**
  *  昵称
@@ -164,7 +165,7 @@
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
-    UIImageView *iconImageView = [[UIImageView alloc] init];
+    JSSIconImageView *iconImageView = [[JSSIconImageView alloc] init];
     [originalView addSubview:iconImageView];
     self.iconImageView = iconImageView;
     
@@ -208,7 +209,7 @@
     [self.originalView setFrame:statusFrame.originalFrame];
     
     [self.iconImageView setFrame:statusFrame.iconFrame];
-    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconImageView.user = user;
     
     [self.nameLabel setFrame:statusFrame.nameFrame];
     [self.nameLabel setFont:JSSNameFont];

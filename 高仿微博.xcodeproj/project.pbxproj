@@ -61,6 +61,7 @@
 		7FAA88891B2F1B1300C50303 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */; };
 		7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */; };
 		7FC5E09F1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */; };
+		7FCE93271B385F7000996636 /* JSSIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE93261B385F7000996636 /* JSSIconImageView.m */; };
 		7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */; };
 		7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */; };
 		7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */; };
@@ -218,6 +219,8 @@
 		7FC5E09B1B32F569002E3BD8 /* JSSLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSLoadMoreFooter.h; sourceTree = "<group>"; };
 		7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSLoadMoreFooter.m; sourceTree = "<group>"; };
 		7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSLoadMoreFooter.xib; sourceTree = "<group>"; };
+		7FCE93251B385F7000996636 /* JSSIconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSIconImageView.h; sourceTree = "<group>"; };
+		7FCE93261B385F7000996636 /* JSSIconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSIconImageView.m; sourceTree = "<group>"; };
 		7FCFBE461B2735E900DD1BC7 /* JSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBar.h; sourceTree = "<group>"; };
 		7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBar.m; sourceTree = "<group>"; };
 		7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
@@ -646,6 +649,8 @@
 				7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */,
 				7FCFBE461B2735E900DD1BC7 /* JSSTabBar.h */,
 				7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */,
+				7FCE93251B385F7000996636 /* JSSIconImageView.h */,
+				7FCE93261B385F7000996636 /* JSSIconImageView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -918,6 +923,7 @@
 				7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */,
 				7F4E98D01B2896580081EFB7 /* AFURLSessionManager.m in Sources */,
 				7FAA88861B2F1B1300C50303 /* MJTypeEncoding.m in Sources */,
+				7FCE93271B385F7000996636 /* JSSIconImageView.m in Sources */,
 				7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */,
 				7F2D928A1B2DE28100A8657C /* UIButton+WebCache.m in Sources */,
 				7F395C741B292C3A006ED46A /* MBProgressHUD+MJ.m in Sources */,
