@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "JSSPhoto.h"
 #import "JSSToolbar.h"
+#import "JSSStatusPhotosView.h"
 
 @interface JSSStatusCell ()
 
@@ -52,9 +53,9 @@
 @property (nonatomic, weak) UILabel *contentLabel;
 
 /**
- *  图片
+ *  图片视图
  */
-@property (nonatomic, weak) UIImageView *photoImageView;
+@property (nonatomic, weak) JSSStatusPhotosView *photosImageView;
 
 /**
  *  转发微博视图
@@ -67,9 +68,9 @@
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 
 /**
- *  转发的微博图片
+ *  转发的微博图片视图
  */
-@property (nonatomic, weak) UIImageView *retweetPhotoImageView;
+@property (nonatomic, weak) JSSStatusPhotosView *retweetPhotosImageView;
 
 /**
  *  工具条视图
@@ -148,9 +149,9 @@
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
     
-    UIImageView *retweetPhotoImageView = [[UIImageView alloc] init];
-    self.retweetPhotoImageView = retweetPhotoImageView;
-    [self.retweetView addSubview:retweetPhotoImageView];
+    JSSStatusPhotosView *retweetPhotosView = [[JSSStatusPhotosView alloc] init];
+    self.retweetPhotosImageView = retweetPhotosView;
+    [self.retweetView addSubview:retweetPhotosView];
 }
 
 /**
@@ -189,9 +190,9 @@
     [contentLabel setNumberOfLines:0];
     self.contentLabel = contentLabel;
     
-    UIImageView *photoImageView = [[UIImageView alloc] init];
-    [originalView addSubview:photoImageView];
-    self.photoImageView = photoImageView;
+    JSSStatusPhotosView *photosView = [[JSSStatusPhotosView alloc] init];
+    [originalView addSubview:photosView];
+    self.photosImageView = photosView;
 }
 
 /**
@@ -245,13 +246,11 @@
     [self.contentLabel setText:status.text];
     
     if (status.pic_urls.count) {
-        [self.photoImageView setHidden:NO];
-        [self.photoImageView setFrame:statusFrame.photoFrame];
-        JSSPhoto *photo = [status.pic_urls lastObject];
-        NSURL *url = [NSURL URLWithString:photo.thumbnail_pic];
-        [self.photoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        [self.photosImageView setHidden:NO];
+        self.photosImageView.photos = status.pic_urls;
+        [self.photosImageView setFrame:statusFrame.photosFrame];
     } else {
-        [self.photoImageView setHidden:YES];
+        [self.photosImageView setHidden:YES];
     }
     
     if (status.retweeted_status) { // 有转发微博
@@ -262,13 +261,11 @@
         [self.retweetContentLabel setText:[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text]];
         
         if (status.retweeted_status.pic_urls.count) { // 转发微博有图片
-            [self.retweetPhotoImageView setHidden:NO];
-            [self.retweetPhotoImageView setFrame:statusFrame.retweetPhotoImageViewFrame];
-            JSSPhoto *photo = [status.retweeted_status.pic_urls firstObject];
-            NSURL *url = [NSURL URLWithString:photo.thumbnail_pic];
-            [self.retweetPhotoImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            [self.retweetPhotosImageView setHidden:NO];
+            self.retweetPhotosImageView.photos = status.retweeted_status.pic_urls;
+            [self.retweetPhotosImageView setFrame:statusFrame.retweetPhotosImageViewFrame];
         } else {
-            [self.retweetPhotoImageView setHidden:YES];
+            [self.retweetPhotosImageView setHidden:YES];
         }
     } else {
         [self.retweetView setHidden:YES];

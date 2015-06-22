@@ -59,9 +59,9 @@
 @property (nonatomic, assign) CGRect contentFrame;
 
 /**
- *  图片
+ *  图片视图
  */
-@property (nonatomic, assign) CGRect photoFrame;
+@property (nonatomic, assign) CGRect photosFrame;
 
 /**
  *  高度
@@ -79,9 +79,9 @@
 @property (nonatomic, assign) CGRect retweetContentLabelFrame;
 
 /**
- *  转发的微博图片
+ *  转发的微博图片视图
  */
-@property (nonatomic, assign) CGRect retweetPhotoImageViewFrame;
+@property (nonatomic, assign) CGRect retweetPhotosImageViewFrame;
 
 /**
  *  工具条视图

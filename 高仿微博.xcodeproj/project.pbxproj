@@ -84,6 +84,7 @@
 		7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956661B3475AB006B3317 /* JSSStatusFrame.m */; };
 		7FEE15F41B381970007A5765 /* fakeStatus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE15F31B38196F007A5765 /* fakeStatus.plist */; };
 		7FEE15F71B38206C007A5765 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE15F61B38206C007A5765 /* NSString+Extension.m */; };
+		7FEE15FD1B3829A2007A5765 /* JSSStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEE15FC1B3829A2007A5765 /* JSSStatusPhotosView.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
 		7FFD45D51B24677C00A7F4BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */; };
 		7FFD45D71B24677C00A7F4BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D61B24677C00A7F4BF /* UIKit.framework */; };
@@ -257,6 +258,8 @@
 		7FEE15F31B38196F007A5765 /* fakeStatus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fakeStatus.plist; sourceTree = "<group>"; };
 		7FEE15F51B38206C007A5765 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		7FEE15F61B38206C007A5765 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		7FEE15FB1B3829A2007A5765 /* JSSStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusPhotosView.h; sourceTree = "<group>"; };
+		7FEE15FC1B3829A2007A5765 /* JSSStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusPhotosView.m; sourceTree = "<group>"; };
 		7FFD45CF1B24677C00A7F4BF /* 高仿微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "高仿微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFD45D21B24677C00A7F4BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7FFD45D41B24677C00A7F4BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -565,6 +568,8 @@
 				7FE956631B346A58006B3317 /* JSSStatusCell.m */,
 				7F131D041B36ABB400CEF02F /* JSSToolbar.h */,
 				7F131D051B36ABB400CEF02F /* JSSToolbar.m */,
+				7FEE15FB1B3829A2007A5765 /* JSSStatusPhotosView.h */,
+				7FEE15FC1B3829A2007A5765 /* JSSStatusPhotosView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -964,6 +969,7 @@
 				7F2D92821B2DE28100A8657C /* NSData+ImageContentType.m in Sources */,
 				7F4E98CB1B2896580081EFB7 /* AFNetworkReachabilityManager.m in Sources */,
 				7F2D92891B2DE28100A8657C /* SDWebImagePrefetcher.m in Sources */,
+				7FEE15FD1B3829A2007A5765 /* JSSStatusPhotosView.m in Sources */,
 				7F2D928C1B2DE28100A8657C /* UIImage+MultiFormat.m in Sources */,
 				7F4E98CF1B2896580081EFB7 /* AFURLResponseSerialization.m in Sources */,
 				7FD107D51B255B0D00571CE4 /* JSSTest2ViewController.m in Sources */,

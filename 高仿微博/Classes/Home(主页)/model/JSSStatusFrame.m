@@ -9,10 +9,9 @@
 #import "JSSStatusFrame.h"
 #import "JSSStatus.h"
 #import "JSSUser.h"
+#import "JSSStatusPhotosView.h"
 
 @implementation JSSStatusFrame
-
-
 
 /**
  *  微博模型
@@ -84,10 +83,8 @@
     if (status.pic_urls.count) { // 有图片
         CGFloat photoX = contentX;
         CGFloat photoY = CGRectGetMaxY(self.contentFrame) + JSSStatusCellMargin;
-        CGFloat photoW = 100;
-        CGFloat photoH = 120;
-        self.photoFrame = CGRectMake(photoX, photoY, photoW, photoH);
-        originalHeight = CGRectGetMaxY(self.photoFrame) + JSSStatusCellMargin;
+        self.photosFrame = (CGRect){{photoX, photoY}, [JSSStatusPhotosView sizeWithCount:status.pic_urls.count]};
+        originalHeight = CGRectGetMaxY(self.photosFrame) + JSSStatusCellMargin;
     } else {
         originalHeight = CGRectGetMaxY(self.contentFrame) + JSSStatusCellMargin;
     }
@@ -114,10 +111,8 @@
         if (status.retweeted_status.pic_urls.count) { // 转发微博有图片
             CGFloat retweetPhotoX = JSSStatusCellMargin;
             CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
-            CGFloat retweetPhotoW = 100;
-            CGFloat retweetPhotoH = 120;
-            self.retweetPhotoImageViewFrame = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoW, retweetPhotoH);
-            retweetHeight = CGRectGetMaxY(self.retweetPhotoImageViewFrame) + JSSStatusCellMargin;
+            self.retweetPhotosImageViewFrame = (CGRect){{retweetPhotoX, retweetPhotoY}, [JSSStatusPhotosView sizeWithCount:status.retweeted_status.pic_urls.count]};
+            retweetHeight = CGRectGetMaxY(self.retweetPhotosImageViewFrame) + JSSStatusCellMargin;
         } else {
             retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
         }
