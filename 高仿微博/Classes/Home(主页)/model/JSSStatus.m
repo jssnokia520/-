@@ -29,15 +29,14 @@
     [formatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
     
     NSDate *createDate = [formatter dateFromString:_created_at];
-    NSDate *nowDate = [NSDate date];
 
-    if ([self isThisYear:createDate andNowDate:nowDate]) {
-        if ([self isToday:createDate andNowDate:nowDate]) {
+    if ([createDate isThisYear]) {
+        if ([createDate isToday]) {
             NSCalendar *calendar = [NSCalendar currentCalendar];
             NSCalendarUnit unit = NSCalendarUnitHour | NSCalendarUnitMinute;
             
             NSDateComponents *createComponents = [calendar components:unit fromDate:createDate];
-            NSDateComponents *nowComponents = [calendar components:unit fromDate:nowDate];
+            NSDateComponents *nowComponents = [calendar components:unit fromDate:[NSDate date]];
             
             NSInteger deltaHour = nowComponents.hour - createComponents.hour;
             NSInteger deltaMinute = nowComponents.minute - createComponents.minute;
@@ -53,7 +52,7 @@
                 return [formatter stringFromDate:createDate];
             }
             
-        } else if ([self isYesterday:createDate andNowDate:nowDate]) {
+        } else if ([createDate isYesterday]) {
             [formatter setDateFormat:@"昨天 HH:mm"];
             return [formatter stringFromDate:createDate];
         } else {
@@ -66,64 +65,6 @@
     }
 }
 
-/**
- *  判断是否是今年
- */
-- (BOOL)isThisYear:(NSDate *)createDate andNowDate:(NSDate *)nowDate
-{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSCalendarUnit unit = NSCalendarUnitYear;
-    
-    NSDateComponents *create = [calendar components:unit fromDate:createDate];
-    NSDateComponents *now = [calendar components:unit fromDate:nowDate];
-    
-    if (create.year == now.year) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
 
-/**
- *  是否是今天
- */
-- (BOOL)isToday:(NSDate *)createDate andNowDate:(NSDate *)nowDate
-{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSCalendarUnit unit = NSCalendarUnitMonth | NSCalendarUnitDay;
-    
-    NSDateComponents *createComponents = [calendar components:unit fromDate:createDate];
-    NSDateComponents *nowComponents = [calendar components:unit fromDate:nowDate];
-    
-    NSInteger deltaMonth = createComponents.month - nowComponents.month;
-    NSInteger deltaDay = createComponents.day - nowComponents.day;
-    
-    if (deltaMonth == 0 && deltaDay == 0) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
-/**
- *  是否是昨天
- */
-- (BOOL)isYesterday:(NSDate *)createDate andNowDate:(NSDate *)nowDate
-{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSCalendarUnit unit = NSCalendarUnitMonth | NSCalendarUnitDay;
-    
-    NSDateComponents *createComponents = [calendar components:unit fromDate:createDate];
-    NSDateComponents *nowComponents = [calendar components:unit fromDate:nowDate];
-    
-    NSInteger deltaMonth = createComponents.month = nowComponents.month;
-    NSInteger deltaDay = createComponents.day - nowComponents.day;
-    
-    if (deltaMonth == 0 && deltaDay == 1) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
 
 @end

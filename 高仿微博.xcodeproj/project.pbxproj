@@ -79,6 +79,7 @@
 		7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */; };
 		7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */; };
 		7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */; };
+		7FE130651B37E3F2007A5E09 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */; };
 		7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956631B346A58006B3317 /* JSSStatusCell.m */; };
 		7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956661B3475AB006B3317 /* JSSStatusFrame.m */; };
 		7FFD45D31B24677C00A7F4BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FFD45D21B24677C00A7F4BF /* Foundation.framework */; };
@@ -245,6 +246,8 @@
 		7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSItemTool.m; sourceTree = "<group>"; };
 		7FD107DC1B256DE200571CE4 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		7FE130631B37E3F2007A5E09 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		7FE956621B346A58006B3317 /* JSSStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusCell.h; sourceTree = "<group>"; };
 		7FE956631B346A58006B3317 /* JSSStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusCell.m; sourceTree = "<group>"; };
 		7FE956651B3475AB006B3317 /* JSSStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusFrame.h; sourceTree = "<group>"; };
@@ -583,6 +586,8 @@
 				7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */,
 				7F395C7F1B294A12006ED46A /* UIWindow+Extension.h */,
 				7F395C801B294A12006ED46A /* UIWindow+Extension.m */,
+				7FE130631B37E3F2007A5E09 /* NSDate+Extension.h */,
+				7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -938,6 +943,7 @@
 				7FAA88841B2F1B1300C50303 /* MJMethod.m in Sources */,
 				7F131D061B36ABB400CEF02F /* JSSToolbar.m in Sources */,
 				7F4E98C91B2896580081EFB7 /* AFHTTPRequestOperationManager.m in Sources */,
+				7FE130651B37E3F2007A5E09 /* NSDate+Extension.m in Sources */,
 				7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */,
 				7FD107D71B255B0D00571CE4 /* JSSTest3ViewController.m in Sources */,
 				7F2D92861B2DE28100A8657C /* SDWebImageDownloader.m in Sources */,
