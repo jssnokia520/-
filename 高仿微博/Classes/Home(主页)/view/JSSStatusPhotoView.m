@@ -18,6 +18,21 @@
 
 @implementation JSSStatusPhotoView
 
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        // 宽度或高度适应
+        [self setContentMode:UIViewContentModeScaleAspectFill];
+        
+        // 切除超出边框的部分
+        [self setClipsToBounds:YES];
+    }
+    
+    return self;
+}
+
 - (UIImageView *)gifImageView
 {
     if (_gifImageView == nil) {

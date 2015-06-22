@@ -9,7 +9,7 @@
 #import "JSSStatusPhotosView.h"
 #import "JSSStatusPhotoView.h"
 
-#define JSSPhotoWH 80
+#define JSSPhotoWH 76
 #define JSSMargin 10
 #define JSSMaxRows(count) ((count == 4) ? 2 : 3)
 
@@ -64,7 +64,7 @@
  */
 + (CGSize)sizeWithCount:(NSInteger)count
 {
-    CGFloat width = (JSSPhotoWH + JSSMargin) * JSSMaxRows(count);
+    CGFloat width = (JSSPhotoWH + JSSMargin) * JSSMaxRows(count) - JSSMargin;
     CGFloat height = (JSSPhotoWH + JSSMargin) * ((count + JSSMaxRows(count) - 1) / JSSMaxRows(count)) - JSSMargin;
     
     return CGSizeMake(width, height);
