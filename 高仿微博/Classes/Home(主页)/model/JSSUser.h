@@ -51,6 +51,6 @@ typedef enum {
 /**
  *  verified_type 认证类型
  */
-@property (nonatomic, assign) JSSVerifiedType verifiedType;
+@property (nonatomic, assign) JSSVerifiedType verified_type;
 
 @end
