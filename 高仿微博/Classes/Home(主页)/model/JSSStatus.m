@@ -65,14 +65,14 @@
     }
 }
 
-- (NSString *)source
+- (void)setSource:(NSString *)source
 {
-    NSRange leftRange = [_source rangeOfString:@">"];
-    NSRange rightRange = [_source rangeOfString:@"</"];
-    
-    NSRange range = NSMakeRange(leftRange.location + 1, rightRange.location - leftRange.location - 1);
-    
-    return [_source substringWithRange:range];
+    if (source.length) {
+        NSInteger location = [source rangeOfString:@">"].location + 1;
+        NSInteger length = [source rangeOfString:@"</"].location - location;
+        
+        _source = [source substringWithRange:NSMakeRange(location, length)];
+    }
 }
 
 @end

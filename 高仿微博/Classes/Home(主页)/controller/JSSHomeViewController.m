@@ -124,22 +124,22 @@
  */
 - (void)refresh:(UIRefreshControl *)refreshControl
 {
-    [self.tabBarItem setBadgeValue:nil];
-    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"fakeStatus" ofType:@"plist"];
-    NSDictionary *responseObject = [NSDictionary dictionaryWithContentsOfFile:path];
-    // 获取微博数据
-    NSArray *newStatuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-    NSArray *newStatusFrames = [self statusFramesWithStatus:newStatuses];
-    NSRange range = NSMakeRange(0, newStatuses.count);
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-    [self.statusFrames insertObjects:newStatusFrames atIndexes:indexSet];
-    
-    // 刷新表格
-    [self.tableView reloadData];
-    
-    return;
+//    [self.tabBarItem setBadgeValue:nil];
+//    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+//    
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"fakeStatus" ofType:@"plist"];
+//    NSDictionary *responseObject = [NSDictionary dictionaryWithContentsOfFile:path];
+//    // 获取微博数据
+//    NSArray *newStatuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+//    NSArray *newStatusFrames = [self statusFramesWithStatus:newStatuses];
+//    NSRange range = NSMakeRange(0, newStatuses.count);
+//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+//    [self.statusFrames insertObjects:newStatusFrames atIndexes:indexSet];
+//    
+//    // 刷新表格
+//    [self.tableView reloadData];
+//    
+//    return;
     
     // 再次发送请求获取数据
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
