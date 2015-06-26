@@ -20,6 +20,9 @@
     return self;
 }
 
+/**
+ *  监听TextView文字的改变
+ */
 - (void)textDidChange
 {
     [self setNeedsDisplay];
@@ -38,10 +41,39 @@
     CGRect placeHolderRect = CGRectMake(x, y, w, h);
     
     NSMutableDictionary *attributes = [NSMutableDictionary dictionary];
-    attributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
-    attributes[NSForegroundColorAttributeName] = self.placeHolderColor;
+    attributes[NSFontAttributeName] = self.font;
+    attributes[NSForegroundColorAttributeName] = self.placeHolderColor ? self.placeHolderColor : [UIColor lightGrayColor];
     
     [self.placeHolder drawInRect:placeHolderRect withAttributes:attributes];
+}
+
+- (void)setPlaceHolder:(NSString *)placeHolder
+{
+    _placeHolder = placeHolder;
+    
+    [self setNeedsDisplay];
+}
+
+- (void)setPlaceHolderColor:(UIColor *)placeHolderColor
+
+{
+    _placeHolderColor = placeHolderColor;
+    
+    [self setNeedsDisplay];
+}
+
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    
+    [self setNeedsDisplay];
+}
+
+- (void)setFont:(UIFont *)font
+{
+    [super setFont:font];
+    
+    [self setNeedsDisplay];
 }
 
 @end
