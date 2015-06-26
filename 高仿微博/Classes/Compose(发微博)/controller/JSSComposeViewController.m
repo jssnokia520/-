@@ -9,6 +9,7 @@
 #import "JSSComposeViewController.h"
 #import "JSSOAuthAccountTool.h"
 #import "JSSOAuthAccount.h"
+#import "JSSTextView.h"
 
 @interface JSSComposeViewController ()
 
@@ -38,8 +39,10 @@
  */
 - (void)setupInput
 {
-    UITextView *textView = [[UITextView alloc] init];
-    [textView setFrame:self.view.frame];
+    JSSTextView *textView = [[JSSTextView alloc] init];
+    [textView setFrame:self.view.bounds];
+    [textView setPlaceHolder:@"分享新鲜事..."];
+    [textView setPlaceHolderColor:[UIColor lightGrayColor]];
     [self.view addSubview:textView];
 }
 
