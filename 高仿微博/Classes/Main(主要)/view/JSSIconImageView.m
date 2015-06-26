@@ -32,8 +32,6 @@
 {
     _user = user;
     
-    NSLog(@"%d", user.verified_type);
-    
     [self sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
     switch (user.verified_type) {

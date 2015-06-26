@@ -167,7 +167,8 @@
         
         // 刷新表格
         [self.tableView reloadData];
-        
+        // 清空tabBar数字提示
+        [self setBadge:@"0"];
         // 显示提示标签
         [self setTipLabel:newStatusFrames.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
