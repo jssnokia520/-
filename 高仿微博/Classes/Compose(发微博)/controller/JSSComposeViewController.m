@@ -12,10 +12,12 @@
 #import "JSSTextView.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
+#import "JSSKeyboardToolBar.h"
 
-@interface JSSComposeViewController ()
+@interface JSSComposeViewController () <UITextViewDelegate>
 
 @property (nonatomic, weak) JSSTextView *textView;
+@property (nonatomic, weak) JSSKeyboardToolBar *keybordToolBar;
 
 @end
 
@@ -37,16 +39,44 @@
      */
     [self setupInput];
     
-    // 通知
-    [JSSNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self.textView];
+    /**
+     *  键盘工具条
+     */
+    [self setupKeybordToolBar];
+}
+
+/**
+ *  键盘工具条
+ */
+- (void)setupKeybordToolBar
+{
+    JSSKeyboardToolBar *keybordToolBar = [[JSSKeyboardToolBar alloc] init];
+    [keybordToolBar setHeight:44];
+    [keybordToolBar setWidth:self.view.width];
+    [keybordToolBar setY:self.view.height - keybordToolBar.height];
+    self.keybordToolBar = keybordToolBar;
+    [self.view addSubview:keybordToolBar];
 }
 
 /**
  *  TextView的监听方法
  */
-- (void)textDidChange
+- (void)textDidChanged
 {
     [self.navigationItem.rightBarButtonItem setEnabled:self.textView.hasText];
+}
+
+/**
+ *  键盘改变的监听方法
+ */
+- (void)keybordDidChanged:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    CGRect rect = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    [UIView animateWithDuration:duration animations:^{
+        [self.keybordToolBar setY:rect.origin.y - self.keybordToolBar.height];
+    }];
 }
 
 /**
@@ -57,8 +87,23 @@
     JSSTextView *textView = [[JSSTextView alloc] init];
     [textView setFrame:self.view.bounds];
     [textView setPlaceHolder:@"分享新鲜事..."];
+    [textView setDelegate:self];
     self.textView = textView;
     [self.view addSubview:textView];
+    
+    // 文字改变的通知
+    [JSSNotificationCenter addObserver:self selector:@selector(textDidChanged) name:UITextViewTextDidChangeNotification object:self.textView];
+    
+    // 键盘的通知
+    [JSSNotificationCenter addObserver:self selector:@selector(keybordDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+/**
+ *  开始拖拽的时候执行的代理方法
+ */
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
 }
 
 /**

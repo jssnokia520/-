@@ -65,6 +65,7 @@
 		7FC5E09F1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */; };
 		7FCE93271B385F7000996636 /* JSSIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE93261B385F7000996636 /* JSSIconImageView.m */; };
 		7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */; };
+		7FCFF2321B3DA95800EAC8B4 /* JSSKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFF2311B3DA95800EAC8B4 /* JSSKeyboardToolBar.m */; };
 		7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */; };
 		7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A21B255B0D00571CE4 /* JSSHomeViewController.m */; };
 		7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107A81B255B0D00571CE4 /* UIView+Extension.m */; };
@@ -229,6 +230,8 @@
 		7FCE93261B385F7000996636 /* JSSIconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSIconImageView.m; sourceTree = "<group>"; };
 		7FCFBE461B2735E900DD1BC7 /* JSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBar.h; sourceTree = "<group>"; };
 		7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTabBar.m; sourceTree = "<group>"; };
+		7FCFF2301B3DA95800EAC8B4 /* JSSKeyboardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSKeyboardToolBar.h; sourceTree = "<group>"; };
+		7FCFF2311B3DA95800EAC8B4 /* JSSKeyboardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSKeyboardToolBar.m; sourceTree = "<group>"; };
 		7FD1079B1B255B0D00571CE4 /* JSSDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDiscoverViewController.h; sourceTree = "<group>"; };
 		7FD1079C1B255B0D00571CE4 /* JSSDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSDiscoverViewController.m; sourceTree = "<group>"; };
 		7FD107A11B255B0D00571CE4 /* JSSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSHomeViewController.h; sourceTree = "<group>"; };
@@ -457,6 +460,7 @@
 		7F8B04BC1B3D1177000AA6A8 /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
+				7FCFF22F1B3DA8B300EAC8B4 /* view */,
 				7F8B04BD1B3D1177000AA6A8 /* controller */,
 			);
 			path = "Compose(发微博)";
@@ -515,6 +519,15 @@
 				7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		7FCFF22F1B3DA8B300EAC8B4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				7FCFF2301B3DA95800EAC8B4 /* JSSKeyboardToolBar.h */,
+				7FCFF2311B3DA95800EAC8B4 /* JSSKeyboardToolBar.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		7FD107991B255B0D00571CE4 /* Discover(发现) */ = {
@@ -964,6 +977,7 @@
 				7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */,
 				7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */,
 				7F4E98CC1B2896580081EFB7 /* AFSecurityPolicy.m in Sources */,
+				7FCFF2321B3DA95800EAC8B4 /* JSSKeyboardToolBar.m in Sources */,
 				7FAA88871B2F1B1300C50303 /* NSObject+MJCoding.m in Sources */,
 				7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */,
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
