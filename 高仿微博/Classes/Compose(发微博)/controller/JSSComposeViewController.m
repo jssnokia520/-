@@ -13,11 +13,13 @@
 #import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "JSSKeyboardToolBar.h"
+#import "JSSComposePhotosView.h"
 
-@interface JSSComposeViewController () <UITextViewDelegate>
+@interface JSSComposeViewController () <UITextViewDelegate, JSSKeyboardToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak) JSSTextView *textView;
 @property (nonatomic, weak) JSSKeyboardToolBar *keybordToolBar;
+@property (nonatomic, weak) JSSComposePhotosView *photosView;
 
 @end
 
@@ -43,6 +45,24 @@
      *  键盘工具条
      */
     [self setupKeybordToolBar];
+    
+    /**
+     *  图像视图
+     */
+    [self setupPhotosView];
+}
+
+/**
+ *  图像视图
+ */
+- (void)setupPhotosView
+{
+    JSSComposePhotosView *photosView = [[JSSComposePhotosView alloc] init];
+    [photosView setY:100];
+    [photosView setWidth:self.view.width];
+    [photosView setHeight:self.view.height];
+    self.photosView = photosView;
+    [self.textView addSubview:photosView];
 }
 
 /**
@@ -54,8 +74,75 @@
     [keybordToolBar setHeight:44];
     [keybordToolBar setWidth:self.view.width];
     [keybordToolBar setY:self.view.height - keybordToolBar.height];
+    [keybordToolBar setDelegate:self];
     self.keybordToolBar = keybordToolBar;
     [self.view addSubview:keybordToolBar];
+}
+
+/**
+ *  键盘工具类的代理方法
+ */
+- (void)keyboardToolBar:(JSSKeyboardToolBar *)toolBar didClickButton:(JSSKeyboardButtonType)buttonType
+{
+    switch (buttonType) {
+        case JSSKeyboardButtonCamera:
+            [self openCamera];
+            break;
+        case JSSKeyboardButtonPicture:
+            [self openAlbum];
+            break;
+        case JSSKeyboardButtonMention:
+            
+            break;
+        case JSSKeyboardButtonTrend:
+            
+            break;
+        case JSSKeyboardButtonMotion:
+            
+            break;
+    }
+}
+
+
+/**
+ *  打开相机
+ */
+- (void)openCamera
+{
+    [self openImagePicker:UIImagePickerControllerSourceTypeCamera];
+}
+
+/**
+ *  打开相册
+ */
+- (void)openAlbum
+{
+    [self openImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
+/**
+ *  打开相机或者是相册
+ */
+- (void)openImagePicker:(UIImagePickerControllerSourceType)type
+{
+    if (![UIImagePickerController isSourceTypeAvailable:type]) return;
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    [imagePicker setSourceType:type];
+    [imagePicker setDelegate:self];
+    
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+/**
+ *  imagePicker代理方法
+ */
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self.photosView addImage:image];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /**
@@ -88,6 +175,8 @@
     [textView setFrame:self.view.bounds];
     [textView setPlaceHolder:@"分享新鲜事..."];
     [textView setDelegate:self];
+    // 让TextView成为第一响应者
+    [textView becomeFirstResponder];
     self.textView = textView;
     [self.view addSubview:textView];
     

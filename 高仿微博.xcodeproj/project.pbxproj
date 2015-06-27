@@ -63,6 +63,7 @@
 		7FAA88891B2F1B1300C50303 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */; };
 		7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */; };
 		7FC5E09F1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */; };
+		7FCCA8821B3EE98200D8B6B3 /* JSSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCCA8811B3EE98200D8B6B3 /* JSSComposePhotosView.m */; };
 		7FCE93271B385F7000996636 /* JSSIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE93261B385F7000996636 /* JSSIconImageView.m */; };
 		7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFBE471B2735E900DD1BC7 /* JSSTabBar.m */; };
 		7FCFF2321B3DA95800EAC8B4 /* JSSKeyboardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCFF2311B3DA95800EAC8B4 /* JSSKeyboardToolBar.m */; };
@@ -226,6 +227,8 @@
 		7FC5E09B1B32F569002E3BD8 /* JSSLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSLoadMoreFooter.h; sourceTree = "<group>"; };
 		7FC5E09C1B32F569002E3BD8 /* JSSLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSLoadMoreFooter.m; sourceTree = "<group>"; };
 		7FC5E09E1B32F58B002E3BD8 /* JSSLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSLoadMoreFooter.xib; sourceTree = "<group>"; };
+		7FCCA8801B3EE98200D8B6B3 /* JSSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSComposePhotosView.h; sourceTree = "<group>"; };
+		7FCCA8811B3EE98200D8B6B3 /* JSSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSComposePhotosView.m; sourceTree = "<group>"; };
 		7FCE93251B385F7000996636 /* JSSIconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSIconImageView.h; sourceTree = "<group>"; };
 		7FCE93261B385F7000996636 /* JSSIconImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSIconImageView.m; sourceTree = "<group>"; };
 		7FCFBE461B2735E900DD1BC7 /* JSSTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTabBar.h; sourceTree = "<group>"; };
@@ -526,6 +529,8 @@
 			children = (
 				7FCFF2301B3DA95800EAC8B4 /* JSSKeyboardToolBar.h */,
 				7FCFF2311B3DA95800EAC8B4 /* JSSKeyboardToolBar.m */,
+				7FCCA8801B3EE98200D8B6B3 /* JSSComposePhotosView.h */,
+				7FCCA8811B3EE98200D8B6B3 /* JSSComposePhotosView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -991,6 +996,7 @@
 				7F2D92811B2DE28100A8657C /* MKAnnotationView+WebCache.m in Sources */,
 				7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */,
 				7FAA88881B2F1B1300C50303 /* NSObject+MJKeyValue.m in Sources */,
+				7FCCA8821B3EE98200D8B6B3 /* JSSComposePhotosView.m in Sources */,
 				7FD107D31B255B0D00571CE4 /* JSSTest1ViewController.m in Sources */,
 				7F2D928E1B2DE28100A8657C /* UIImageView+HighlightedWebCache.m in Sources */,
 				7FD107CB1B255B0D00571CE4 /* JSSHomeViewController.m in Sources */,

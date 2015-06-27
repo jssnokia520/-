@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JSSKeyboardToolBar;
+
+typedef enum {
+    JSSKeyboardButtonCamera,    // 相机
+    JSSKeyboardButtonPicture,   // 相册
+    JSSKeyboardButtonMention,   // @
+    JSSKeyboardButtonTrend,     // #
+    JSSKeyboardButtonMotion     // 表情
+} JSSKeyboardButtonType;
+
+@protocol JSSKeyboardToolBarDelegate <NSObject>
+
+@optional
+- (void)keyboardToolBar:(JSSKeyboardToolBar *)toolBar didClickButton:(JSSKeyboardButtonType)buttonType;
+
+@end
 
 @interface JSSKeyboardToolBar : UIView
+
+@property (nonatomic, weak) id<JSSKeyboardToolBarDelegate> delegate;
 
 @end

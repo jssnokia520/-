@@ -16,23 +16,35 @@
     if (self) {
         [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"compose_toolbar_background"]]];
         
-        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_camerabutton_background"] highlightedImage:[UIImage imageNamed:@"compose_camerabutton_background_highlighted"]];
-        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_toolbar_picture"] highlightedImage:[UIImage imageNamed:@"compose_toolbar_picture_highlighted"]];
-        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_mentionbutton_background"] highlightedImage:[UIImage imageNamed:@"compose_mentionbutton_background_highlighted"]];
-        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_trendbutton_background"] highlightedImage:[UIImage imageNamed:@"compose_trendbutton_background_highlighted"]];
-        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] highlightedImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"]];
+        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_camerabutton_background"] highlightedImage:[UIImage imageNamed:@"compose_camerabutton_background_highlighted"] buttonType:JSSKeyboardButtonCamera];
+        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_toolbar_picture"] highlightedImage:[UIImage imageNamed:@"compose_toolbar_picture_highlighted"] buttonType:JSSKeyboardButtonPicture];
+        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_mentionbutton_background"] highlightedImage:[UIImage imageNamed:@"compose_mentionbutton_background_highlighted"] buttonType:JSSKeyboardButtonMention];
+        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_trendbutton_background"] highlightedImage:[UIImage imageNamed:@"compose_trendbutton_background_highlighted"] buttonType:JSSKeyboardButtonTrend];
+        [self addButtonWithNormalImage:[UIImage imageNamed:@"compose_emoticonbutton_background"] highlightedImage:[UIImage imageNamed:@"compose_emoticonbutton_background_highlighted"] buttonType:JSSKeyboardButtonMotion];
     }
     return self;
 }
 
 /**
+ *  按钮的监听方法
+ */
+- (void)clickButton:(UIButton *)button
+{
+    if ([self.delegate respondsToSelector:@selector(keyboardToolBar:didClickButton:)]) {
+        [self.delegate keyboardToolBar:self didClickButton:(int)button.tag];
+    }
+}
+
+/**
  *  根据正常图片和高亮图片来添加按钮
  */
-- (void)addButtonWithNormalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage
+- (void)addButtonWithNormalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage buttonType:(JSSKeyboardButtonType)buttonType
 {
     UIButton *button = [[UIButton alloc] init];
     [button setImage:normalImage forState:UIControlStateNormal];
     [button setImage:highlightedImage forState:UIControlStateHighlighted];
+    [button setTag:buttonType];
+    [button addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:button];
 }
 
