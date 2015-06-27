@@ -251,6 +251,43 @@
  */
 - (void)send
 {
+    // 判断是否有图片
+    if (self.photosView.images.count) { // 有图片
+        [self sendWithImage];
+    } else { // 没有图片
+        [self sendWithoutImage];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/**
+ *  有图片
+ */
+- (void)sendWithImage
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"access_token"] = [JSSOAuthAccountTool account].access_token;
+    parameters[@"status"] = self.textView.text;
+    
+    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        UIImage *image = [self.photosView.images firstObject];
+        NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"test.jpeg" mimeType:@"image/jpeg"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD showSuccess:@"发送成功"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD showError:@"发送失败"];
+    }];
+}
+
+/**
+ *  没有图片
+ */
+- (void)sendWithoutImage
+{
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -262,8 +299,6 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

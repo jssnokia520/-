@@ -8,7 +8,24 @@
 
 #import "JSSComposePhotosView.h"
 
+@interface JSSComposePhotosView ()
+
+@property (nonatomic, strong) NSMutableArray *photos;
+
+@end
+
 @implementation JSSComposePhotosView
+
+/**
+ *  懒加载图片数组
+ */
+- (NSArray *)photos
+{
+    if (_photos == nil) {
+        _photos = [NSMutableArray array];
+    }
+    return _photos;
+}
 
 /**
  *  添加图片
@@ -17,8 +34,16 @@
 {
     UIImageView *imageView = [[UIImageView alloc] init];
     [imageView setImage:image];
-    
+    [self.photos addObject:image];
     [self addSubview:imageView];
+}
+
+/**
+ *  获取图片视图中的图片
+ */
+- (NSArray *)images
+{
+    return self.photos;
 }
 
 /**

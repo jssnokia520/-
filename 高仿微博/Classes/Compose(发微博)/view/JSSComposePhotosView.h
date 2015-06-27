@@ -15,4 +15,9 @@
  */
 - (void)addImage:(UIImage *)image;
 
+/**
+ *  获取图片视图中的图片
+ */
+- (NSArray *)images;
+
 @end
