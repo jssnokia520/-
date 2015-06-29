@@ -14,12 +14,14 @@
 #import "MBProgressHUD+MJ.h"
 #import "JSSKeyboardToolBar.h"
 #import "JSSComposePhotosView.h"
+#import "JSSEmotionKeyboard.h"
 
 @interface JSSComposeViewController () <UITextViewDelegate, JSSKeyboardToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, weak) JSSTextView *textView;
 @property (nonatomic, weak) JSSKeyboardToolBar *keybordToolBar;
 @property (nonatomic, weak) JSSComposePhotosView *photosView;
+@property (nonatomic, assign) BOOL isSwitchingKeyboard;
 
 @end
 
@@ -98,9 +100,33 @@
             
             break;
         case JSSKeyboardButtonMotion:
-            
+            [self openEmotionKeyboard];
             break;
     }
+}
+
+/**
+ *  打开表情键盘
+ */
+- (void)openEmotionKeyboard
+{
+    self.isSwitchingKeyboard = YES;
+    
+    if (self.textView.inputView == nil) { // 系统键盘
+        JSSEmotionKeyboard *keyboard = [[JSSEmotionKeyboard alloc] init];
+        [keyboard setWidth:self.view.width];
+        [keyboard setHeight:216];
+        [self.textView setInputView:keyboard];
+    } else { // 表情键盘
+        [self.textView setInputView:nil];
+    }
+    
+    [self.textView endEditing:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textView becomeFirstResponder];
+        self.isSwitchingKeyboard = NO;
+    });
 }
 
 
@@ -158,6 +184,10 @@
  */
 - (void)keybordDidChanged:(NSNotification *)notification
 {
+    if (self.isSwitchingKeyboard) {
+        return;
+    }
+    
     NSDictionary *userInfo = notification.userInfo;
     CGRect rect = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] floatValue];
