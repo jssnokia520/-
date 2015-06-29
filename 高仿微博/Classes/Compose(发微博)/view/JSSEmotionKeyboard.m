@@ -9,26 +9,78 @@
 #import "JSSEmotionKeyboard.h"
 #import "JSSEmotionListView.h"
 #import "JSSEmotionTabBarView.h"
+#import "JSSEmotion.h"
+#import "MJExtension.h"
 
 @interface JSSEmotionKeyboard () <JSSEmotionTabBarViewDelegate>
 
-
-@property (nonatomic, weak) JSSEmotionListView *listView;
 @property (nonatomic, weak) JSSEmotionTabBarView *tabBarView;
+@property (nonatomic, weak) UIView *contentView;
+
+@property (nonatomic, strong) JSSEmotionListView *recentListView;
+@property (nonatomic, strong) JSSEmotionListView *defaultListView;
+@property (nonatomic, strong) JSSEmotionListView *emojiListView;
+@property (nonatomic, strong) JSSEmotionListView *flowerListView;
 
 @end
 
 @implementation JSSEmotionKeyboard
 
+- (JSSEmotionListView *)recentListView
+{
+    if (_recentListView == nil) {
+        _recentListView = [[JSSEmotionListView alloc] init];
+        [_recentListView setBackgroundColor:[UIColor redColor]];
+    }
+    return _recentListView;
+}
+
+- (JSSEmotionListView *)defaultListView
+{
+    if (_defaultListView == nil) {
+        _defaultListView = [[JSSEmotionListView alloc] init];
+        [_defaultListView setBackgroundColor:[UIColor greenColor]];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info" ofType:@"plist"];
+        NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        _defaultListView.emotions = defaultEmotions;
+    }
+    return _defaultListView;
+}
+
+- (JSSEmotionListView *)emojiListView
+{
+    if (_emojiListView == nil) {
+        _emojiListView = [[JSSEmotionListView alloc] init];
+        [_emojiListView setBackgroundColor:[UIColor orangeColor]];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info" ofType:@"plist"];
+        NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        _emojiListView.emotions = defaultEmotions;
+    }
+    return _emojiListView;
+}
+
+- (JSSEmotionListView *)flowerListView
+{
+    if (_flowerListView == nil) {
+        _flowerListView = [[JSSEmotionListView alloc] init];
+        [_flowerListView setBackgroundColor:[UIColor purpleColor]];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info" ofType:@"plist"];
+        NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+        _flowerListView.emotions = defaultEmotions;
+    }
+    return _flowerListView;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        JSSEmotionListView *listView = [[JSSEmotionListView alloc] init];
-        [listView setBackgroundColor:[UIColor orangeColor]];
-        [self addSubview:listView];
-        self.listView = listView;
+        // 内容视图
+        UIView *contentView = [[UIView alloc] init];
+        [self addSubview:contentView];
+        self.contentView = contentView;
         
+        // 表情选项卡
         JSSEmotionTabBarView *tabBarView = [[JSSEmotionTabBarView alloc] init];
         [tabBarView setDelegate:self];
         [self addSubview:tabBarView];
@@ -38,24 +90,34 @@
 }
 
 /**
- *
+ *  表情选项卡的代理方法
  */
 - (void)emotionTabBarView:(JSSEmotionTabBarView *)emotionTabBarView emotionTabBarViewButtonType:(emotionTabBarViewButtonType)emotionTabBarViewButtonType
 {
+    [self.contentView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     switch (emotionTabBarViewButtonType) {
         case emotionTabBarViewButtonLatest:
-            NSLog(@"最近");
+            [self.contentView addSubview:self.recentListView];
             break;
+            
         case emotionTabBarViewButtonDefault:
-            NSLog(@"默认");
+            [self.contentView addSubview:self.defaultListView];
             break;
+            
         case emotionTabBarViewButtonEmoji:
-            NSLog(@"Emoji");
+            [self.contentView addSubview:self.emojiListView];
             break;
+            
         case emotionTabBarViewButtonFlower:
-            NSLog(@"浪小花");
+            [self.contentView addSubview:self.flowerListView];
             break;
     }
+    
+    /**
+     *  调用layoutSubviews进行子控件的重新布局
+     */
+    [self setNeedsLayout];
 }
 
 /**
@@ -67,15 +129,18 @@
     
     CGFloat tabBarHeight = 37;
     
-    [self.listView setX:0];
-    [self.listView setY:0];
-    [self.listView setWidth:self.width];
-    [self.listView setHeight:self.height - tabBarHeight];
+    [self.contentView setX:0];
+    [self.contentView setY:0];
+    [self.contentView setWidth:self.width];
+    [self.contentView setHeight:self.height - tabBarHeight];
     
     [self.tabBarView setX:0];
-    [self.tabBarView setY:self.listView.height];
+    [self.tabBarView setY:self.contentView.height];
     [self.tabBarView setWidth:self.width];
     [self.tabBarView setHeight:tabBarHeight];
+    
+    JSSEmotionListView *listView = [self.contentView.subviews lastObject];
+    [listView setFrame:self.contentView.frame];
 }
 
 @end

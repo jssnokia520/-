@@ -10,4 +10,9 @@
 
 @interface JSSEmotionListView : UIView
 
+/**
+ *  表情数组
+ */
+@property (nonatomic, strong) NSArray *emotions;
+
 @end

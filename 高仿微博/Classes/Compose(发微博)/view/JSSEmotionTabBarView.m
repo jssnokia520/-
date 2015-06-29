@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) JSSEmotionTabBarButton *leftButton;
 @property (nonatomic, weak) JSSEmotionTabBarButton *rightButton;
+@property (nonatomic, weak) JSSEmotionTabBarButton *defaultButton;
 
 @property (nonatomic, weak) JSSEmotionTabBarButton *selectedButton;
 
@@ -28,16 +29,24 @@
         self.leftButton = leftButton;
         
         JSSEmotionTabBarButton *defaultButton = [self addButtonWithTitle:@"默认" emotionTabBarViewButtonType:emotionTabBarViewButtonDefault];
-        self.selectedButton = defaultButton;
+        self.defaultButton = defaultButton;
         
         [self addButtonWithTitle:@"Emoji" emotionTabBarViewButtonType:emotionTabBarViewButtonEmoji];
         
         JSSEmotionTabBarButton *rightButton = [self addButtonWithTitle:@"浪小花" emotionTabBarViewButtonType:emotionTabBarViewButtonFlower];
         self.rightButton = rightButton;
-        
-        [self buttonDidClick:defaultButton];
     }
     return self;
+}
+
+/**
+ *  拦截代理
+ */
+- (void)setDelegate:(id<JSSEmotionTabBarViewDelegate>)delegate
+{
+    _delegate = delegate;
+    
+    [self buttonDidClick:self.defaultButton];
 }
 
 /**
