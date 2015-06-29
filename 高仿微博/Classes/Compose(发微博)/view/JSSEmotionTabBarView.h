@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+@class JSSEmotionTabBarView;
+
+typedef enum {
+    emotionTabBarViewButtonLatest,
+    emotionTabBarViewButtonDefault,
+    emotionTabBarViewButtonEmoji,
+    emotionTabBarViewButtonFlower
+} emotionTabBarViewButtonType;
+
+@protocol JSSEmotionTabBarViewDelegate <NSObject>
+
+- (void)emotionTabBarView:(JSSEmotionTabBarView *)emotionTabBarView emotionTabBarViewButtonType:(emotionTabBarViewButtonType)emotionTabBarViewButtonType;
+
+@end
 
 @interface JSSEmotionTabBarView : UIView
+
+@property (nonatomic, weak) id<JSSEmotionTabBarViewDelegate> delegate;
 
 @end

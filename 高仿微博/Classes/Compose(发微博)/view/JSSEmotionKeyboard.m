@@ -10,7 +10,7 @@
 #import "JSSEmotionListView.h"
 #import "JSSEmotionTabBarView.h"
 
-@interface JSSEmotionKeyboard ()
+@interface JSSEmotionKeyboard () <JSSEmotionTabBarViewDelegate>
 
 
 @property (nonatomic, weak) JSSEmotionListView *listView;
@@ -30,11 +30,32 @@
         self.listView = listView;
         
         JSSEmotionTabBarView *tabBarView = [[JSSEmotionTabBarView alloc] init];
-        [tabBarView setBackgroundColor:[UIColor purpleColor]];
+        [tabBarView setDelegate:self];
         [self addSubview:tabBarView];
         self.tabBarView = tabBarView;
     }
     return self;
+}
+
+/**
+ *
+ */
+- (void)emotionTabBarView:(JSSEmotionTabBarView *)emotionTabBarView emotionTabBarViewButtonType:(emotionTabBarViewButtonType)emotionTabBarViewButtonType
+{
+    switch (emotionTabBarViewButtonType) {
+        case emotionTabBarViewButtonLatest:
+            NSLog(@"最近");
+            break;
+        case emotionTabBarViewButtonDefault:
+            NSLog(@"默认");
+            break;
+        case emotionTabBarViewButtonEmoji:
+            NSLog(@"Emoji");
+            break;
+        case emotionTabBarViewButtonFlower:
+            NSLog(@"浪小花");
+            break;
+    }
 }
 
 /**
@@ -44,7 +65,7 @@
 {
     [super layoutSubviews];
     
-    CGFloat tabBarHeight = 44;
+    CGFloat tabBarHeight = 37;
     
     [self.listView setX:0];
     [self.listView setY:0];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F06D6A51B41727500FFEB29 /* JSSEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F06D6A41B41727500FFEB29 /* JSSEmotionTabBarButton.m */; };
 		7F10DAD21B298865000EB915 /* JSSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F10DAD11B298865000EB915 /* JSSTitleButton.m */; };
 		7F131D061B36ABB400CEF02F /* JSSToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F131D051B36ABB400CEF02F /* JSSToolbar.m */; };
 		7F2D92811B2DE28100A8657C /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F2D92611B2DE28100A8657C /* MKAnnotationView+WebCache.m */; };
@@ -117,6 +118,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F06D6A31B41727500FFEB29 /* JSSEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionTabBarButton.h; sourceTree = "<group>"; };
+		7F06D6A41B41727500FFEB29 /* JSSEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionTabBarButton.m; sourceTree = "<group>"; };
 		7F10DAD01B298865000EB915 /* JSSTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTitleButton.h; sourceTree = "<group>"; };
 		7F10DAD11B298865000EB915 /* JSSTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTitleButton.m; sourceTree = "<group>"; };
 		7F131D041B36ABB400CEF02F /* JSSToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSToolbar.h; sourceTree = "<group>"; };
@@ -472,8 +475,8 @@
 		7F8B04BC1B3D1177000AA6A8 /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
-				7FCFF22F1B3DA8B300EAC8B4 /* view */,
 				7F8B04BD1B3D1177000AA6A8 /* controller */,
+				7FCFF22F1B3DA8B300EAC8B4 /* view */,
 			);
 			path = "Compose(发微博)";
 			sourceTree = "<group>";
@@ -546,6 +549,8 @@
 				7FCEBA8E1B412BBB00183D8A /* JSSEmotionListView.m */,
 				7FCEBA901B412BCD00183D8A /* JSSEmotionTabBarView.h */,
 				7FCEBA911B412BCD00183D8A /* JSSEmotionTabBarView.m */,
+				7F06D6A31B41727500FFEB29 /* JSSEmotionTabBarButton.h */,
+				7F06D6A41B41727500FFEB29 /* JSSEmotionTabBarButton.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1002,6 +1007,7 @@
 				7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */,
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
+				7F06D6A51B41727500FFEB29 /* JSSEmotionTabBarButton.m in Sources */,
 				7F2D928D1B2DE28100A8657C /* UIImage+WebP.m in Sources */,
 				7F8B04C01B3D1197000AA6A8 /* JSSComposeViewController.m in Sources */,
 				7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */,

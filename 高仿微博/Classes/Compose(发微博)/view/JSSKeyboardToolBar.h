@@ -28,4 +28,9 @@ typedef enum {
 
 @property (nonatomic, weak) id<JSSKeyboardToolBarDelegate> delegate;
 
+/**
+ *  标记是否是表情键盘
+ */
+@property (nonatomic, assign) BOOL isEmotionKeyboard;
+
 @end

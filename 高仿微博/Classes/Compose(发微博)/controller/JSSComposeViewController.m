@@ -23,9 +23,27 @@
 @property (nonatomic, weak) JSSComposePhotosView *photosView;
 @property (nonatomic, assign) BOOL isSwitchingKeyboard;
 
+/**
+ *  这里一定要使用strong强引用
+ */
+@property (nonatomic, strong) JSSEmotionKeyboard *keyboard;
+
 @end
 
 @implementation JSSComposeViewController
+
+/**
+ *  懒加载表情键盘
+ */
+- (JSSEmotionKeyboard *)keyboard
+{
+    if (_keyboard == nil) {
+        _keyboard = [[JSSEmotionKeyboard alloc] init];
+        [_keyboard setWidth:self.view.width];
+        [_keyboard setHeight:216];
+    }
+    return _keyboard;
+}
 
 - (void)viewDidLoad
 {
@@ -113,11 +131,10 @@
     self.isSwitchingKeyboard = YES;
     
     if (self.textView.inputView == nil) { // 系统键盘
-        JSSEmotionKeyboard *keyboard = [[JSSEmotionKeyboard alloc] init];
-        [keyboard setWidth:self.view.width];
-        [keyboard setHeight:216];
-        [self.textView setInputView:keyboard];
+        [self.keybordToolBar setIsEmotionKeyboard:YES];
+        [self.textView setInputView:self.keyboard];
     } else { // 表情键盘
+        [self.keybordToolBar setIsEmotionKeyboard:NO];
         [self.textView setInputView:nil];
     }
     
@@ -128,7 +145,6 @@
         self.isSwitchingKeyboard = NO;
     });
 }
-
 
 /**
  *  打开相机

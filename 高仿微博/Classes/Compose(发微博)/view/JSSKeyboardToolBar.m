@@ -68,4 +68,22 @@
     }
 }
 
+/**
+ *  拦截标记是否是表情键盘
+ */
+- (void)setIsEmotionKeyboard:(BOOL)isEmotionKeyboard
+{
+    _isEmotionKeyboard = isEmotionKeyboard;
+    
+    UIButton *emotionButton = [self.subviews lastObject];
+    
+    if (isEmotionKeyboard) {
+        [emotionButton setImage:[UIImage imageNamed:@"compose_keyboardbutton_background"] forState:UIControlStateNormal];
+        [emotionButton setImage:[UIImage imageNamed:@"compose_keyboardbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    } else {
+        [emotionButton setImage:[UIImage imageNamed:@"compose_mentionbutton_background"] forState:UIControlStateNormal];
+        [emotionButton setImage:[UIImage imageNamed:@"compose_mentionbutton_background_highlighted"] forState:UIControlStateHighlighted];
+    }
+}
+
 @end
