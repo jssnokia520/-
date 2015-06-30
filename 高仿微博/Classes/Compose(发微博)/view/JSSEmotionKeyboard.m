@@ -30,7 +30,6 @@
 {
     if (_recentListView == nil) {
         _recentListView = [[JSSEmotionListView alloc] init];
-        [_recentListView setBackgroundColor:[UIColor redColor]];
     }
     return _recentListView;
 }
@@ -39,7 +38,6 @@
 {
     if (_defaultListView == nil) {
         _defaultListView = [[JSSEmotionListView alloc] init];
-        [_defaultListView setBackgroundColor:[UIColor greenColor]];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info" ofType:@"plist"];
         NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         _defaultListView.emotions = defaultEmotions;
@@ -51,7 +49,6 @@
 {
     if (_emojiListView == nil) {
         _emojiListView = [[JSSEmotionListView alloc] init];
-        [_emojiListView setBackgroundColor:[UIColor orangeColor]];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info" ofType:@"plist"];
         NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         _emojiListView.emotions = defaultEmotions;
@@ -63,7 +60,6 @@
 {
     if (_flowerListView == nil) {
         _flowerListView = [[JSSEmotionListView alloc] init];
-        [_flowerListView setBackgroundColor:[UIColor purpleColor]];
         NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info" ofType:@"plist"];
         NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
         _flowerListView.emotions = defaultEmotions;
