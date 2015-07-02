@@ -53,6 +53,9 @@
 		7F89ADF21B42D43500ABE1EF /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F89ADF11B42D43500ABE1EF /* NSString+Emoji.m */; };
 		7F8B04C01B3D1197000AA6A8 /* JSSComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B04BF1B3D1197000AA6A8 /* JSSComposeViewController.m */; };
 		7F8B04C31B3D589E000AA6A8 /* JSSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8B04C21B3D589E000AA6A8 /* JSSTextView.m */; };
+		7F9740CC1B44274A00E58484 /* JSSEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9740CB1B44274A00E58484 /* JSSEmotionButton.m */; };
+		7F9740CE1B44290000E58484 /* JSSEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */; };
+		7F9740D11B44291700E58484 /* JSSEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9740D01B44291700E58484 /* JSSEmotionPopView.m */; };
 		7FAA88631B2F08BC00C50303 /* JSSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88621B2F08BC00C50303 /* JSSStatus.m */; };
 		7FAA88661B2F091200C50303 /* JSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88651B2F091200C50303 /* JSSUser.m */; };
 		7FAA887F1B2F1B1300C50303 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88691B2F1B1300C50303 /* MJArgument.m */; };
@@ -214,6 +217,11 @@
 		7F8B04BF1B3D1197000AA6A8 /* JSSComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSComposeViewController.m; sourceTree = "<group>"; };
 		7F8B04C11B3D589E000AA6A8 /* JSSTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTextView.h; sourceTree = "<group>"; };
 		7F8B04C21B3D589E000AA6A8 /* JSSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTextView.m; sourceTree = "<group>"; };
+		7F9740CA1B44274A00E58484 /* JSSEmotionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionButton.h; sourceTree = "<group>"; };
+		7F9740CB1B44274A00E58484 /* JSSEmotionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionButton.m; sourceTree = "<group>"; };
+		7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSEmotionPopView.xib; sourceTree = "<group>"; };
+		7F9740CF1B44291700E58484 /* JSSEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionPopView.h; sourceTree = "<group>"; };
+		7F9740D01B44291700E58484 /* JSSEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionPopView.m; sourceTree = "<group>"; };
 		7FAA88611B2F08BC00C50303 /* JSSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatus.h; sourceTree = "<group>"; };
 		7FAA88621B2F08BC00C50303 /* JSSStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatus.m; sourceTree = "<group>"; };
 		7FAA88641B2F091200C50303 /* JSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSUser.h; sourceTree = "<group>"; };
@@ -570,10 +578,15 @@
 				7FCEBA8E1B412BBB00183D8A /* JSSEmotionListView.m */,
 				7F89ADED1B42CAA700ABE1EF /* JSSEmotionContentView.h */,
 				7F89ADEE1B42CAA700ABE1EF /* JSSEmotionContentView.m */,
+				7F9740CA1B44274A00E58484 /* JSSEmotionButton.h */,
+				7F9740CB1B44274A00E58484 /* JSSEmotionButton.m */,
 				7FCEBA901B412BCD00183D8A /* JSSEmotionTabBarView.h */,
 				7FCEBA911B412BCD00183D8A /* JSSEmotionTabBarView.m */,
 				7F06D6A31B41727500FFEB29 /* JSSEmotionTabBarButton.h */,
 				7F06D6A41B41727500FFEB29 /* JSSEmotionTabBarButton.m */,
+				7F9740CF1B44291700E58484 /* JSSEmotionPopView.h */,
+				7F9740D01B44291700E58484 /* JSSEmotionPopView.m */,
+				7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -976,6 +989,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7FD107D61B255B0D00571CE4 /* JSSTest2ViewController.xib in Resources */,
+				7F9740CE1B44290000E58484 /* JSSEmotionPopView.xib in Resources */,
 				7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */,
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
 				7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */,
@@ -1014,6 +1028,7 @@
 				7F2D92841B2DE28100A8657C /* SDWebImageCompat.m in Sources */,
 				7F89ADF21B42D43500ABE1EF /* NSString+Emoji.m in Sources */,
 				7FD107CD1B255B0D00571CE4 /* JSSNavigationController.m in Sources */,
+				7F9740D11B44291700E58484 /* JSSEmotionPopView.m in Sources */,
 				7F4E98D01B2896580081EFB7 /* AFURLSessionManager.m in Sources */,
 				7FAA88861B2F1B1300C50303 /* MJTypeEncoding.m in Sources */,
 				7FCE93271B385F7000996636 /* JSSIconImageView.m in Sources */,
@@ -1036,6 +1051,7 @@
 				7FC5E09D1B32F569002E3BD8 /* JSSLoadMoreFooter.m in Sources */,
 				7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */,
 				7FD107CC1B255B0D00571CE4 /* UIView+Extension.m in Sources */,
+				7F9740CC1B44274A00E58484 /* JSSEmotionButton.m in Sources */,
 				7F06D6A51B41727500FFEB29 /* JSSEmotionTabBarButton.m in Sources */,
 				7F2D928D1B2DE28100A8657C /* UIImage+WebP.m in Sources */,
 				7F8B04C01B3D1197000AA6A8 /* JSSComposeViewController.m in Sources */,

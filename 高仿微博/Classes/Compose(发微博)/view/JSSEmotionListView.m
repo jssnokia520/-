@@ -23,6 +23,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
+        
         // 上面的滚动视图
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         [scrollView setPagingEnabled:YES];
@@ -36,7 +38,6 @@
         
         // 下面的分页控件
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-        [pageControl setBackgroundColor:[UIColor whiteColor]];
         // 设置分页控件的背景图片(KVC)
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];

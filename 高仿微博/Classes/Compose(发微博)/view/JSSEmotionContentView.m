@@ -8,21 +8,30 @@
 
 #import "JSSEmotionContentView.h"
 #import "JSSEmotion.h"
-#import "NSString+Emoji.h"
+#import "JSSEmotionButton.h"
+#import "JSSEmotionPopView.h"
 
 #define JSSContentInset 10
 #define JSSCountPerRow 7
 #define JSSCountPerCol 3
 
+@interface JSSEmotionContentView ()
+
+@property (nonatomic, strong) JSSEmotionPopView *popView;
+
+@end
+
 @implementation JSSEmotionContentView
 
-- (id)initWithFrame:(CGRect)frame
+/**
+ *  懒加载弹出视图
+ */
+- (JSSEmotionPopView *)popView
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-        
+    if (_popView == nil) {
+        _popView = [JSSEmotionPopView popView];
     }
-    return self;
+    return _popView;
 }
 
 /**
@@ -34,19 +43,41 @@
     
     // 根据emotions的数目创建按钮
     for (NSInteger i = 0; i < emotions.count; i++) {
-        UIButton *button = [[UIButton alloc] init];
-        [button.titleLabel setFont:[UIFont systemFontOfSize:32]];
-        JSSEmotion *emotion = emotions[i];
+        JSSEmotionButton *button = [[JSSEmotionButton alloc] init];
+        button.emotion = emotions[i];
         
-        if (emotion.png) {
-            [button setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
-        } else {
-            NSString *emojiString = [NSString emojiWithStringCode:emotion.code];
-            [button setTitle:emojiString forState:UIControlStateNormal];
-        }
-        
+        [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
+}
+
+/**
+ *  按钮监听方法
+ */
+- (void)buttonDidClick:(JSSEmotionButton *)button
+{
+
+    [self.popView setEmotion:button.emotion];
+    
+    // 获取最后一个窗口
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+
+    // 转移坐标系 (将按钮的坐标转移到窗口)
+    CGRect frame = [button convertRect:button.bounds toView:window];
+    
+    CGFloat buttonW = button.width;
+    CGFloat buttonH = button.height;
+    
+    // 设置弹出视图的frame
+    [self.popView setCenterX:frame.origin.x + buttonW / 2];
+    [self.popView setCenterY:frame.origin.y + buttonH / 2 - self.popView.height / 2];
+    
+    [window addSubview:self.popView];
+    
+    // 一定时间后移除弹出视图
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.popView removeFromSuperview];
+    });
 }
 
 /**
