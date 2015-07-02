@@ -15,6 +15,8 @@
 #import "JSSKeyboardToolBar.h"
 #import "JSSComposePhotosView.h"
 #import "JSSEmotionKeyboard.h"
+#import "JSSEmotion.h"
+#import "NSString+Emoji.h"
 
 @interface JSSComposeViewController () <UITextViewDelegate, JSSKeyboardToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -22,6 +24,7 @@
 @property (nonatomic, weak) JSSKeyboardToolBar *keybordToolBar;
 @property (nonatomic, weak) JSSComposePhotosView *photosView;
 @property (nonatomic, assign) BOOL isSwitchingKeyboard;
+@property (nonatomic, copy) NSMutableAttributedString *attributedStringM;
 
 /**
  *  这里一定要使用strong强引用
@@ -231,6 +234,64 @@
     
     // 键盘的通知
     [JSSNotificationCenter addObserver:self selector:@selector(keybordDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 监听键盘视图上按钮被点中
+    [JSSNotificationCenter addObserver:self selector:@selector(emotionDidSelected:) name:JSSEmotionDidSelected object:nil];
+}
+
+/**
+ *  懒加载带有属性的字符串
+ */
+- (NSMutableAttributedString *)attributedStringM
+{
+    if (_attributedStringM == nil) {
+        _attributedStringM = [[NSMutableAttributedString alloc] init];
+    }
+    return _attributedStringM;
+}
+
+/**
+ *  键盘视图上按钮被点中的监听方法
+ */
+- (void)emotionDidSelected:(NSNotification *)notification
+{
+    NSDictionary *userInfo = notification.userInfo;
+    JSSEmotion *emotion = userInfo[@"emotion"];
+    
+    if (emotion.code) { // emoji表情
+        NSString *emojiStr = [NSString emojiWithStringCode:emotion.code];
+        [self.textView insertText:emojiStr];
+    } else { // 图片表情
+        // 获取图片
+        UIImage *image = [UIImage imageNamed:emotion.png];
+        
+        // 文本附件
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        
+        // 设置文本附件的图片
+        [textAttachment setImage:image];
+        
+        // 使用文本附件来创建一个带有属性的字符串
+        NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        
+        // 初始化一个可变的带有属性的字符串
+        NSMutableAttributedString *attributedStringM = [[NSMutableAttributedString alloc] init];
+        
+        // 将文本框中属性字符串取出放到可变属性字符串中
+        [attributedStringM setAttributedString:self.textView.attributedText];
+        
+        // 获取光标位置
+        NSRange selectedRange = self.textView.selectedRange;
+        
+        // 将附件属性字符串插入到可变属性字符串中
+        [attributedStringM insertAttributedString:attributedString atIndex:selectedRange.location];
+        
+        // 设置文本框内容
+        [self.textView setAttributedText:attributedStringM];
+        
+        // 重新设置光标位置
+        [self.textView setSelectedRange:NSMakeRange(selectedRange.location + 1, 0)];
+    }
 }
 
 /**

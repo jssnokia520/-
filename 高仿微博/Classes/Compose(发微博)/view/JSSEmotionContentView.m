@@ -46,7 +46,7 @@
         JSSEmotionButton *button = [[JSSEmotionButton alloc] init];
         button.emotion = emotions[i];
         
-        [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:button];
     }
 }
@@ -78,6 +78,11 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.popView removeFromSuperview];
     });
+    
+    // 发送通知
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[@"emotion"] = button.emotion;
+    [JSSNotificationCenter postNotificationName:JSSEmotionDidSelected object:nil userInfo:userInfo];
 }
 
 /**

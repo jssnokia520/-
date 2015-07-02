@@ -20,11 +20,6 @@
     return string;
 }
 
-- (NSString *)emoji
-{
-    return [NSString emojiWithStringCode:self];
-}
-
 + (NSString *)emojiWithStringCode:(NSString *)stringCode
 {
     char *charCode = (char *)stringCode.UTF8String;
