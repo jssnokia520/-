@@ -12,4 +12,6 @@
 
 - (void)insertAttributeText:(NSAttributedString *)attributedString;
 
+- (void)insertAttributeText:(NSAttributedString *)attributedString settingBlock:(void (^)(NSMutableAttributedString *attributedText))settingBlock;
+
 @end

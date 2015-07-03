@@ -11,6 +11,11 @@
 @implementation UITextView (Extension)
 
 - (void)insertAttributeText:(NSAttributedString *)attributedString {
+    [self insertAttributeText:attributedString settingBlock:nil];
+}
+
+- (void)insertAttributeText:(NSAttributedString *)attributedString settingBlock:(void (^)(NSMutableAttributedString *))settingBlock
+{
     // 初始化一个可变的带有属性的字符串
     NSMutableAttributedString *attributedStringM = [[NSMutableAttributedString alloc] init];
     
@@ -22,6 +27,10 @@
     
     // 将附件属性字符串插入到可变属性字符串中
     [attributedStringM insertAttributedString:attributedString atIndex:selectedRange.location];
+    
+    if (settingBlock) {
+        settingBlock(attributedStringM);
+    }
     
     // 设置文本框内容
     [self setAttributedText:attributedStringM];

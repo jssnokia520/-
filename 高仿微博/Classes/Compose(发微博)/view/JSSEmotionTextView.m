@@ -13,15 +13,6 @@
 
 @implementation JSSEmotionTextView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
 /**
  *  拦截表情模型
  */
@@ -47,7 +38,9 @@
         NSAttributedString *attributedString = [NSAttributedString attributedStringWithAttachment:textAttachment];
         
         // 插入附件
-        [self insertAttributeText:attributedString];
+        [self insertAttributeText:attributedString settingBlock:^(NSMutableAttributedString *attributedText) {
+            [attributedText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attributedText.length)];
+        }];
     }
 }
 

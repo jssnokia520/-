@@ -32,11 +32,19 @@
         UIButton *deleteButton = [[UIButton alloc] init];
         [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
         [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        [deleteButton addTarget:self action:@selector(buttonDidDelete) forControlEvents:UIControlEventTouchUpInside];
         self.deleteButton = deleteButton;
         [self addSubview:deleteButton];
     }
     
     return self;
+}
+/**
+ *  删除按钮监听方法
+ */
+- (void)buttonDidDelete
+{
+    [JSSNotificationCenter postNotificationName:JSSEmotionDidDeleted object:nil];
 }
 
 /**

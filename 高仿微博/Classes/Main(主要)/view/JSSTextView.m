@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setFont:[UIFont systemFontOfSize:15]];
-        // 设置水平方向总是弹簧效果
+        // 设置垂直方向总是弹簧效果
         [self setAlwaysBounceVertical:YES];
         [JSSNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:self];
     }

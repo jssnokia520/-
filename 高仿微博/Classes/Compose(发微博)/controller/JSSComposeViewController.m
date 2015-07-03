@@ -142,9 +142,10 @@
     
     [self.textView endEditing:YES];
     
+    self.isSwitchingKeyboard = NO;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.textView becomeFirstResponder];
-        self.isSwitchingKeyboard = NO;
     });
 }
 
@@ -236,6 +237,17 @@
     
     // 监听键盘视图上按钮被点中
     [JSSNotificationCenter addObserver:self selector:@selector(emotionDidSelected:) name:JSSEmotionDidSelected object:nil];
+    
+    // 表情键盘删除的通知
+    [JSSNotificationCenter addObserver:self selector:@selector(emotionDidDeleted) name:JSSEmotionDidDeleted object:nil];
+}
+/**
+ *  键盘视图上按钮被点中的监听方法
+ */
+- (void)emotionDidDeleted
+{
+    // 往回删除
+    [self.textView deleteBackward];
 }
 
 /**
