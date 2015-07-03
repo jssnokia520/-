@@ -34,6 +34,7 @@
 		7F395C7A1B292DEA006ED46A /* JSSOAuthAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C791B292DEA006ED46A /* JSSOAuthAccount.m */; };
 		7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */; };
 		7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F395C801B294A12006ED46A /* UIWindow+Extension.m */; };
+		7F3FBAAE1B46BB6C00198B5E /* JSSTextAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F3FBAAD1B46BB6C00198B5E /* JSSTextAttachment.m */; };
 		7F4E98B21B2884D80081EFB7 /* JSSOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */; };
 		7F4E98C81B2896580081EFB7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B61B2896580081EFB7 /* AFHTTPRequestOperation.m */; };
 		7F4E98C91B2896580081EFB7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98B81B2896580081EFB7 /* AFHTTPRequestOperationManager.m */; };
@@ -180,6 +181,8 @@
 		7F395C7D1B293A4C006ED46A /* JSSOAuthAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthAccountTool.m; sourceTree = "<group>"; };
 		7F395C7F1B294A12006ED46A /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		7F395C801B294A12006ED46A /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
+		7F3FBAAC1B46BB6C00198B5E /* JSSTextAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTextAttachment.h; sourceTree = "<group>"; };
+		7F3FBAAD1B46BB6C00198B5E /* JSSTextAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTextAttachment.m; sourceTree = "<group>"; };
 		7F4E98B01B2884D80081EFB7 /* JSSOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSOAuthViewController.h; sourceTree = "<group>"; };
 		7F4E98B11B2884D80081EFB7 /* JSSOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSOAuthViewController.m; sourceTree = "<group>"; };
 		7F4E98B51B2896580081EFB7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -359,6 +362,8 @@
 			children = (
 				7F212AFB1B41977100203FB9 /* JSSEmotion.h */,
 				7F212AFC1B41977100203FB9 /* JSSEmotion.m */,
+				7F3FBAAC1B46BB6C00198B5E /* JSSTextAttachment.h */,
+				7F3FBAAD1B46BB6C00198B5E /* JSSTextAttachment.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1072,6 +1077,7 @@
 				7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */,
 				7F2D92811B2DE28100A8657C /* MKAnnotationView+WebCache.m in Sources */,
 				7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */,
+				7F3FBAAE1B46BB6C00198B5E /* JSSTextAttachment.m in Sources */,
 				7FAA88881B2F1B1300C50303 /* NSObject+MJKeyValue.m in Sources */,
 				7FCCA8821B3EE98200D8B6B3 /* JSSComposePhotosView.m in Sources */,
 				7FD107D31B255B0D00571CE4 /* JSSTest1ViewController.m in Sources */,

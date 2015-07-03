@@ -23,7 +23,6 @@
 @property (nonatomic, weak) JSSKeyboardToolBar *keybordToolBar;
 @property (nonatomic, weak) JSSComposePhotosView *photosView;
 @property (nonatomic, assign) BOOL isSwitchingKeyboard;
-@property (nonatomic, copy) NSMutableAttributedString *attributedStringM;
 
 /**
  *  这里一定要使用strong强引用
@@ -251,17 +250,6 @@
 }
 
 /**
- *  懒加载带有属性的字符串
- */
-- (NSMutableAttributedString *)attributedStringM
-{
-    if (_attributedStringM == nil) {
-        _attributedStringM = [[NSMutableAttributedString alloc] init];
-    }
-    return _attributedStringM;
-}
-
-/**
  *  键盘视图上按钮被点中的监听方法
  */
 - (void)emotionDidSelected:(NSNotification *)notification
@@ -269,6 +257,8 @@
     NSDictionary *userInfo = notification.userInfo;
     JSSEmotion *emotion = userInfo[@"emotion"];
     [self.textView setEmotion:emotion];
+
+    [self textDidChanged];
 }
 
 /**
@@ -354,7 +344,7 @@
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [JSSOAuthAccountTool account].access_token;
-    parameters[@"status"] = self.textView.text;
+    parameters[@"status"] = self.textView.sendText;
     
     [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         UIImage *image = [self.photosView.images firstObject];
@@ -376,7 +366,9 @@
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [JSSOAuthAccountTool account].access_token;
-    parameters[@"status"] = self.textView.text;
+    parameters[@"status"] = self.textView.sendText;
+    
+    
     
     [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD showSuccess:@"发送成功"];

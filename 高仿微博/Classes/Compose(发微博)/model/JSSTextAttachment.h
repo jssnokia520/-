@@ -1,25 +1,19 @@
 //
-//  JSSEmotionTextView.h
+//  JSSTextAttachment.h
 //  高仿微博
 //
 //  Created by JiShangsong on 15/7/3.
 //  Copyright (c) 2015年 JiShangsong. All rights reserved.
 //
 
-#import "JSSTextView.h"
+#import <UIKit/UIKit.h>
 @class JSSEmotion;
 
-@interface JSSEmotionTextView : JSSTextView
+@interface JSSTextAttachment : NSTextAttachment
 
 /**
  *  表情模型
  */
 @property (nonatomic, strong) JSSEmotion *emotion;
-
-
-/**
- *  转换发送文本
- */
-- (NSString *)sendText;
 
 @end
