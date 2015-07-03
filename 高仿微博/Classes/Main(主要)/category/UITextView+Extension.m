@@ -1,0 +1,33 @@
+//
+//  UITextView+Extension.m
+//  高仿微博
+//
+//  Created by JiShangsong on 15/7/3.
+//  Copyright (c) 2015年 JiShangsong. All rights reserved.
+//
+
+#import "UITextView+Extension.h"
+
+@implementation UITextView (Extension)
+
+- (void)insertAttributeText:(NSAttributedString *)attributedString {
+    // 初始化一个可变的带有属性的字符串
+    NSMutableAttributedString *attributedStringM = [[NSMutableAttributedString alloc] init];
+    
+    // 将文本框中属性字符串取出放到可变属性字符串中
+    [attributedStringM setAttributedString:self.attributedText];
+    
+    // 获取光标位置
+    NSRange selectedRange = self.selectedRange;
+    
+    // 将附件属性字符串插入到可变属性字符串中
+    [attributedStringM insertAttributedString:attributedString atIndex:selectedRange.location];
+    
+    // 设置文本框内容
+    [self setAttributedText:attributedStringM];
+    
+    // 重新设置光标位置
+    [self setSelectedRange:NSMakeRange(selectedRange.location + 1, 0)];
+}
+
+@end

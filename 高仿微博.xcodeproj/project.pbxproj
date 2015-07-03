@@ -96,6 +96,8 @@
 		7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */; };
 		7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */; };
 		7FE130651B37E3F2007A5E09 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */; };
+		7FE753861B46157B00C3F8D1 /* JSSEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE753851B46157B00C3F8D1 /* JSSEmotionTextView.m */; };
+		7FE753891B46184D00C3F8D1 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE753881B46184D00C3F8D1 /* UITextView+Extension.m */; };
 		7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956631B346A58006B3317 /* JSSStatusCell.m */; };
 		7FE956671B3475AB006B3317 /* JSSStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE956661B3475AB006B3317 /* JSSStatusFrame.m */; };
 		7FEE15F41B381970007A5765 /* fakeStatus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE15F31B38196F007A5765 /* fakeStatus.plist */; };
@@ -298,6 +300,10 @@
 		7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		7FE130631B37E3F2007A5E09 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		7FE753841B46157B00C3F8D1 /* JSSEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionTextView.h; sourceTree = "<group>"; };
+		7FE753851B46157B00C3F8D1 /* JSSEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionTextView.m; sourceTree = "<group>"; };
+		7FE753871B46184D00C3F8D1 /* UITextView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extension.h"; sourceTree = "<group>"; };
+		7FE753881B46184D00C3F8D1 /* UITextView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extension.m"; sourceTree = "<group>"; };
 		7FE956621B346A58006B3317 /* JSSStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusCell.h; sourceTree = "<group>"; };
 		7FE956631B346A58006B3317 /* JSSStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusCell.m; sourceTree = "<group>"; };
 		7FE956651B3475AB006B3317 /* JSSStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusFrame.h; sourceTree = "<group>"; };
@@ -587,6 +593,8 @@
 				7F9740CF1B44291700E58484 /* JSSEmotionPopView.h */,
 				7F9740D01B44291700E58484 /* JSSEmotionPopView.m */,
 				7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */,
+				7FE753841B46157B00C3F8D1 /* JSSEmotionTextView.h */,
+				7FE753851B46157B00C3F8D1 /* JSSEmotionTextView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -708,6 +716,8 @@
 				7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */,
 				7FEE15F51B38206C007A5765 /* NSString+Extension.h */,
 				7FEE15F61B38206C007A5765 /* NSString+Extension.m */,
+				7FE753871B46184D00C3F8D1 /* UITextView+Extension.h */,
+				7FE753881B46184D00C3F8D1 /* UITextView+Extension.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -1056,6 +1066,7 @@
 				7F2D928D1B2DE28100A8657C /* UIImage+WebP.m in Sources */,
 				7F8B04C01B3D1197000AA6A8 /* JSSComposeViewController.m in Sources */,
 				7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */,
+				7FE753891B46184D00C3F8D1 /* UITextView+Extension.m in Sources */,
 				7FD107CE1B255B0D00571CE4 /* JSSTabBarViewController.m in Sources */,
 				7F2D92871B2DE28100A8657C /* SDWebImageDownloaderOperation.m in Sources */,
 				7F395C7E1B293A4C006ED46A /* JSSOAuthAccountTool.m in Sources */,
@@ -1074,6 +1085,7 @@
 				7FCEBA8C1B412B3300183D8A /* JSSEmotionKeyboard.m in Sources */,
 				7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */,
 				7F212AFD1B41977100203FB9 /* JSSEmotion.m in Sources */,
+				7FE753861B46157B00C3F8D1 /* JSSEmotionTextView.m in Sources */,
 				7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */,
 				7F2D928F1B2DE28100A8657C /* UIImageView+WebCache.m in Sources */,
 				7FD107D01B255B0D00571CE4 /* main.m in Sources */,

@@ -18,10 +18,26 @@
 @interface JSSEmotionContentView ()
 
 @property (nonatomic, strong) JSSEmotionPopView *popView;
+@property (nonatomic, weak) UIButton *deleteButton;
 
 @end
 
 @implementation JSSEmotionContentView
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        UIButton *deleteButton = [[UIButton alloc] init];
+        [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [deleteButton setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        self.deleteButton = deleteButton;
+        [self addSubview:deleteButton];
+    }
+    
+    return self;
+}
 
 /**
  *  懒加载弹出视图
@@ -94,13 +110,18 @@
     
     CGFloat buttomW = (self.width - 2 * JSSContentInset) / JSSCountPerRow;
     CGFloat buttonH = (self.height - 2 * JSSContentInset) / JSSCountPerCol;
-    for (NSInteger i = 0; i < self.subviews.count; i++) {
-        UIButton *button = self.subviews[i];
+    for (NSInteger i = 0; i < self.subviews.count - 1; i++) {
+        UIButton *button = self.subviews[i + 1];
         [button setX:JSSContentInset + buttomW * (i % JSSCountPerRow)];
         [button setY:JSSContentInset + buttonH * (i / JSSCountPerRow)];
         [button setWidth:buttomW];
         [button setHeight:buttonH];
     }
+    
+    [self.deleteButton setX:self.width - JSSContentInset - buttomW];
+    [self.deleteButton setY:self.height - JSSContentInset - buttonH];
+    [self.deleteButton setWidth:buttomW];
+    [self.deleteButton setHeight:buttonH];
 }
 
 @end
