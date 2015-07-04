@@ -70,14 +70,13 @@
     switch (longRecognizer.state) {
         case UIGestureRecognizerStateBegan:
         case UIGestureRecognizerStateChanged:
-        {
-            [self.popView showFromButton:button];
-        }
+            if (button) {
+                [self.popView showFromButton:button];
+            }
             break;
             
         case UIGestureRecognizerStateCancelled:
         case UIGestureRecognizerStateEnded:
-        {
             [self.popView removeFromSuperview];
             // 发送通知
             if (button) {
@@ -85,7 +84,6 @@
                 userInfo[@"emotion"] = button.emotion;
                 [JSSNotificationCenter postNotificationName:JSSEmotionDidSelected object:nil userInfo:userInfo];
             }
-        }
             break;
             
         default:

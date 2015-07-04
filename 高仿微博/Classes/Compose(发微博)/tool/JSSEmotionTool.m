@@ -11,23 +11,31 @@
 
 @implementation JSSEmotionTool
 
+static NSMutableArray *_emotions;
+
++ (void)initialize
+{
+    _emotions = [NSKeyedUnarchiver unarchiveObjectWithFile:JSSEmotionsPath];
+    if (_emotions == nil) {
+        _emotions = [NSMutableArray array];
+    }
+}
+
 /**
  *  添加表情
  */
 + (void)addEmotion:(JSSEmotion *)emotion
 {
-    NSMutableArray *emotions;
-    
-    if ([self emotions]) { // 获得表情
-        emotions = [NSMutableArray arrayWithArray:[self emotions]];
-    } else {
-        emotions = [NSMutableArray array];
+    // 判断表情是否重复
+    if ([_emotions containsObject:emotion]) {
+        [_emotions removeObject:emotion];
     }
     
-    [emotions insertObject:emotion atIndex:0];
+    // 添加表情
+    [_emotions insertObject:emotion atIndex:0];
     
     // 归档
-    [NSKeyedArchiver archiveRootObject:emotions toFile:JSSEmotionsPath];
+    [NSKeyedArchiver archiveRootObject:_emotions toFile:JSSEmotionsPath];
 }
 
 /**
@@ -35,8 +43,7 @@
  */
 + (NSArray *)emotions
 {
-    // 解档
-    return [NSKeyedUnarchiver unarchiveObjectWithFile:JSSEmotionsPath];
+    return _emotions;
 }
 
 @end

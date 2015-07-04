@@ -31,9 +31,6 @@
 {
     if (_recentListView == nil) {
         _recentListView = [[JSSEmotionListView alloc] init];
-        
-        NSArray *emotions = [JSSEmotionTool emotions];
-        [_recentListView setEmotions:emotions];
     }
     return _recentListView;
 }
@@ -85,8 +82,27 @@
         [tabBarView setDelegate:self];
         [self addSubview:tabBarView];
         self.tabBarView = tabBarView;
+        
+        // 键盘接收表情选中的通知
+        [JSSNotificationCenter addObserver:self selector:@selector(emotionDidSelected) name:JSSEmotionDidSelected object:nil];
     }
     return self;
+}
+
+/**
+ *  表情按钮监听方法
+ */
+- (void)emotionDidSelected
+{
+    [self.recentListView setEmotions:[JSSEmotionTool emotions]];
+}
+
+/**
+ *  移除通知
+ */
+- (void)dealloc
+{
+    [JSSNotificationCenter removeObserver:self];
 }
 
 /**
@@ -99,6 +115,7 @@
     switch (emotionTabBarViewButtonType) {
         case emotionTabBarViewButtonLatest:
             [self.contentView addSubview:self.recentListView];
+            [_recentListView setEmotions:[JSSEmotionTool emotions]];
             break;
             
         case emotionTabBarViewButtonDefault:

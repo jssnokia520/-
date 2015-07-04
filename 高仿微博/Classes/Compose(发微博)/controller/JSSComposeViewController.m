@@ -241,6 +241,15 @@
     // 表情键盘删除的通知
     [JSSNotificationCenter addObserver:self selector:@selector(emotionDidDeleted) name:JSSEmotionDidDeleted object:nil];
 }
+
+/**
+ *  移除通知
+ */
+- (void)dealloc
+{
+    [JSSNotificationCenter removeObserver:self];
+}
+
 /**
  *  键盘视图上按钮被点中的监听方法
  */
@@ -262,6 +271,8 @@
     
     // 存储表情
     [JSSEmotionTool addEmotion:emotion];
+    
+    [self.keyboard setNeedsLayout];
 }
 
 /**
@@ -370,8 +381,6 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [JSSOAuthAccountTool account].access_token;
     parameters[@"status"] = self.textView.sendText;
-    
-    
     
     [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD showSuccess:@"发送成功"];

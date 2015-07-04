@@ -56,6 +56,9 @@
 {
     _emotions = emotions;
     
+    // 清空子控件
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
     // 计算分页控件的页数
     NSInteger pageCount = (emotions.count + JSSCountPerPage - 1) / JSSCountPerPage;
     [self.pageControl setNumberOfPages:pageCount];
@@ -71,6 +74,9 @@
         [pageView setEmotions:sunEmotions];
         [self.scrollView addSubview:pageView];
     }
+    
+    // 刷新布局
+    [self setNeedsLayout];
 }
 
 /**

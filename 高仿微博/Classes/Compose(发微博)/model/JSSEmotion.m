@@ -36,4 +36,12 @@
     [aCoder encodeObject:self.code forKey:@"code"];
 }
 
+/**
+ *  拦截对象判断方法
+ */
+- (BOOL)isEqual:(JSSEmotion *)emotion
+{
+    return [self.chs isEqualToString:emotion.chs] || [self.code isEqualToString:emotion.code];
+}
+
 @end
