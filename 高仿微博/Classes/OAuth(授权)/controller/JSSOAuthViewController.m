@@ -29,7 +29,10 @@
     [webView setScalesPageToFit:YES];
     [self.view addSubview:webView];
     
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=1322161785&redirect_uri=http://www.520it.com"];
+    
+    
+    NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@", JSSClientId, JSSRedirectUri];
+    NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [webView loadRequest:request];
 }
@@ -75,11 +78,12 @@
     
     // 拼接参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"client_id"] = @"1322161785";
-    parameters[@"client_secret"] = @"552b5366bb1d39595ea780c4d24ce174";
+    parameters[@"client_id"] = JSSClientId;
+    
+    parameters[@"client_secret"] = JSSClientSecret;
     parameters[@"grant_type"] = @"authorization_code";
     parameters[@"code"] = code;
-    parameters[@"redirect_uri"] = @"http://www.520it.com";
+    parameters[@"redirect_uri"] = JSSRedirectUri;
     
     // 发送POST请求
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {

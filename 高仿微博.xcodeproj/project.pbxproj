@@ -57,6 +57,7 @@
 		7F9740CC1B44274A00E58484 /* JSSEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9740CB1B44274A00E58484 /* JSSEmotionButton.m */; };
 		7F9740CE1B44290000E58484 /* JSSEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */; };
 		7F9740D11B44291700E58484 /* JSSEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9740D01B44291700E58484 /* JSSEmotionPopView.m */; };
+		7FA4E5C31B48013E00B4E45C /* JSSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4E5C21B48013E00B4E45C /* JSSConst.m */; };
 		7FAA88631B2F08BC00C50303 /* JSSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88621B2F08BC00C50303 /* JSSStatus.m */; };
 		7FAA88661B2F091200C50303 /* JSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88651B2F091200C50303 /* JSSUser.m */; };
 		7FAA887F1B2F1B1300C50303 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88691B2F1B1300C50303 /* MJArgument.m */; };
@@ -228,6 +229,8 @@
 		7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSEmotionPopView.xib; sourceTree = "<group>"; };
 		7F9740CF1B44291700E58484 /* JSSEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionPopView.h; sourceTree = "<group>"; };
 		7F9740D01B44291700E58484 /* JSSEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionPopView.m; sourceTree = "<group>"; };
+		7FA4E5C11B48013E00B4E45C /* JSSConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSConst.h; sourceTree = "<group>"; };
+		7FA4E5C21B48013E00B4E45C /* JSSConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSConst.m; sourceTree = "<group>"; };
 		7FAA88611B2F08BC00C50303 /* JSSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatus.h; sourceTree = "<group>"; };
 		7FAA88621B2F08BC00C50303 /* JSSStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatus.m; sourceTree = "<group>"; };
 		7FAA88641B2F091200C50303 /* JSSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSUser.h; sourceTree = "<group>"; };
@@ -752,9 +755,11 @@
 		7FD107AF1B255B0D00571CE4 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				7FD107B21B255B0D00571CE4 /* main.m */,
+				7FA4E5C11B48013E00B4E45C /* JSSConst.h */,
+				7FA4E5C21B48013E00B4E45C /* JSSConst.m */,
 				7FD107B01B255B0D00571CE4 /* JSSAppDelegate.h */,
 				7FD107B11B255B0D00571CE4 /* JSSAppDelegate.m */,
-				7FD107B21B255B0D00571CE4 /* main.m */,
 			);
 			path = other;
 			sourceTree = "<group>";
@@ -1072,6 +1077,7 @@
 				7FAA88851B2F1B1300C50303 /* MJType.m in Sources */,
 				7FAA88811B2F1B1300C50303 /* MJFoundation.m in Sources */,
 				7F2D92851B2DE28100A8657C /* SDWebImageDecoder.m in Sources */,
+				7FA4E5C31B48013E00B4E45C /* JSSConst.m in Sources */,
 				7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */,
 				7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */,
 				7F4E98CC1B2896580081EFB7 /* AFSecurityPolicy.m in Sources */,
