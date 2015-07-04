@@ -65,7 +65,6 @@
 - (void)longPress:(UILongPressGestureRecognizer *)longRecognizer
 {
     CGPoint point = [longRecognizer locationInView:self];
-
     JSSEmotionButton *button = [self buttonWithPoint:point];
     
     switch (longRecognizer.state) {
@@ -81,9 +80,11 @@
         {
             [self.popView removeFromSuperview];
             // 发送通知
-            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
-            userInfo[@"emotion"] = button.emotion;
-            [JSSNotificationCenter postNotificationName:JSSEmotionDidSelected object:nil userInfo:userInfo];
+            if (button) {
+                NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+                userInfo[@"emotion"] = button.emotion;
+                [JSSNotificationCenter postNotificationName:JSSEmotionDidSelected object:nil userInfo:userInfo];
+            }
         }
             break;
             

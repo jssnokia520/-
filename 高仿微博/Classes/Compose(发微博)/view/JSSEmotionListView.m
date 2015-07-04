@@ -41,6 +41,7 @@
         // 设置分页控件的背景图片(KVC)
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_normal"] forKeyPath:@"pageImage"];
         [pageControl setValue:[UIImage imageNamed:@"compose_keyboard_dot_selected"] forKeyPath:@"currentPageImage"];
+        [pageControl setHidesForSinglePage:YES];
         
         self.pageControl = pageControl;
         [self addSubview:pageControl];

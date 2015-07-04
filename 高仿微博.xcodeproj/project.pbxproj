@@ -96,6 +96,7 @@
 		7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FD107C91B255B0D00571CE4 /* JSSTest3ViewController.xib */; };
 		7FD107DB1B256B5E00571CE4 /* JSSItemTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */; };
 		7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */; };
+		7FD421E11B47A49700E184F6 /* JSSEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD421E01B47A49700E184F6 /* JSSEmotionTool.m */; };
 		7FE130651B37E3F2007A5E09 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */; };
 		7FE753861B46157B00C3F8D1 /* JSSEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE753851B46157B00C3F8D1 /* JSSEmotionTextView.m */; };
 		7FE753891B46184D00C3F8D1 /* UITextView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE753881B46184D00C3F8D1 /* UITextView+Extension.m */; };
@@ -301,6 +302,8 @@
 		7FD107DA1B256B5E00571CE4 /* JSSItemTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSItemTool.m; sourceTree = "<group>"; };
 		7FD107DC1B256DE200571CE4 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		7FD107DD1B256DE200571CE4 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		7FD421DF1B47A49700E184F6 /* JSSEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionTool.h; sourceTree = "<group>"; };
+		7FD421E01B47A49700E184F6 /* JSSEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionTool.m; sourceTree = "<group>"; };
 		7FE130631B37E3F2007A5E09 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		7FE130641B37E3F2007A5E09 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		7FE753841B46157B00C3F8D1 /* JSSEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionTextView.h; sourceTree = "<group>"; };
@@ -514,6 +517,7 @@
 		7F8B04BC1B3D1177000AA6A8 /* Compose(发微博) */ = {
 			isa = PBXGroup;
 			children = (
+				7FD421DE1B47A36000E184F6 /* tool */,
 				7F212AFA1B41975F00203FB9 /* model */,
 				7F8B04BD1B3D1177000AA6A8 /* controller */,
 				7FCFF22F1B3DA8B300EAC8B4 /* view */,
@@ -856,6 +860,15 @@
 			path = "Temp(临时)";
 			sourceTree = "<group>";
 		};
+		7FD421DE1B47A36000E184F6 /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				7FD421DF1B47A49700E184F6 /* JSSEmotionTool.h */,
+				7FD421E01B47A49700E184F6 /* JSSEmotionTool.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
 		7FFD45C61B24677C00A7F4BF = {
 			isa = PBXGroup;
 			children = (
@@ -1035,6 +1048,7 @@
 				7FAA88831B2F1B1300C50303 /* MJMember.m in Sources */,
 				7F4E98CE1B2896580081EFB7 /* AFURLRequestSerialization.m in Sources */,
 				7F4E98CD1B2896580081EFB7 /* AFURLConnectionOperation.m in Sources */,
+				7FD421E11B47A49700E184F6 /* JSSEmotionTool.m in Sources */,
 				7FAA88631B2F08BC00C50303 /* JSSStatus.m in Sources */,
 				7FEE15F71B38206C007A5765 /* NSString+Extension.m in Sources */,
 				7FCFBE481B2735E900DD1BC7 /* JSSTabBar.m in Sources */,

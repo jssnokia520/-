@@ -16,6 +16,7 @@
 #import "JSSComposePhotosView.h"
 #import "JSSEmotionKeyboard.h"
 #import "JSSEmotion.h"
+#import "JSSEmotionTool.h"
 
 @interface JSSComposeViewController () <UITextViewDelegate, JSSKeyboardToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -257,8 +258,10 @@
     NSDictionary *userInfo = notification.userInfo;
     JSSEmotion *emotion = userInfo[@"emotion"];
     [self.textView setEmotion:emotion];
-
     [self textDidChanged];
+    
+    // 存储表情
+    [JSSEmotionTool addEmotion:emotion];
 }
 
 /**

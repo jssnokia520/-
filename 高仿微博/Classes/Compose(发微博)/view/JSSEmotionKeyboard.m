@@ -11,6 +11,7 @@
 #import "JSSEmotionTabBarView.h"
 #import "JSSEmotion.h"
 #import "MJExtension.h"
+#import "JSSEmotionTool.h"
 
 @interface JSSEmotionKeyboard () <JSSEmotionTabBarViewDelegate>
 
@@ -30,6 +31,9 @@
 {
     if (_recentListView == nil) {
         _recentListView = [[JSSEmotionListView alloc] init];
+        
+        NSArray *emotions = [JSSEmotionTool emotions];
+        [_recentListView setEmotions:emotions];
     }
     return _recentListView;
 }

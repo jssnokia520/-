@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JSSEmotion : NSObject
+@interface JSSEmotion : NSObject <NSCoding>
 
 /**
  *  中文昵称
