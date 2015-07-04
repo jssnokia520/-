@@ -11,7 +11,6 @@
 #import "JSSTitleMenuViewController.h"
 #import "JSSOAuthAccount.h"
 #import "JSSOAuthAccountTool.h"
-#import "AFNetworking.h"
 #import "JSSTitleButton.h"
 #import "UIImageView+WebCache.h"
 #import "JSSUser.h"
@@ -20,6 +19,8 @@
 #import "JSSLoadMoreFooter.h"
 #import "JSSStatusCell.h"
 #import "JSSStatusFrame.h"
+#import "JSSHttpTool.h"
+#import "MJRefresh.h"
 
 @interface JSSHomeViewController () <JSSDropDownMenuDelegate>
 
@@ -70,16 +71,14 @@
  */
 - (void)autoRefresh
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
     parameters[@"uid"] = account.uid;
     
-    [manager GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        [self setBadge:[responseObject[@"status"] stringValue]];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    [JSSHttpTool GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parameters success:^(id json) {
+        [self setBadge:[json[@"status"] stringValue]];
+    } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }
@@ -99,9 +98,7 @@
  *  添加上拉刷新控件
  */
 - (void)setFooter {
-    JSSLoadMoreFooter *footer = [JSSLoadMoreFooter footer];
-    self.tableView.tableFooterView = footer;
-    [self.tableView.tableFooterView setHidden:YES];
+    [self.tableView addFooterWithTarget:self action:@selector(loadMoreStatus)];
 }
 
 /**
@@ -109,20 +106,14 @@
  */
 - (void)setRefreshControl
 {
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    
-    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshControl];
-    
-    // 开始刷新
-    [refreshControl beginRefreshing];
-    [self refresh:refreshControl];
+    [self.tableView addHeaderWithTarget:self action:@selector(refresh)];
+    [self.tableView headerBeginRefreshing];
 }
 
 /**
  *  监听下拉刷新控件
  */
-- (void)refresh:(UIRefreshControl *)refreshControl
+- (void)refresh
 {
 //    [self.tabBarItem setBadgeValue:nil];
 //    [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
@@ -144,8 +135,6 @@
     // 再次发送请求获取数据
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
     // 获取第一条微博
@@ -154,12 +143,12 @@
         parameters[@"since_id"] = statusFrame.status.idstr;
     }
     
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [JSSHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(id json) {
         // 结束刷新
-        [refreshControl endRefreshing];
+        [self.tableView headerEndRefreshing];
         
         // 获取微博数据
-        NSArray *newStatuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatuses = [JSSStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         NSArray *newStatusFrames = [self statusFramesWithStatus:newStatuses];
         NSRange range = NSMakeRange(0, newStatuses.count);
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
@@ -171,9 +160,9 @@
         [self setBadge:@"0"];
         // 显示提示标签
         [self setTipLabel:newStatusFrames.count];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         // 结束刷新
-        [refreshControl endRefreshing];
+        [self.tableView headerEndRefreshing];
         NSLog(@"%@", error);
     }];
 }
@@ -249,34 +238,10 @@
 }
 
 /**
- *  当表格滚动到最末尾的时候显示上拉刷新控件
- */
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    // 如果没有数据就直接返回
-    if (self.statusFrames.count == 0 || self.tableView.tableFooterView.hidden == NO) {
-        return;
-    }
-    
-    CGFloat offsetY = scrollView.contentOffset.y;
-    
-    CGFloat judgeOffsetY = scrollView.contentSize.height + scrollView.contentInset.bottom - scrollView.height - self.tableView.tableFooterView.height;
-    
-    if (offsetY >= judgeOffsetY) {
-        [self.tableView.tableFooterView setHidden:NO];
-        
-        // 加载更多微博数据
-        [self loadMoreStatus];
-    }
-}
-
-/**
  *  加载更多微博数据
  */
 - (void)loadMoreStatus
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
     parameters[@"access_token"] = account.access_token;
@@ -284,14 +249,14 @@
     if (statusFrame.status) {
         parameters[@"max_id"] = @(statusFrame.status.idstr.longLongValue - 1);
     }
-
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
-        NSArray *statuses = [JSSStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+    
+    [JSSHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(id json) {
+        NSArray *statuses = [JSSStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         NSArray *statusFrames = [self statusFramesWithStatus:statuses];
         [self.statusFrames addObjectsFromArray:statusFrames];
         [self.tableView reloadData];
         [self.tableView.tableFooterView setHidden:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [self.tableView.tableFooterView setHidden:YES];
     }];
 }
@@ -301,20 +266,18 @@
 {
     JSSOAuthAccount *account = [JSSOAuthAccountTool account];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = account.access_token;
     parameters[@"uid"] = account.uid;
     
-    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [JSSHttpTool GET:@"https://api.weibo.com/2/users/show.json" parameters:parameters success:^(id json) {
         UIButton *titleButton = (UIButton *)self.navigationItem.titleView;
-        JSSUser *user = [JSSUser objectWithKeyValues:responseObject];
+        JSSUser *user = [JSSUser objectWithKeyValues:json];
         [titleButton setTitle:user.name forState:UIControlStateNormal];
         
         [account setName:user.name];
         [JSSOAuthAccountTool saveAccount:account];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }

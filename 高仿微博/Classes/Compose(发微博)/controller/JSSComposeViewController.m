@@ -17,6 +17,7 @@
 #import "JSSEmotionKeyboard.h"
 #import "JSSEmotion.h"
 #import "JSSEmotionTool.h"
+#import "JSSHttpTool.h"
 
 @interface JSSComposeViewController () <UITextViewDelegate, JSSKeyboardToolBarDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
@@ -376,15 +377,13 @@
  */
 - (void)sendWithoutImage
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"access_token"] = [JSSOAuthAccountTool account].access_token;
     parameters[@"status"] = self.textView.sendText;
     
-    [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [JSSHttpTool POST:@"https://api.weibo.com/2/statuses/update.json" parameters:parameters success:^(id json) {
         [MBProgressHUD showSuccess:@"发送成功"];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD showError:@"发送失败"];
     }];
 }

@@ -7,11 +7,11 @@
 //
 
 #import "JSSOAuthViewController.h"
-#import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "JSSOAuthAccount.h"
 #import "JSSOAuthAccountTool.h"
 #import "UIWindow+Extension.h"
+#import "JSSHttpTool.h"
 
 @interface JSSOAuthViewController () <UIWebViewDelegate>
 
@@ -73,31 +73,25 @@
 
 - (void)accessTokenWithCode:(NSString *)code
 {
-    // 获取管理者
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
     // 拼接参数
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"client_id"] = JSSClientId;
-    
     parameters[@"client_secret"] = JSSClientSecret;
     parameters[@"grant_type"] = @"authorization_code";
     parameters[@"code"] = code;
     parameters[@"redirect_uri"] = JSSRedirectUri;
     
-    // 发送POST请求
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(AFHTTPRequestOperation *operation, NSDictionary *responseObject) {
+    [JSSHttpTool POST:@"https://api.weibo.com/oauth2/access_token" parameters:parameters success:^(id json) {
         [MBProgressHUD  hideHUD];
         
         // 存储账号信息
-        JSSOAuthAccount *account = [JSSOAuthAccount accountWithDict:responseObject];
+        JSSOAuthAccount *account = [JSSOAuthAccount accountWithDict:json];
         [JSSOAuthAccountTool saveAccount:account];
         
         // 切换控制器
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window switchController];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [MBProgressHUD hideHUD];
     }];
 }
