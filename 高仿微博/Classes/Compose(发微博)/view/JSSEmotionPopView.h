@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@class JSSEmotion;
+@class JSSEmotion, JSSEmotionButton;
 
 @interface JSSEmotionPopView : UIView
 
@@ -17,5 +17,10 @@
  *  快速创建弹出视图
  */
 + (instancetype)popView;
+
+/**
+ *  利用按钮来展示弹出动画
+ */
+- (void)showFromButton:(JSSEmotionButton *)button;
 
 @end

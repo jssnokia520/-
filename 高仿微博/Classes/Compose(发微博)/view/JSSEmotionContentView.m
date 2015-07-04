@@ -35,10 +35,63 @@
         [deleteButton addTarget:self action:@selector(buttonDidDelete) forControlEvents:UIControlEventTouchUpInside];
         self.deleteButton = deleteButton;
         [self addSubview:deleteButton];
+        
+        // 添加手势监听
+        UILongPressGestureRecognizer *longRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+        [self addGestureRecognizer:longRecognizer];
     }
     
     return self;
 }
+
+/**
+ *  获得长按手势点中的按钮
+ */
+- (JSSEmotionButton *)buttonWithPoint:(CGPoint)point
+{
+    for (NSInteger i = 0; i < self.subviews.count - 1; i++) {
+        JSSEmotionButton *button = self.subviews[i + 1];
+        if (CGRectContainsPoint(button.frame, point)) {
+            return button;
+        }
+    }
+    
+    return nil;
+}
+
+/**
+ *  手势监听方法
+ */
+- (void)longPress:(UILongPressGestureRecognizer *)longRecognizer
+{
+    CGPoint point = [longRecognizer locationInView:self];
+
+    JSSEmotionButton *button = [self buttonWithPoint:point];
+    
+    switch (longRecognizer.state) {
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+        {
+            [self.popView showFromButton:button];
+        }
+            break;
+            
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateEnded:
+        {
+            [self.popView removeFromSuperview];
+            // 发送通知
+            NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+            userInfo[@"emotion"] = button.emotion;
+            [JSSNotificationCenter postNotificationName:JSSEmotionDidSelected object:nil userInfo:userInfo];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
 /**
  *  删除按钮监听方法
  */
@@ -70,7 +123,7 @@
         JSSEmotionButton *button = [[JSSEmotionButton alloc] init];
         button.emotion = emotions[i];
         
-        [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchDown];
+        [button addTarget:self action:@selector(buttonDidClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
     }
 }
@@ -80,23 +133,7 @@
  */
 - (void)buttonDidClick:(JSSEmotionButton *)button
 {
-
-    [self.popView setEmotion:button.emotion];
-    
-    // 获取最后一个窗口
-    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
-
-    // 转移坐标系 (将按钮的坐标转移到窗口)
-    CGRect frame = [button convertRect:button.bounds toView:window];
-    
-    CGFloat buttonW = button.width;
-    CGFloat buttonH = button.height;
-    
-    // 设置弹出视图的frame
-    [self.popView setCenterX:frame.origin.x + buttonW / 2];
-    [self.popView setCenterY:frame.origin.y + buttonH / 2 - self.popView.height / 2];
-    
-    [window addSubview:self.popView];
+    [self.popView showFromButton:button];
     
     // 一定时间后移除弹出视图
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
