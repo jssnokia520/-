@@ -16,7 +16,6 @@
 #import "JSSUser.h"
 #import "JSSStatus.h"
 #import "MJExtension.h"
-#import "JSSLoadMoreFooter.h"
 #import "JSSStatusCell.h"
 #import "JSSStatusFrame.h"
 #import "JSSHttpTool.h"

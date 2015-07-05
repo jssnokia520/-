@@ -9,6 +9,8 @@
 #import "JSSStatus.h"
 #import "MJExtension.h"
 #import "JSSPhoto.h"
+#import "RegexKitLite.h"
+#import "JSSUser.h"
 
 @implementation JSSStatus
 
@@ -22,8 +24,6 @@
  */
 - (NSString *)created_at
 {
-//    _created_at = @"Mon Jun 22 11:50:15 +0800 2014";
-    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US"]];
     [formatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
@@ -73,6 +73,54 @@
         
         _source = [NSString stringWithFormat:@"来自%@", [source substringWithRange:NSMakeRange(location, length)]];
     }
+}
+
+/**
+ *  微博信息内容
+ */
+- (void)setText:(NSString *)text
+{
+    _text = text;
+    
+    self.attributedText = [self attributedTextWithText:text];
+}
+
+/**
+ *  根据text来返回attributedText
+ */
+- (NSAttributedString *)attributedTextWithText:(NSString *)text
+{
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    
+    // 表情的规则
+    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    
+    // @的规则
+    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5-_]+";
+    
+    // #话题#的规则
+    NSString *topicPattern = @"#[0-9a-zA-Z\\u4e00-\\u9fa5]+#";
+    
+    // url链接的规则
+    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    
+    NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
+    
+    [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        [attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:*capturedRanges];
+    }];
+    
+    return attributedText;
+}
+
+/**
+ *  转发的微博
+ */
+- (void)setRetweeted_status:(JSSStatus *)retweeted_status
+{
+    _retweeted_status = retweeted_status;
+    NSString *str = [NSString stringWithFormat:@"@%@ : %@", retweeted_status.user.name, retweeted_status.text];
+    self.retweetedAttributedText = [self attributedTextWithText:str];
 }
 
 @end

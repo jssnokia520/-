@@ -244,7 +244,7 @@
     
     [self.contentLabel setFrame:statusFrame.contentFrame];
     [self.contentLabel setFont:JSSContentFont];
-    [self.contentLabel setText:status.text];
+    [self.contentLabel setAttributedText:status.attributedText];
     
     if (status.pic_urls.count) {
         [self.photosImageView setHidden:NO];
@@ -259,7 +259,7 @@
         [self.retweetView setFrame:statusFrame.retweetViewFrame];
         
         [self.retweetContentLabel setFrame:statusFrame.retweetContentLabelFrame];
-        [self.retweetContentLabel setText:[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text]];
+        [self.retweetContentLabel setAttributedText:status.retweetedAttributedText];
         
         if (status.retweeted_status.pic_urls.count) { // 转发微博有图片
             [self.retweetPhotosImageView setHidden:NO];

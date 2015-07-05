@@ -22,6 +22,11 @@
 @property (nonatomic, copy) NSString *text;
 
 /**
+ *  带有属性的微博信息内容
+ */
+@property (nonatomic, copy) NSAttributedString *attributedText;
+
+/**
  *  微博作者的用户信息字段
  */
 @property (nonatomic, strong) JSSUser *user;
@@ -45,6 +50,11 @@
  *  转发的微博
  */
 @property (nonatomic, strong) JSSStatus *retweeted_status;
+
+/**
+ *  带有属性的转发微博消息
+ */
+@property (nonatomic, copy) NSAttributedString *retweetedAttributedText;
 
 /**
  *  转发数

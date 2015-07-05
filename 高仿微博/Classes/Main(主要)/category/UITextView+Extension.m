@@ -25,8 +25,8 @@
     // 获取光标位置
     NSRange selectedRange = self.selectedRange;
     
-    // 将附件属性字符串插入到可变属性字符串中
-    [attributedStringM insertAttributedString:attributedString atIndex:selectedRange.location];
+    // 用附件属性字符串代替被选中的字符串
+    [attributedStringM replaceCharactersInRange:self.selectedRange withAttributedString:attributedString];
     
     if (settingBlock) {
         settingBlock(attributedStringM);
