@@ -73,7 +73,9 @@
     CGFloat contentY = MAX(CGRectGetMaxY(self.iconFrame), CGRectGetMaxY(self.timeFrame)) + JSSStatusCellMargin;
     CGFloat contentX = iconX;
     CGFloat width = screenWidth - contentX * 2;
-    CGSize contentSize = [status.text textSizeWithFont:JSSContentFont textWidth:width];
+
+    // 重新计算微博正文的大小
+    CGSize contentSize = [status.attributedText boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
     self.contentFrame = (CGRect){{contentX, contentY}, contentSize};
     
     /**
@@ -101,7 +103,9 @@
          */
         CGFloat retweetContentX = JSSStatusCellMargin;
         CGFloat retweetContentY = 0;
-        CGSize retweetContentSize = [[NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text] textSizeWithFont:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
+//        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text];
+//        CGSize retweetContentSize = [ textSizeWithFont:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
+        CGSize retweetContentSize = [status.retweetedAttributedText boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
         self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
         /**

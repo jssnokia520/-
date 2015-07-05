@@ -11,6 +11,7 @@
 #import "JSSPhoto.h"
 #import "RegexKitLite.h"
 #import "JSSUser.h"
+#import "JSSTextPart.h"
 
 @implementation JSSStatus
 
@@ -90,7 +91,7 @@
  */
 - (NSAttributedString *)attributedTextWithText:(NSString *)text
 {
-    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] init];
     
     // 表情的规则
     NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
@@ -106,9 +107,58 @@
     
     NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@", emotionPattern, atPattern, topicPattern, urlPattern];
     
+    NSMutableArray *parts = [NSMutableArray array];
+
+    // 遍历特殊文字
     [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
-        [attributedText addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:*capturedRanges];
+        JSSTextPart *part = [[JSSTextPart alloc] init];
+        [part setText:*capturedStrings];
+        [part setRange:*capturedRanges];
+        [part setSpecial:YES];
+        NSString *capturedString = *capturedStrings;
+        [part setEmotion:[capturedString hasPrefix:@"["] && [capturedString hasSuffix:@"]"]];
+        
+        [parts addObject:part];
     }];
+    
+    // 遍历非特殊文字
+    [text enumerateStringsSeparatedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        JSSTextPart *part = [[JSSTextPart alloc] init];
+        [part setText:*capturedStrings];
+        [part setRange:*capturedRanges];
+        [part setSpecial:NO];
+        
+        [parts addObject:part];
+    }];
+    
+    [parts sortedArrayUsingComparator:^NSComparisonResult(JSSTextPart *part1, JSSTextPart *part2) {
+        if (part1.range.location > part2.range.location) {
+            return NSOrderedAscending;
+        }
+        return NSOrderedDescending;
+    }];
+
+    UIFont *font = [UIFont systemFontOfSize:15];
+    NSAttributedString *attributed;
+    for (JSSTextPart *part in parts) {
+        if (part.isEmotion) { // 是表情字符串
+            NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+            [attachment setImage:[UIImage imageNamed:@"d_feizao"]];
+            [attachment setBounds:CGRectMake(0, -3, font.lineHeight, font.lineHeight)];
+            attributed = [NSAttributedString attributedStringWithAttachment:attachment];
+        } else if (part.isSpecial) { // 特殊字符串
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:part.text];
+            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, attributedString.length)];
+            attributed = attributedString;
+        } else { // 非特殊字符串
+            attributed = [[NSAttributedString alloc] initWithString:part.text];
+        }
+        
+        [attributedText appendAttributedString:attributed];
+    }
+    
+    // 统一字体
+    [attributedText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributedText.length)];
     
     return attributedText;
 }

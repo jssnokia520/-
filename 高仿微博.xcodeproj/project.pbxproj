@@ -57,6 +57,7 @@
 		7F4E98CF1B2896580081EFB7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98C51B2896580081EFB7 /* AFURLResponseSerialization.m */; };
 		7F4E98D01B2896580081EFB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98C71B2896580081EFB7 /* AFURLSessionManager.m */; };
 		7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */; };
+		7F5E633C1B492CCE0032BEE9 /* JSSTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E633B1B492CCE0032BEE9 /* JSSTextPart.m */; };
 		7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */; };
 		7F5F37651B25DBD000D285DC /* JSSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */; };
 		7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */; };
@@ -238,6 +239,8 @@
 		7F4E98C71B2896580081EFB7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		7F57F04D1B355DDA00ACD4B8 /* JSSPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSPhoto.h; sourceTree = "<group>"; };
 		7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSPhoto.m; sourceTree = "<group>"; };
+		7F5E633A1B492CCE0032BEE9 /* JSSTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTextPart.h; sourceTree = "<group>"; };
+		7F5E633B1B492CCE0032BEE9 /* JSSTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTextPart.m; sourceTree = "<group>"; };
 		7F5F37601B25AD0A00D285DC /* JSSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSearchBar.h; sourceTree = "<group>"; };
 		7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSearchBar.m; sourceTree = "<group>"; };
 		7F5F37631B25DBD000D285DC /* JSSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDropDownMenu.h; sourceTree = "<group>"; };
@@ -737,6 +740,8 @@
 		7FD107A31B255B0D00571CE4 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				7F5E633A1B492CCE0032BEE9 /* JSSTextPart.h */,
+				7F5E633B1B492CCE0032BEE9 /* JSSTextPart.m */,
 				7FAA88611B2F08BC00C50303 /* JSSStatus.h */,
 				7FAA88621B2F08BC00C50303 /* JSSStatus.m */,
 				7FAA88641B2F091200C50303 /* JSSUser.h */,
@@ -1161,6 +1166,7 @@
 				7F9740CC1B44274A00E58484 /* JSSEmotionButton.m in Sources */,
 				7F06D6A51B41727500FFEB29 /* JSSEmotionTabBarButton.m in Sources */,
 				7F2D928D1B2DE28100A8657C /* UIImage+WebP.m in Sources */,
+				7F5E633C1B492CCE0032BEE9 /* JSSTextPart.m in Sources */,
 				7F8B04C01B3D1197000AA6A8 /* JSSComposeViewController.m in Sources */,
 				7FE956641B346A59006B3317 /* JSSStatusCell.m in Sources */,
 				7FE753891B46184D00C3F8D1 /* UITextView+Extension.m in Sources */,
