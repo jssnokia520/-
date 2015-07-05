@@ -12,6 +12,8 @@
 #import "RegexKitLite.h"
 #import "JSSUser.h"
 #import "JSSTextPart.h"
+#import "JSSEmotion.h"
+#import "JSSEmotionTool.h"
 
 @implementation JSSStatus
 
@@ -143,9 +145,14 @@
     for (JSSTextPart *part in parts) {
         if (part.isEmotion) { // 是表情字符串
             NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-            [attachment setImage:[UIImage imageNamed:@"d_feizao"]];
-            [attachment setBounds:CGRectMake(0, -3, font.lineHeight, font.lineHeight)];
-            attributed = [NSAttributedString attributedStringWithAttachment:attachment];
+            JSSEmotion *emotion = [JSSEmotionTool emotionWithText:part.text];
+            if (emotion) {
+                [attachment setImage:[UIImage imageNamed:emotion.png]];
+                [attachment setBounds:CGRectMake(0, -3, font.lineHeight, font.lineHeight)];
+                attributed = [NSAttributedString attributedStringWithAttachment:attachment];
+            } else {
+                attributed = [[NSAttributedString alloc] initWithString:part.text];
+            }
         } else if (part.isSpecial) { // 特殊字符串
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:part.text];
             [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, attributedString.length)];

@@ -9,8 +9,6 @@
 #import "JSSEmotionKeyboard.h"
 #import "JSSEmotionListView.h"
 #import "JSSEmotionTabBarView.h"
-#import "JSSEmotion.h"
-#import "MJExtension.h"
 #import "JSSEmotionTool.h"
 
 @interface JSSEmotionKeyboard () <JSSEmotionTabBarViewDelegate>
@@ -39,9 +37,7 @@
 {
     if (_defaultListView == nil) {
         _defaultListView = [[JSSEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info" ofType:@"plist"];
-        NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _defaultListView.emotions = defaultEmotions;
+        _defaultListView.emotions = [JSSEmotionTool defaultEmotions];
     }
     return _defaultListView;
 }
@@ -50,9 +46,7 @@
 {
     if (_emojiListView == nil) {
         _emojiListView = [[JSSEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info" ofType:@"plist"];
-        NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _emojiListView.emotions = defaultEmotions;
+        _emojiListView.emotions = [JSSEmotionTool emojiEmotions];
     }
     return _emojiListView;
 }
@@ -61,9 +55,7 @@
 {
     if (_flowerListView == nil) {
         _flowerListView = [[JSSEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info" ofType:@"plist"];
-        NSArray *defaultEmotions = [JSSEmotion objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _flowerListView.emotions = defaultEmotions;
+        _flowerListView.emotions = [JSSEmotionTool flowerEmotions];
     }
     return _flowerListView;
 }
