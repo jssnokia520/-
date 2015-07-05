@@ -58,6 +58,7 @@
 		7F4E98D01B2896580081EFB7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F4E98C71B2896580081EFB7 /* AFURLSessionManager.m */; };
 		7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */; };
 		7F5E633C1B492CCE0032BEE9 /* JSSTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E633B1B492CCE0032BEE9 /* JSSTextPart.m */; };
+		7F5E633F1B495AC70032BEE9 /* JSSStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5E633E1B495AC70032BEE9 /* JSSStatusTextView.m */; };
 		7F5F37621B25AD0A00D285DC /* JSSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */; };
 		7F5F37651B25DBD000D285DC /* JSSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37641B25DBD000D285DC /* JSSDropDownMenu.m */; };
 		7F5F37681B25E73700D285DC /* JSSTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F37671B25E73700D285DC /* JSSTitleMenuViewController.m */; };
@@ -241,6 +242,8 @@
 		7F57F04E1B355DDA00ACD4B8 /* JSSPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSPhoto.m; sourceTree = "<group>"; };
 		7F5E633A1B492CCE0032BEE9 /* JSSTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTextPart.h; sourceTree = "<group>"; };
 		7F5E633B1B492CCE0032BEE9 /* JSSTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSTextPart.m; sourceTree = "<group>"; };
+		7F5E633D1B495AC70032BEE9 /* JSSStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatusTextView.h; sourceTree = "<group>"; };
+		7F5E633E1B495AC70032BEE9 /* JSSStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSStatusTextView.m; sourceTree = "<group>"; };
 		7F5F37601B25AD0A00D285DC /* JSSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSearchBar.h; sourceTree = "<group>"; };
 		7F5F37611B25AD0A00D285DC /* JSSSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSearchBar.m; sourceTree = "<group>"; };
 		7F5F37631B25DBD000D285DC /* JSSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSDropDownMenu.h; sourceTree = "<group>"; };
@@ -769,6 +772,8 @@
 				7FEE15FC1B3829A2007A5765 /* JSSStatusPhotosView.m */,
 				7FEE15FE1B38466A007A5765 /* JSSStatusPhotoView.h */,
 				7FEE15FF1B38466A007A5765 /* JSSStatusPhotoView.m */,
+				7F5E633D1B495AC70032BEE9 /* JSSStatusTextView.h */,
+				7F5E633E1B495AC70032BEE9 /* JSSStatusTextView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1154,6 +1159,7 @@
 				7FAA88851B2F1B1300C50303 /* MJType.m in Sources */,
 				7FAA88811B2F1B1300C50303 /* MJFoundation.m in Sources */,
 				7F2D92851B2DE28100A8657C /* SDWebImageDecoder.m in Sources */,
+				7F5E633F1B495AC70032BEE9 /* JSSStatusTextView.m in Sources */,
 				7FA4E5C31B48013E00B4E45C /* JSSConst.m in Sources */,
 				7F395C811B294A12006ED46A /* UIWindow+Extension.m in Sources */,
 				7F57F04F1B355DDA00ACD4B8 /* JSSPhoto.m in Sources */,

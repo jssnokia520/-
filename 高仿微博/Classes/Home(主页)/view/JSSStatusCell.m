@@ -15,6 +15,7 @@
 #import "JSSToolbar.h"
 #import "JSSStatusPhotosView.h"
 #import "JSSIconImageView.h"
+#import "JSSStatusTextView.h"
 
 @interface JSSStatusCell ()
 
@@ -51,7 +52,7 @@
 /**
  *  正文
  */
-@property (nonatomic, weak) UILabel *contentLabel;
+@property (nonatomic, weak) JSSStatusTextView *contentLabel;
 
 /**
  *  图片视图
@@ -66,7 +67,7 @@
 /**
  *  转发的微博正文 + 昵称
  */
-@property (nonatomic, weak) UILabel *retweetContentLabel;
+@property (nonatomic, weak) JSSStatusTextView *retweetContentLabel;
 
 /**
  *  转发的微博图片视图
@@ -144,8 +145,7 @@
     self.retweetView = retweetView;
     
     
-    UILabel *retweetContentLabel = [[UILabel alloc] init];
-    [retweetContentLabel setNumberOfLines:0];
+    JSSStatusTextView *retweetContentLabel = [[JSSStatusTextView alloc] init];
     [retweetContentLabel setFont:JSSRetweetContentFont];
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
@@ -186,9 +186,8 @@
     [originalView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
     
-    UILabel *contentLabel = [[UILabel alloc] init];
+    JSSStatusTextView *contentLabel = [[JSSStatusTextView alloc] init];
     [originalView addSubview:contentLabel];
-    [contentLabel setNumberOfLines:0];
     self.contentLabel = contentLabel;
     
     JSSStatusPhotosView *photosView = [[JSSStatusPhotosView alloc] init];
