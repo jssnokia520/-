@@ -89,11 +89,7 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        for (UIView *child in self.subviews) {
-            if (child.tag == JSSSpecialTag) {
-                [child removeFromSuperview];
-            }
-        }
+        [self touchesCancelled:touches withEvent:event];
     });
 }
 
@@ -102,7 +98,27 @@
  */
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self touchesEnded:touches withEvent:event];
+    for (UIView *child in self.subviews) {
+        if (child.tag == JSSSpecialTag) {
+            [child removeFromSuperview];
+        }
+    }
+}
+
+/**
+ *  事件处理
+ */
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event
+{
+    [self setupRects];
+    
+    JSSSpecial *special = [self specialWithPoint:point];
+    
+    if (special) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end
