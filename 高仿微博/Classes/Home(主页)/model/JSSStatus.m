@@ -14,6 +14,7 @@
 #import "JSSTextPart.h"
 #import "JSSEmotion.h"
 #import "JSSEmotionTool.h"
+#import "JSSSpecial.h"
 
 @implementation JSSStatus
 
@@ -142,6 +143,7 @@
 
     UIFont *font = [UIFont systemFontOfSize:15];
     NSAttributedString *attributed;
+    NSMutableArray *specials = [NSMutableArray array];
     for (JSSTextPart *part in parts) {
         if (part.isEmotion) { // 是表情字符串
             NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
@@ -157,12 +159,21 @@
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:part.text];
             [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, attributedString.length)];
             attributed = attributedString;
+            
+            JSSSpecial *special = [[JSSSpecial alloc] init];
+            [special setText:attributedString.string];
+            NSInteger location = attributedText.length;
+            NSInteger length = attributedString.length;
+            [special setRange:NSMakeRange(location, length)];
+            [specials addObject:special];
         } else { // 非特殊字符串
             attributed = [[NSAttributedString alloc] initWithString:part.text];
         }
         
         [attributedText appendAttributedString:attributed];
     }
+    
+    [attributedText addAttribute:@"specials" value:specials range:NSMakeRange(0, attributedText.length)];
     
     // 统一字体
     [attributedText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributedText.length)];
@@ -176,7 +187,7 @@
 - (void)setRetweeted_status:(JSSStatus *)retweeted_status
 {
     _retweeted_status = retweeted_status;
-    NSString *str = [NSString stringWithFormat:@"@%@ : %@", retweeted_status.user.name, retweeted_status.text];
+    NSString *str = [NSString stringWithFormat:@"@%@:%@", retweeted_status.user.name, retweeted_status.text];
     self.retweetedAttributedText = [self attributedTextWithText:str];
 }
 

@@ -141,12 +141,11 @@
 {
     UIView *retweetView = [[UIView alloc] init];
     [retweetView setBackgroundColor:JSSColor(241, 241, 241)];
-    [self.originalView addSubview:retweetView];
+    [self addSubview:retweetView];
     self.retweetView = retweetView;
     
     
     JSSStatusTextView *retweetContentLabel = [[JSSStatusTextView alloc] init];
-    [retweetContentLabel setFont:JSSRetweetContentFont];
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
     

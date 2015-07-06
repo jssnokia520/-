@@ -84,6 +84,7 @@
 		7FAA88871B2F1B1300C50303 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887A1B2F1B1300C50303 /* NSObject+MJCoding.m */; };
 		7FAA88881B2F1B1300C50303 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887C1B2F1B1300C50303 /* NSObject+MJKeyValue.m */; };
 		7FAA88891B2F1B1300C50303 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */; };
+		7FB9A9461B4A3F5700BB0F35 /* JSSSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FB9A9451B4A3F5700BB0F35 /* JSSSpecial.m */; };
 		7FCCA8821B3EE98200D8B6B3 /* JSSComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCCA8811B3EE98200D8B6B3 /* JSSComposePhotosView.m */; };
 		7FCE93271B385F7000996636 /* JSSIconImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCE93261B385F7000996636 /* JSSIconImageView.m */; };
 		7FCEBA8C1B412B3300183D8A /* JSSEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCEBA8B1B412B3300183D8A /* JSSEmotionKeyboard.m */; };
@@ -294,6 +295,8 @@
 		7FAA887C1B2F1B1300C50303 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		7FAA887D1B2F1B1300C50303 /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
 		7FAA887E1B2F1B1300C50303 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
+		7FB9A9441B4A3F5700BB0F35 /* JSSSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSSpecial.h; sourceTree = "<group>"; };
+		7FB9A9451B4A3F5700BB0F35 /* JSSSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSSpecial.m; sourceTree = "<group>"; };
 		7FCCA8801B3EE98200D8B6B3 /* JSSComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSComposePhotosView.h; sourceTree = "<group>"; };
 		7FCCA8811B3EE98200D8B6B3 /* JSSComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSComposePhotosView.m; sourceTree = "<group>"; };
 		7FCE93251B385F7000996636 /* JSSIconImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSIconImageView.h; sourceTree = "<group>"; };
@@ -745,6 +748,8 @@
 			children = (
 				7F5E633A1B492CCE0032BEE9 /* JSSTextPart.h */,
 				7F5E633B1B492CCE0032BEE9 /* JSSTextPart.m */,
+				7FB9A9441B4A3F5700BB0F35 /* JSSSpecial.h */,
+				7FB9A9451B4A3F5700BB0F35 /* JSSSpecial.m */,
 				7FAA88611B2F08BC00C50303 /* JSSStatus.h */,
 				7FAA88621B2F08BC00C50303 /* JSSStatus.m */,
 				7FAA88641B2F091200C50303 /* JSSUser.h */,
@@ -1193,6 +1198,7 @@
 				7FD107DE1B256DE200571CE4 /* UIBarButtonItem+Extension.m in Sources */,
 				7F4E98CA1B2896580081EFB7 /* AFHTTPSessionManager.m in Sources */,
 				7FAA887F1B2F1B1300C50303 /* MJArgument.m in Sources */,
+				7FB9A9461B4A3F5700BB0F35 /* JSSSpecial.m in Sources */,
 				7FCEBA8C1B412B3300183D8A /* JSSEmotionKeyboard.m in Sources */,
 				7FD107CA1B255B0D00571CE4 /* JSSDiscoverViewController.m in Sources */,
 				7F212AFD1B41977100203FB9 /* JSSEmotion.m in Sources */,

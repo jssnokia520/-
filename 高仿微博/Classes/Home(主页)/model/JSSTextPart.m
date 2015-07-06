@@ -10,9 +10,4 @@
 
 @implementation JSSTextPart
 
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"%@-%@", NSStringFromRange(self.range), self.text];
-}
-
 @end

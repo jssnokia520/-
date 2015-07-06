@@ -102,9 +102,7 @@
          *  转发的微博正文 + 昵称
          */
         CGFloat retweetContentX = JSSStatusCellMargin;
-        CGFloat retweetContentY = 0;
-//        NSString *retweetContent = [NSString stringWithFormat:@"@%@ : %@", status.retweeted_status.user.name, status.retweeted_status.text];
-//        CGSize retweetContentSize = [ textSizeWithFont:JSSRetweetContentFont textWidth:screenWidth - 2 * retweetContentX];
+        CGFloat retweetContentY = JSSStatusCellMargin;
         CGSize retweetContentSize = [status.retweetedAttributedText boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
         self.retweetContentLabelFrame = (CGRect){{retweetContentX, retweetContentY}, retweetContentSize};
         
@@ -116,9 +114,9 @@
             CGFloat retweetPhotoX = JSSStatusCellMargin;
             CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
             self.retweetPhotosImageViewFrame = (CGRect){{retweetPhotoX, retweetPhotoY}, [JSSStatusPhotosView sizeWithCount:status.retweeted_status.pic_urls.count]};
-            retweetHeight = CGRectGetMaxY(self.retweetPhotosImageViewFrame) + JSSStatusCellMargin;
+            retweetHeight = CGRectGetMaxY(self.retweetPhotosImageViewFrame);
         } else {
-            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame) + JSSStatusCellMargin;
+            retweetHeight = CGRectGetMaxY(self.retweetContentLabelFrame);
         }
         
         /**
