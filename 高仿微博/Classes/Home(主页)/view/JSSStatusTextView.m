@@ -24,40 +24,62 @@
     return self;
 }
 
+/**
+ *  初始化所有特殊片段文字的矩形框
+ */
+- (void)setupRects
+{
+    NSArray *specials = [self.attributedText attribute:@"specials" atIndex:0 effectiveRange:nil];
+    for (JSSSpecial *special in specials) {
+        [self setSelectedRange:special.range];
+        NSArray *selectionRects = [self selectionRectsForRange:self.selectedTextRange];
+        [self setSelectedRange:NSMakeRange(0, 0)];
+        
+        NSMutableArray *rects = [NSMutableArray array];
+        for (UITextSelectionRect *selectionRect in selectionRects) {
+            if (selectionRect.rect.size.width != 0 && selectionRect.rect.size.height) {
+                [rects addObject:[NSValue valueWithCGRect:selectionRect.rect]];
+            }
+        }
+        special.rects = rects;
+    }
+}
+
+/**
+ *  根据触摸点来获取特殊文字对象
+ */
+- (JSSSpecial *)specialWithPoint:(CGPoint)point
+{
+    NSArray *specials = [self.attributedText attribute:@"specials" atIndex:0 effectiveRange:nil];
+    for (JSSSpecial *special in specials) {
+        for (NSValue *rectValue in special.rects) {
+            if (CGRectContainsPoint(rectValue.CGRectValue, point)) {
+                return special;
+            }
+        }
+    }
+    
+    return nil;
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     // 获取触摸点
     UITouch *touch = [touches anyObject];
     CGPoint point = [touch locationInView:self];
     
-    NSArray *specials = [self.attributedText attribute:@"specials" atIndex:0 effectiveRange:nil];
+    // 初始化所有特殊片段文字的矩形框
+    [self setupRects];
     
-    // 遍历数组
-    for (JSSSpecial *special in specials) {
-        [self setSelectedRange:special.range];
-        // 换行的时候
-        NSArray *selectionRects = [self selectionRectsForRange:self.selectedTextRange];
-        [self setSelectedRange:NSMakeRange(0, 0)];
-        
-        BOOL contains = NO;
-        for (UITextSelectionRect *selectionRect in selectionRects) {
-            if (selectionRect.rect.size.width != 0 && selectionRect.rect.size.height != 0 && CGRectContainsPoint(selectionRect.rect, point)) {
-                contains = YES;
-            }
-        }
-        
-        if (contains) {
-            for (UITextSelectionRect *selectionRect in selectionRects) {
-                if (selectionRect.rect.size.width != 0 && selectionRect.rect.size.height != 0) {                    
-                    UIView *cover = [[UIView alloc] init];
-                    [cover setBackgroundColor:[UIColor orangeColor]];
-                    [cover setFrame:selectionRect.rect];
-                    [cover.layer setCornerRadius:5];
-                    [self insertSubview:cover atIndex:0];
-                    [cover setTag:JSSSpecialTag];
-                }
-            }
-        }
+    JSSSpecial *special = [self specialWithPoint:point];
+    
+    for (NSValue *rectValue in special.rects) {
+        UIView *cover = [[UIView alloc] init];
+            [cover setBackgroundColor:[UIColor orangeColor]];
+            [cover setFrame:rectValue.CGRectValue];
+            [cover.layer setCornerRadius:5];
+            [self insertSubview:cover atIndex:0];
+            [cover setTag:JSSSpecialTag];
     }
 }
 

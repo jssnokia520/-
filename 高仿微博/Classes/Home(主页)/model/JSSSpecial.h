@@ -20,4 +20,9 @@
  */
 @property (nonatomic, assign) NSRange range;
 
+/**
+ *  特殊片段文字的矩形框数组(因为有可能有换行)
+ */
+@property (nonatomic, strong) NSArray *rects;
+
 @end
