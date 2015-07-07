@@ -147,9 +147,6 @@
     NSArray *statuses = [JSSStatusTool statusWithParameters:parameters];
     
     if (statuses.count) {
-        // 结束刷新
-        [self.tableView headerEndRefreshing];
-        
         // 获取微博数据
         NSArray *newStatuses = [JSSStatus objectArrayWithKeyValuesArray:statuses];
         NSArray *newStatusFrames = [self statusFramesWithStatus:newStatuses];
@@ -163,11 +160,11 @@
         [self setBadge:@"0"];
         // 显示提示标签
         [self setTipLabel:newStatusFrames.count];
+        
+        // 结束刷新
+        [self.tableView headerEndRefreshing];
     } else {
         [JSSHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(id json) {
-            // 结束刷新
-            [self.tableView headerEndRefreshing];
-            
             // 保存数据到数据库
             [JSSStatusTool saveStatusData:json[@"statuses"]];
             
@@ -184,10 +181,12 @@
             [self setBadge:@"0"];
             // 显示提示标签
             [self setTipLabel:newStatusFrames.count];
+            
+            // 结束刷新
+            [self.tableView headerEndRefreshing];
         } failure:^(NSError *error) {
             // 结束刷新
             [self.tableView headerEndRefreshing];
-            NSLog(@"%@", error);
         }];
     }
 }
@@ -283,7 +282,9 @@
         NSArray *statusFrames = [self statusFramesWithStatus:newStatuses];
         [self.statusFrames addObjectsFromArray:statusFrames];
         [self.tableView reloadData];
-        [self.tableView.tableFooterView setHidden:YES];
+        
+        // 结束刷新
+        [self.tableView footerEndRefreshing];
     } else {
         [JSSHttpTool GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:parameters success:^(id json) {
             // 保存数据到数据库中
@@ -293,9 +294,12 @@
             NSArray *statusFrames = [self statusFramesWithStatus:statuses];
             [self.statusFrames addObjectsFromArray:statusFrames];
             [self.tableView reloadData];
-            [self.tableView.tableFooterView setHidden:YES];
+            
+            // 结束刷新
+            [self.tableView footerEndRefreshing];
         } failure:^(NSError *error) {
-            [self.tableView.tableFooterView setHidden:YES];
+            // 结束刷新
+            [self.tableView footerEndRefreshing];
         }];
     }
 }
