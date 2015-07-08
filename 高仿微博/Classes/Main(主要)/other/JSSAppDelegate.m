@@ -48,7 +48,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    UIBackgroundTaskIdentifier back = [application beginBackgroundTaskWithExpirationHandler:^{
+    __block UIBackgroundTaskIdentifier back = [application beginBackgroundTaskWithExpirationHandler:^{
         [application endBackgroundTask:back];
     }];
 }
