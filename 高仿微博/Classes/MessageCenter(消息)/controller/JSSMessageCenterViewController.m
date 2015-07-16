@@ -44,7 +44,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    [cell.textLabel setText:[NSString stringWithFormat:@"test-message-%02ld", indexPath.row]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"消息-测试数据-%02ld", indexPath.row]];
     
     return cell;
 }

@@ -29,7 +29,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     
-    [cell.textLabel setText:[NSString stringWithFormat:@"好友-%02ld", indexPath.row]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"测试数据-%02ld", indexPath.row]];
     
     return cell;
 }
