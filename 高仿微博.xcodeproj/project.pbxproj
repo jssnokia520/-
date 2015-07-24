@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F017E451B629435009A0408 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 7F017E441B629435009A0408 /* EmotionIcons */; };
 		7F06D6A51B41727500FFEB29 /* JSSEmotionTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F06D6A41B41727500FFEB29 /* JSSEmotionTabBarButton.m */; };
 		7F10DAD21B298865000EB915 /* JSSTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F10DAD11B298865000EB915 /* JSSTitleButton.m */; };
 		7F131D061B36ABB400CEF02F /* JSSToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F131D051B36ABB400CEF02F /* JSSToolbar.m */; };
@@ -77,6 +76,7 @@
 		7F9740CC1B44274A00E58484 /* JSSEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9740CB1B44274A00E58484 /* JSSEmotionButton.m */; };
 		7F9740CE1B44290000E58484 /* JSSEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */; };
 		7F9740D11B44291700E58484 /* JSSEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9740D01B44291700E58484 /* JSSEmotionPopView.m */; };
+		7F9AACD71B629B610069DA83 /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = 7F9AACD61B629B610069DA83 /* EmotionIcons */; };
 		7FA4E5C31B48013E00B4E45C /* JSSConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4E5C21B48013E00B4E45C /* JSSConst.m */; };
 		7FAA88631B2F08BC00C50303 /* JSSStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88621B2F08BC00C50303 /* JSSStatus.m */; };
 		7FAA88661B2F091200C50303 /* JSSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FAA88651B2F091200C50303 /* JSSUser.m */; };
@@ -149,7 +149,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7F017E441B629435009A0408 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		7F06D6A31B41727500FFEB29 /* JSSEmotionTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionTabBarButton.h; sourceTree = "<group>"; };
 		7F06D6A41B41727500FFEB29 /* JSSEmotionTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionTabBarButton.m; sourceTree = "<group>"; };
 		7F10DAD01B298865000EB915 /* JSSTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSTitleButton.h; sourceTree = "<group>"; };
@@ -287,6 +286,7 @@
 		7F9740CD1B44290000E58484 /* JSSEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JSSEmotionPopView.xib; sourceTree = "<group>"; };
 		7F9740CF1B44291700E58484 /* JSSEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSEmotionPopView.h; sourceTree = "<group>"; };
 		7F9740D01B44291700E58484 /* JSSEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSEmotionPopView.m; sourceTree = "<group>"; };
+		7F9AACD61B629B610069DA83 /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
 		7FA4E5C11B48013E00B4E45C /* JSSConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSConst.h; sourceTree = "<group>"; };
 		7FA4E5C21B48013E00B4E45C /* JSSConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSSConst.m; sourceTree = "<group>"; };
 		7FAA88611B2F08BC00C50303 /* JSSStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSSStatus.h; sourceTree = "<group>"; };
@@ -1053,7 +1053,7 @@
 		7FFD45D91B24677C00A7F4BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7F017E441B629435009A0408 /* EmotionIcons */,
+				7F9AACD61B629B610069DA83 /* EmotionIcons */,
 				7FEE15F31B38196F007A5765 /* fakeStatus.plist */,
 				7FFD45EA1B24677C00A7F4BF /* Images.xcassets */,
 				7FFD45DA1B24677C00A7F4BF /* 高仿微博-Info.plist */,
@@ -1163,7 +1163,7 @@
 				7FFD45EB1B24677C00A7F4BF /* Images.xcassets in Resources */,
 				7FFD45DD1B24677C00A7F4BF /* InfoPlist.strings in Resources */,
 				7FD107D81B255B0D00571CE4 /* JSSTest3ViewController.xib in Resources */,
-				7F017E451B629435009A0408 /* EmotionIcons in Resources */,
+				7F9AACD71B629B610069DA83 /* EmotionIcons in Resources */,
 				7FD107D41B255B0D00571CE4 /* JSSTest1ViewController.xib in Resources */,
 				7FEE15F41B381970007A5765 /* fakeStatus.plist in Resources */,
 				7F49443F1B4841A200FA0FB5 /* MJRefresh.bundle in Resources */,
